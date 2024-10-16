@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="995.0" style="-fx-background-color: #565651;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+   <stylesheets>
+      <URL value="@../../../../java/com/gestor_inventarios/frontend/Style.css" />
+   </stylesheets>
+   <children>
+      <VBox prefHeight="607.0" prefWidth="232.0" style="-fx-background-color: #00254e;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="234.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="btnEntrada" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="217.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@../../../../java/com/gestor_inventarios/frontend/Style.css" text="Entrada y salida de productos">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../../Pictures/jovenes.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+               <styleClass>
+                  <String fx:value="button" />
+                  <String fx:value="button" />
+               </styleClass>
+            </Button>
+            <Button fx:id="btnEdicion" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="160.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@../../../../java/com/gestor_inventarios/frontend/Style.css" text="Edición de productos">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../../Pictures/jovenes.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="btnUsuarios" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="274.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@../../../../java/com/gestor_inventarios/frontend/Style.css" text="Usuarios y permisos">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../../Pictures/jovenes.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="btnActualizar" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="331.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@../../../../java/com/gestor_inventarios/frontend/Style.css" text="Actualizar precios">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../../Pictures/jovenes.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="btnInventario" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="388.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@../../../../java/com/gestor_inventarios/frontend/Style.css" text="Inventario">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../../Pictures/jovenes.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="btnVentas" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="445.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@../../../../java/com/gestor_inventarios/frontend/Style.css" text="Ventas">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../../Pictures/jovenes.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+      <StackPane layoutX="235.0" layoutY="-1.0" prefHeight="616.0" prefWidth="767.0">
+         <children>
+            <Pane fx:id="pnlEntrada" prefHeight="646.0" prefWidth="647.0">
+               <children>
+                  <Label layoutX="260.0" layoutY="14.0" prefHeight="56.0" prefWidth="287.0" text="Entrada y salida de mercancía" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="22.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="7.0" layoutY="88.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="113.0" text="Entrada" textFill="WHITE" />
+                  <Button layoutX="7.0" layoutY="161.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="113.0" text="Salida" textFill="WHITE" />
+                  <Line endX="663.0" layoutX="101.0" layoutY="85.0" startX="-101.0" stroke="WHITE" />
+                  <Line endX="-100.0" endY="524.0" layoutX="227.0" layoutY="89.0" startX="-100.0" stroke="#fffdfd" />
+                  <Label graphicTextGap="0.0" layoutX="147.0" layoutY="103.0" prefHeight="21.0" prefWidth="62.0" text="Producto">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Label>
+                  <Label graphicTextGap="0.0" layoutX="652.0" layoutY="103.0" prefHeight="21.0" prefWidth="85.0" text="Nuevo stock">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Label>
+                  <Label graphicTextGap="0.0" layoutX="263.0" layoutY="103.0" prefHeight="21.0" prefWidth="76.0" text="Nombre">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Label>
+                  <Label graphicTextGap="0.0" layoutX="516.0" layoutY="103.0" prefHeight="21.0" prefWidth="76.0" text="Stock">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Label>
+                  <Label graphicTextGap="0.0" layoutX="365.0" layoutY="103.0" prefHeight="21.0" prefWidth="76.0" text="Cantidad">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Label>
+                  <Label layoutX="268.0" layoutY="131.0" text="Label">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="516.0" layoutY="133.0" text="Label">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="652.0" layoutY="133.0" text="Label">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="pnlEdicion" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="298.0" layoutY="29.0" text="Edición de productos">
+                     <font>
+                        <Font name="Berlin Sans FB" size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>

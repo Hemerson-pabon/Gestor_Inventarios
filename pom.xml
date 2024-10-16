@@ -18,7 +18,7 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
-            <version>17.0.6</version>
+            <version>23</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
@@ -104,6 +104,12 @@
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-core</artifactId>
             <version>6.3.2</version> </dependency>
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -127,7 +133,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                com.gestor_inventarios.gestor_inventarios/com.gestor_inventarios.frontend.HelloApplication
+                                com.gestor_inventarios.gestor_inventarios/com.gestor_inventarios.frontend.MenuAdmin
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
