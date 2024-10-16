@@ -1,4 +1,4 @@
-package com.gestor_inventarios.gestor_inventarios;
+package com.gestor_inventarios.frontend;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

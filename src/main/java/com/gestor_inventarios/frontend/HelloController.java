@@ -1,4 +1,4 @@
-package com.gestor_inventarios.gestor_inventarios;
+package com.gestor_inventarios.frontend;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
