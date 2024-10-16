@@ -133,7 +133,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                com.gestor_inventarios.gestor_inventarios/com.gestor_inventarios.frontend.MenuAdmin
+                                com.gestor_inventarios.gestor_inventarios/com.gestor_inventarios.frontend.main
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

@@ -7,7 +7,7 @@ import javafx.scene.layout.Pane;
 
 
 
-public class HelloController {
+public class AdminController {
     @FXML
     private Button btnActualizar;
 
@@ -38,9 +38,15 @@ public class HelloController {
         if (actionEvent.getSource() == btnEdicion) {
             pnlEdicion.toFront();
         }
-        if (actionEvent.getSource() == btnEntrada){
+        if (actionEvent.getSource() == btnEntrada) {
             pnlEntrada.toFront();
         }
+    }
 
-}
+    @FXML
+    private void boton1clickeado(){
+            System.out.println("boton presionado...");
+        }
+
+
 }
