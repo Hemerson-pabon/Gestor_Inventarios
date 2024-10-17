@@ -8,6 +8,8 @@ import javafx.scene.layout.Pane;
 
 
 public class AdminController {
+
+
     @FXML
     private Button btnActualizar;
 
@@ -27,26 +29,25 @@ public class AdminController {
     private Button btnVentas;
 
     @FXML
+    private Pane paneDefault;
+
+    @FXML
     private Pane pnlEdicion;
 
     @FXML
     private Pane pnlEntrada;
 
     @FXML
-    private void handleClicker(ActionEvent actionEvent) {
-
-        if (actionEvent.getSource() == btnEdicion) {
-            pnlEdicion.toFront();
-        }
-        if (actionEvent.getSource() == btnEntrada) {
-            pnlEntrada.toFront();
-        }
+    private void initialize() {
+        paneDefault.toFront();
     }
 
     @FXML
     private void boton1clickeado(){
             System.out.println("boton presionado...");
-        }
+            pnlEntrada.toFront();
+    }
+
 
 
 }
