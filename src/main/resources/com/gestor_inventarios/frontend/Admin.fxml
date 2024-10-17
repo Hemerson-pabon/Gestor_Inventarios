@@ -20,9 +20,7 @@
             <Button id="button" fx:id="btnEntrada" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="22.0" mnemonicParsing="false" onAction="#boton1clickeado" pickOnBounds="false" prefHeight="54.0" prefWidth="234.0" styleClass="button" stylesheets="@Style.css" text="Entrada y salida de productos" textAlignment="CENTER" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="60.0" fitWidth="178.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../../../../Pictures/jovenes.jpg" />
-                     </image>
+
                   </ImageView>
                </graphic>
                <padding>
@@ -35,9 +33,7 @@
          <Button id="button" fx:id="btnEdicion" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="160.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Edición de productos" textFill="WHITE">
             <graphic>
                <ImageView fitHeight="30.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../../../../../../../../Pictures/jovenes.jpg" />
-                  </image>
+
                </ImageView>
             </graphic>
             <padding>
@@ -50,9 +46,7 @@
             <Button id="button" fx:id="btnUsuarios" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="274.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Usuarios y permisos">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../../../../Pictures/jovenes.jpg" />
-                     </image>
+
                   </ImageView>
                </graphic>
                <padding>
@@ -192,9 +186,6 @@
                <children>
                   <Label layoutX="70.0" layoutY="139.0" text="Este es el panel por defecto" />
                </children>
-               <image>
-                  <Image url="@../../../../../Pictures/jovenes.jpg" />
-               </image>
             </Pane>
          </children>
       </StackPane>
