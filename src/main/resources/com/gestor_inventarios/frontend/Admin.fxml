@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -16,13 +15,13 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="995.0" style="-fx-background-color: #565651;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestor_inventarios.frontend.AdminController">
    <stylesheets>
-      <URL value="@../../../../java/com/gestor_inventarios/frontend/Style.css" />
+      <URL value="@Style.css" />
    </stylesheets>
    <children>
       <VBox prefHeight="607.0" prefWidth="232.0" style="-fx-background-color: #00254e;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <ImageView fitHeight="150.0" fitWidth="234.0" pickOnBounds="true" preserveRatio="true" />
-            <Button fx:id="btnEntrada" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="217.0" mnemonicParsing="false" onAction="#boton1clickeado" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@../../../../java/com/gestor_inventarios/frontend/Style.css" text="Entrada y salida de productos">
+            <Button id="button" fx:id="btnEntrada" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="217.0" mnemonicParsing="false" onAction="#boton1clickeado" prefHeight="56.0" prefWidth="237.0" styleClass="button" stylesheets="@Style.css" text="Entrada y salida de productos">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -36,10 +35,6 @@
                <VBox.margin>
                   <Insets bottom="20.0" />
                </VBox.margin>
-               <styleClass>
-                  <String fx:value="button" />
-                  <String fx:value="button" />
-               </styleClass>
             </Button>
             <Button fx:id="btnEdicion" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="160.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@../../../../java/com/gestor_inventarios/frontend/Style.css" text="Edición de productos">
                <graphic>
@@ -186,15 +181,15 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-               </children>
-            </Pane>
-            <Pane fx:id="pnlEdicion" prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <Label layoutX="298.0" layoutY="29.0" text="Edición de productos">
-                     <font>
-                        <Font name="Berlin Sans FB" size="22.0" />
-                     </font>
-                  </Label>
+                  <Pane fx:id="pnlEdicion" layoutX="-97.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="298.0" layoutY="29.0" text="Edición de productos">
+                           <font>
+                              <Font name="Berlin Sans FB" size="22.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
                </children>
             </Pane>
          </children>
