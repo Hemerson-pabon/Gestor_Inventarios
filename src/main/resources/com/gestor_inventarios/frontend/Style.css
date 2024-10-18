@@ -9,3 +9,15 @@
 .button:hover{
     -fx-background-color: #8eb2d9;
 }
+
+
+/* Estilos para los text area*/
+.textArea{
+    -fx-background-color: #fff;
+    -fx-border-width: 0px;
+    -fx-background-radius: 0px;
+}
+.textArea:focused{
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
