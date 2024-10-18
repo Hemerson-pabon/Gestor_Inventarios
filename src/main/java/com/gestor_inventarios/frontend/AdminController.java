@@ -1,17 +1,28 @@
 package com.gestor_inventarios.frontend;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.Pane;
 
 
 
 public class AdminController {
 
+    @FXML
+    private ChoiceBox<String> OpcionEyS;
 
     @FXML
-    private Button btnActualizar;
+    private ChoiceBox<String> chUndM;
+
+    @FXML
+    private ChoiceBox<String> chUndM1;
+
+    @FXML
+    private Button btnHome;
+
+    @FXML
+    private Button btnCrear;
 
     @FXML
     private Button btnEdicion;
@@ -36,18 +47,49 @@ public class AdminController {
 
     @FXML
     private Pane pnlEntrada;
+    @FXML
+    private Pane pnlCrear;
 
     @FXML
     private void initialize() {
+        OpcionEyS.getItems().addAll(" ", "Entrada","Salida");
+        OpcionEyS.setValue(" ");
+        chUndM.getItems().addAll("UND", "KG","GR");
+        chUndM.setValue("UND");
+        chUndM1.getItems().addAll("UND", "KG","GR");
+        chUndM1.setValue("UND");
         paneDefault.toFront();
     }
 
     @FXML
-    private void boton1clickeado(){
-            System.out.println("boton presionado...");
-            pnlEntrada.toFront();
+    private void botonHomeClickeado() {
+        paneDefault.toFront();
+    }
+    @FXML
+    private void botonEntradaClickeado() {
+        pnlEntrada.toFront();
     }
 
+    @FXML
+    public void botonEdicionClickeado() {
+        pnlEdicion.toFront();
+    }
 
+    @FXML
+    public void botonCrearClickeado() {
+        pnlCrear.toFront();
+    }
+
+    @FXML
+    public void botonInventarioClickeado() {
+
+    }
+
+    @FXML
+    public void botonVentasClickeado() {
+
+    }
 
 }
+
+
