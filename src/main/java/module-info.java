@@ -10,9 +10,8 @@ module com.gestor_inventarios.gestor_inventarios {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires java.sql;
+    requires spring.security.crypto;
+    requires micrometer.observation;
 
-
-    opens com.gestor_inventarios.frontend to javafx.fxml;
     exports com.gestor_inventarios.backend;
-    exports com.gestor_inventarios.frontend;
 }
