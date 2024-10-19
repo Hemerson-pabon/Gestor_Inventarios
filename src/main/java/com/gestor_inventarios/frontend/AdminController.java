@@ -47,8 +47,15 @@ public class AdminController {
 
     @FXML
     private Pane pnlEntrada;
+
     @FXML
     private Pane pnlCrear;
+
+    @FXML
+    private Pane pnlInventario;
+
+    @FXML
+    private Pane pnlVentas;
 
     @FXML
     private void initialize() {
@@ -82,11 +89,16 @@ public class AdminController {
 
     @FXML
     public void botonInventarioClickeado() {
-
+        pnlInventario.toFront();
     }
 
     @FXML
     public void botonVentasClickeado() {
+        pnlVentas.toFront();
+    }
+
+    @FXML
+    public void botonUsuariosClickeado() {
 
     }
 
