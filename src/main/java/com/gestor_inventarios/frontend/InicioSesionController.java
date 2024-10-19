@@ -10,6 +10,11 @@ public class InicioSesionController {
     private double xOffset = 0;
     private double yOffset = 0;
 
+    @FXML
+    protected void BotonSesionPresionado(){
+        // Acciones al presionar el botón de ingresar
+    }
+
 
     // Eventos para mover la ventana
     @FXML

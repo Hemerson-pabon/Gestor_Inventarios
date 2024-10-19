@@ -16,7 +16,7 @@ public class main extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         stage.initStyle(StageStyle.UNDECORATED); // para quitar la barra de windows
         stage.centerOnScreen();
-        stage.setTitle("Administrador");
+        stage.setTitle("Gestión de inventarios");
         stage.setScene(scene);
         stage.show();
     }
