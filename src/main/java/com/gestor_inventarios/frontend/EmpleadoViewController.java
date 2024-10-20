@@ -5,10 +5,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.CheckBox;
+import javafx.scene.layout.Pane;
 
 public class EmpleadoViewController {
     //Declaraciones
     //Mostrador de caja
+        //panel
+    @FXML
+    private Pane mostradorPanel;
         //Label's
     @FXML
     private Label labelNombreProducto;
@@ -35,6 +39,9 @@ public class EmpleadoViewController {
     private TextField cantProductoField;
 
     //Cierre de caja
+        //panel
+    @FXML
+    private Pane cierreCajaPanel;
         //Label's
     @FXML
     private Label nequiTotalLabel;
@@ -54,6 +61,9 @@ public class EmpleadoViewController {
     private Button cierreCajaButton;
 
     //Devolucion
+        //panel
+    @FXML
+    private Pane devolucionPanel;
         //Label's
     @FXML
     private Label vendedorDevolucionLabel;
@@ -76,6 +86,15 @@ public class EmpleadoViewController {
 
     ////////////////////////////////////////////////////////////////////////////////
     //metodos
-
+        //botones aparecer paneles
+    public void buttonDevolucionClickeado(){
+        devolucionPanel.toFront();
+    }
+    public void buttonCierreClickeado(){
+        cierreCajaPanel.toFront();
+    }
+    public void buttonMostradorClickeado(){
+        mostradorPanel.toFront();
+    }
 
 }
