@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="995.0" style="-fx-background-color: #565651;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestor_inventarios.frontend.AdminController">
+   <children>
+      <VBox prefHeight="607.0" prefWidth="232.0" style="-fx-background-color: #5D83b1;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="112.0" fitWidth="234.0" pickOnBounds="true" preserveRatio="true" />
+            <Button id="button" fx:id="btnEntrada" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="22.0" mnemonicParsing="false" onAction="#boton1clickeado" pickOnBounds="false" prefHeight="54.0" prefWidth="234.0" styleClass="button" stylesheets="@Style.css" text="Entrada y salida de productos" textAlignment="CENTER" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="60.0" fitWidth="178.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../../Pictures/jovenes.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <font>
+                  <Font name="Roboto Black" size="12.0" />
+               </font>
+            </Button>
+         <Button id="button" fx:id="btnEdicion" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="160.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Edición de productos">
+            <graphic>
+               <ImageView fitHeight="30.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../../../../../../../../Pictures/jovenes.jpg" />
+                  </image>
+               </ImageView>
+            </graphic>
+            <padding>
+               <Insets left="20.0" />
+            </padding>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </Button>
+            <Button id="button" fx:id="btnUsuarios" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="274.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Usuarios y permisos">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../../Pictures/jovenes.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </Button>
+            <Button id="button" fx:id="btnActualizar" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="331.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Actualizar precios">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../../Pictures/jovenes.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </Button>
+            <Button id="button" fx:id="btnInventario" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="388.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Inventario">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../../Pictures/jovenes.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </Button>
+            <Button id="button" fx:id="btnVentas" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="445.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Ventas">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../../Pictures/jovenes.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+      <StackPane layoutX="235.0" layoutY="-1.0" prefHeight="616.0" prefWidth="767.0">
+         <children>
+            <Pane fx:id="paneDefault" layoutX="10.0" layoutY="10.0" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;" visible="false">
+               <children>
+                  <Label layoutX="282.0" layoutY="147.0" text="Este es el panel por defecto" />
+               </children>
+            </Pane>
+            <Pane fx:id="paneDefault1" layoutX="10.0" layoutY="10.0" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;">
+               <children>
+                  <Label layoutX="282.0" layoutY="147.0" prefHeight="57.0" prefWidth="191.0" text="sus cambios" />
+               </children>
+            </Pane>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>

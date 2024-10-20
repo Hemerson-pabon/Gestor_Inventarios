@@ -10,6 +10,7 @@ module com.gestor_inventarios.gestor_inventarios {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires java.sql;
+    requires java.desktop;
 
 
     opens com.gestor_inventarios.frontend to javafx.fxml;
