@@ -83,7 +83,25 @@ public class EmpleadoViewController {
         //Button's
     @FXML
     private Button devolverButton;
-
+    //Gastos
+        //Panel
+    @FXML
+    private Pane gastosPanel;
+        //Label's
+    @FXML
+    private Label vendedorGastoLabel;
+    @FXML
+    private Label confirmacionGastoIngresadoLabel;
+        //Text Field's
+    @FXML
+    private TextField valorGastoField;
+    @FXML
+    private TextField motivoGastoField;
+        //Button's
+    @FXML
+    private Button ingresoGastoButton;
+    @FXML
+    private Button gastosButton;
     ////////////////////////////////////////////////////////////////////////////////
     //metodos
         //botones aparecer paneles
@@ -95,6 +113,9 @@ public class EmpleadoViewController {
     }
     public void buttonMostradorClickeado(){
         mostradorPanel.toFront();
+    }
+    public void buttonGastosClickeado(){
+        gastosPanel.toFront();
     }
 
 }
