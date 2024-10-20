@@ -11,13 +11,37 @@
 }
 
 
-/* Estilos para los text area*/
-.textArea{
+/* Estilos para los TextField y los TextArea*/
+
+.text-field{
     -fx-background-color: #fff;
-    -fx-border-width: 0px;
     -fx-background-radius: 0px;
+    -fx-border-color:  #b2b2b2;
+
 }
-.textArea:focused{
-    -fx-focus-color: transparent;
-    -fx-faint-focus-color: transparent;
+
+.text-area{
+    -fx-background-color: #fff;
+    -fx-background-radius: 0px;
+    -fx-border-color:  #b2b2b2;
 }
+
+.choice-box{
+    -fx-background-color: #fff;
+    -fx-text-fill: #565651;
+    -fx-border-color: #b2b2b2; // Borde de la choice box
+}
+
+.choice-box .list-cell{
+    -fx-background-color: #fff;
+    -fx-text-fill: #565651;
+    -fx-padding: 0;
+
+}
+
+.choice-box .list-cell:hover{
+    -fx-background-color: #000;
+}
+
+
+

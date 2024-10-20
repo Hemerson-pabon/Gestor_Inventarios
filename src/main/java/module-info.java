@@ -14,5 +14,7 @@ module com.gestor_inventarios.gestor_inventarios {
     requires micrometer.observation;
     requires java.desktop;
 
+    exports com.gestor_inventarios.frontend;
     exports com.gestor_inventarios.backend;
+    opens com.gestor_inventarios.frontend to javafx.fxml;
 }

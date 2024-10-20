@@ -7,14 +7,50 @@ import java.util.ArrayList;
 
 public class producto {
     private int ID_Producto;
-    private float Precio_Venta;
+    private String Nombre;
+    private float PrecioVenta;
+    private String UnidadMedida;
+    private float Utilidad;
+    private String FechaVencimiento;
     private String Descripcion;
     private int ID_Categoria;
     private int ID_Proveedor;
     private float CostoB; // Costo base del producto
-    private float Utilidad; // Unidad en porcentaje
-    private String UnidadMedida;
     private float IVA; // Unidad en porcentaje
+
+    // Métodos get para todos los atributos
+
+    public int getID_Producto() {
+        return ID_Producto;
+    }
+
+    public String getNombre() {
+        return Nombre;
+    }
+
+    public float getPrecioVenta() {
+        return PrecioVenta;
+    }
+
+    public String getUnidadMedida() {
+        return UnidadMedida;
+    }
+
+    public float getCostoB() {
+        return CostoB;
+    }
+
+    public float getUtilidad() {
+        return Utilidad;
+    }
+
+    public String getFechaVencimiento() {
+        return FechaVencimiento;
+    }
+
+    public String getDescripcion() {
+        return Descripcion;
+    }
 
     /* Método para crear un producto
     Este método añade los atributos del objeto a la base de datos, creando un nuevo producto.
@@ -56,8 +92,8 @@ public class producto {
         values.add(CostoB);
         values.add(UnidadMedida);
         values.add(IVA);
-        Precio_Venta = calcularPrecio();
-        values.add(Precio_Venta);
+        PrecioVenta = calcularPrecio();
+        values.add(PrecioVenta);
         values.add(Utilidad);
         Operaciones_SQL op = new Operaciones_SQL();
         return op.Insert("productos", columns, values) == 1;
@@ -110,6 +146,36 @@ public class producto {
     public boolean eliminarProducto(int ID_Producto) {
        Operaciones_SQL op = new Operaciones_SQL();
        return op.Delete("productos", "ID_Producto = " + String.valueOf(ID_Producto)) == 1;
+    }
+
+    // Método para cargar un producto desde la base de datos al objeto
+
+    public producto cargarProducto(int ID_Producto) {
+        ArrayList columns = new ArrayList<>();
+        columns.add("Nombre");
+        columns.add("Precio_Venta");
+        columns.add("UnidadMedida");
+        columns.add("CostoBase");
+        columns.add("Utilidad");
+        columns.add("Fecha_Vencimiento");
+        columns.add("Descripción");
+        try {
+           Operaciones_SQL op = new Operaciones_SQL();
+           ResultSet rs = op.Select("productos", columns, "ID_Producto = " + String.valueOf(ID_Producto));
+           rs.next();
+           this.ID_Producto = ID_Producto;
+           this.Nombre = rs.getString("Nombre");
+           this.PrecioVenta = rs.getFloat("Precio_Venta");
+           this.UnidadMedida = rs.getString("UnidadMedida");
+           this.CostoB = rs.getFloat("CostoBase");
+           this.Utilidad = rs.getFloat("Utilidad");
+           this.FechaVencimiento = rs.getString("Fecha_Vencimiento");
+           this.Descripcion = rs.getString("Descripción");
+           return this;
+        }catch (SQLException e) {
+            System.err.println("Error: " + e.getMessage());
+            return null;
+        }
     }
 
 

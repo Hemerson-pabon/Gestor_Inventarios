@@ -1,16 +1,15 @@
 package com.gestor_inventarios.frontend;
 
+import com.gestor_inventarios.backend.producto;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 
+import java.lang.reflect.Array;
 
 
 public class AdminController {
@@ -108,35 +107,101 @@ public class AdminController {
 
     }
 
+    // Panel de creación de productos
 
-    // Interfaz de inventario
+    @FXML
+    private TextField FieldNombre;
+    @FXML
+    private TextArea AreaDescripcion;
+    @FXML
+    private ChoiceBox<String> ChUnidad;
+    @FXML
+    private ChoiceBox<String> ChCategoria;
+    @FXML
+    private TextField FieldCosto;
+    @FXML
+    private TextField FieldIVA;
+    @FXML
+    private Label LabelCostoI;
+    @FXML
+    private TextField FieldUtilidad;
+    @FXML
+    private Label LabelPrecio;
 
-    /*
+    // Evento de presionar el boton de crear producto
     @FXML
-    private TableView<Producto> tablaProductos;
+    protected void BotonCrearProductoClickeado(){
+        String Nombre = FieldNombre.getText();
+        String Descripcion = AreaDescripcion.getText();
+        String Unidad = ChUnidad.getSelectionModel().getSelectedItem();
+        String Categoria = ChCategoria.getSelectionModel().getSelectedItem();
+        float costo = Integer.parseInt(FieldCosto.getText());
+        FieldIVA.getText();
+        FieldUtilidad.getText();
+
+        producto p = new producto();
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // Panel de inventario
+
     @FXML
-    private TableColumn<Producto, String> columnaNombre;
+    private TableView<producto> tablaProductos;
     @FXML
-    private TableColumn<Producto, String> columnaDescripcion;
+    private TableColumn<producto, Integer> columnaID_Producto;
     @FXML
-    private TableColumn<Producto, Float> columnaPrecio;
+    private TableColumn<producto, String> columnaNombre;
+    @FXML
+    private TableColumn<producto, Float> columnaPrecioVenta;
+    @FXML
+    private TableColumn<producto, String> columnaUnidad;
+    @FXML
+    private TableColumn<producto, Float> columnaCosto;
+    @FXML
+    private TableColumn<producto, Float> columnaUtilidad;
+    @FXML
+    private TableColumn<producto, String> columnaFechaVencimiento;
+    @FXML
+    private TableColumn<producto, String> columnaDescripcion;
 
 
     @FXML
     private void botonsucursal(){
-        ObservableList<Producto> productos = FXCollections.observableArrayList();
-        productos.add(new Producto("producto1", "descripción del producto 1", 2345));
-        productos.add(new Producto("producto2", "descripción del producto 2", 2234));
+        ObservableList<producto> productos = FXCollections.observableArrayList();
 
-        columnaNombre.setCellValueFactory(new PropertyValueFactory<Producto, String>("Nombre"));
-        columnaDescripcion.setCellValueFactory(new PropertyValueFactory<Producto, String>("Descripcion"));
-        columnaPrecio.setCellValueFactory(new PropertyValueFactory<Producto, Float>("Precio"));
+        int[] ids = {27265, 27266, 27267, 27268, 27269, 27264, 27263, 27262, 27261, 27260, 24618, 24619, 24620,24621,24622,24623,24624, 24625, 24626,24627,24649,24650,24651,24652,24653,24654,24655,24655,24657};
+
+        for (int id : ids) {
+            productos.add(new producto().cargarProducto(id));
+        }
+
+        columnaID_Producto.setCellValueFactory(new PropertyValueFactory<>("ID_Producto"));
+        columnaNombre.setCellValueFactory(new PropertyValueFactory<>("Nombre"));
+        columnaPrecioVenta.setCellValueFactory(new PropertyValueFactory<>("PrecioVenta"));
+        columnaUnidad.setCellValueFactory(new PropertyValueFactory<>("UnidadMedida"));
+        columnaCosto.setCellValueFactory(new PropertyValueFactory<>("CostoB"));
+        columnaUtilidad.setCellValueFactory(new PropertyValueFactory<>("Utilidad"));
+        columnaFechaVencimiento.setCellValueFactory(new PropertyValueFactory<>("FechaVencimiento"));
+        columnaDescripcion.setCellValueFactory(new PropertyValueFactory<>("Descripcion"));
 
         tablaProductos.setItems(productos);
 
     }
 
-     */
+
 
 }
 
