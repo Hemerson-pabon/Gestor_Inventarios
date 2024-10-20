@@ -5,12 +5,16 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitMenuButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
@@ -19,7 +23,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="995.0" style="-fx-background-color: #565651;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestor_inventarios.frontend.AdminController">
    <children>
-      <VBox prefHeight="607.0" prefWidth="232.0" style="-fx-background-color: #00254e;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox prefHeight="616.0" prefWidth="233.0" style="-fx-background-color: #00254e;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Button fx:id="btnHome" alignment="CENTER" mnemonicParsing="false" onAction="#botonHomeClickeado" prefHeight="108.0" prefWidth="152.0" stylesheets="@Style.css">
                <graphic>
@@ -88,7 +92,7 @@
       </VBox>
       <StackPane layoutX="235.0" layoutY="-1.0" prefHeight="616.0" prefWidth="767.0">
          <children>
-            <Pane fx:id="paneDefault" layoutX="10.0" layoutY="10.0" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #565651;">
+            <Pane fx:id="paneDefault" layoutX="10.0" layoutY="10.0" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #565651;" visible="false">
                <children>
                   <Label layoutX="42.0" layoutY="241.0" text="GESTOR DE INVENTARIOS" textFill="WHITE">
                      <font>
@@ -97,7 +101,7 @@
                   </Label>
                </children>
             </Pane>
-            <Pane fx:id="pnlEntrada" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #565651;">
+            <Pane fx:id="pnlEntrada" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #565651;" visible="false">
                <children>
                   <Label layoutX="260.0" layoutY="14.0" prefHeight="56.0" prefWidth="287.0" text="Entrada y salida de mercancía" textFill="WHITE">
                      <font>
@@ -166,7 +170,7 @@
                   <Button layoutX="615.0" layoutY="544.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="112.0" stylesheets="@Style.css" text="Actualizar" />
                </children>
             </Pane>
-            <Pane fx:id="pnlCrear" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #565651;">
+            <Pane fx:id="pnlCrear" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #565651;" visible="false">
                <children>
                   <Label layoutX="299.0" layoutY="43.0" text="Creación de productos" textFill="WHITE">
                      <font>
@@ -204,7 +208,7 @@
                   <TextField layoutX="134.0" layoutY="423.0" prefHeight="26.0" prefWidth="152.0" />
                </children>
             </Pane>
-            <Pane fx:id="pnlEdicion" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #565651;">
+            <Pane fx:id="pnlEdicion" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #565651;" visible="false">
                <children>
                   <Label layoutX="299.0" layoutY="43.0" text="Edición de productos" textFill="WHITE">
                      <font>
@@ -245,30 +249,7 @@
                   <TextField layoutX="134.0" layoutY="423.0" prefHeight="26.0" prefWidth="152.0" />
                </children>
             </Pane>
-            <Pane fx:id="pnlInventario" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #565651;">
-               <children>
-                  <TextField layoutX="31.0" layoutY="75.0" prefHeight="32.0" prefWidth="352.0" />
-                  <ImageView fitHeight="26.0" fitWidth="24.0" layoutX="357.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Images/search-icon.png" />
-                     </image>
-                  </ImageView>
-                  <ChoiceBox layoutX="491.0" layoutY="80.0" prefHeight="26.0" prefWidth="220.0" />
-                  <Label layoutX="445.0" layoutY="82.0" text="Filtrar" textFill="WHITE" />
-                  <TableView layoutX="27.0" layoutY="137.0" prefHeight="459.0" prefWidth="710.0">
-                    <columns>
-                      <TableColumn prefWidth="75.0" text="C1" />
-                      <TableColumn prefWidth="75.0" text="C2" />
-                    </columns>
-                  </TableView>
-                  <Label layoutX="331.0" layoutY="14.0" text="INVENTARIO" textFill="WHITE">
-                     <font>
-                        <Font name="Berlin Sans FB Demi Bold" size="22.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
-            <Pane fx:id="pnlVentas" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #565651;">
+            <Pane fx:id="pnlVentas" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #565651;" visible="false">
                <children>
                   <TableView layoutX="27.0" layoutY="137.0" prefHeight="459.0" prefWidth="710.0">
                      <columns>
@@ -283,6 +264,61 @@
                   </Label>
                   <DatePicker layoutX="27.0" layoutY="91.0" />
                </children>
+            </Pane>
+            <Pane fx:id="pnlInventario" prefHeight="581.0" prefWidth="767.0" style="-fx-background-color: #fff;">
+               <children>
+                  <VBox prefHeight="616.0" prefWidth="767.0">
+                     <padding>
+                        <Insets left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="106.0" prefWidth="163.0" text="Inventario">
+                                 <font>
+                                    <Font name="Roboto Medium" size="28.0" />
+                                 </font>
+                              </Label>
+                              <Pane prefHeight="100.0" prefWidth="342.0" />
+                              <Pane prefHeight="100.0" prefWidth="270.0">
+                                 <children>
+                                    <SplitMenuButton layoutX="135.0" layoutY="38.0" mnemonicParsing="false" onAction="#botonsucursal" prefHeight="26.0" prefWidth="108.0" text="Seleccionar...">
+                                      <items>
+                                        <MenuItem mnemonicParsing="false" text="Sucursal1" />
+                                        <MenuItem mnemonicParsing="false" text="Sucursal2" />
+                                      </items>
+                                    </SplitMenuButton>
+                                    <Label layoutX="44.0" layoutY="40.0" text="Sucursal:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </HBox>
+                        <ScrollPane prefHeight="478.0" prefWidth="727.0" style="-fx-background-color: #fff;">
+                           <content>
+                              <TableView fx:id="tablaProductos" prefHeight="479.0" prefWidth="727.0">
+                                <columns>
+                                  <TableColumn prefWidth="88.0" text="ID Producto" />
+                                  <TableColumn fx:id="columnaNombre" prefWidth="72.0" text="Nombre" />
+                                    <TableColumn fx:id="columnaPrecio" prefWidth="103.0" text="Precio Venta" />
+                                    <TableColumn prefWidth="75.0" text="Unidad Medida" />
+                                    <TableColumn prefWidth="75.0" text="Costo" />
+                                    <TableColumn prefWidth="75.0" text="Utilidad" />
+                                    <TableColumn prefWidth="110.0" text="Fecha Vencimiento" />
+                                    <TableColumn fx:id="columnaDescripcion" prefWidth="115.0" text="Descripción" />
+                                </columns>
+                              </TableView>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </VBox>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
             </Pane>
          </children>
       </StackPane>
