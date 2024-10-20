@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="1012.0" style="-fx-background-color: #565651;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestor_inventarios.frontend.EmpleadoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="1012.0" style="-fx-background-color: #565651;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestor_inventarios.frontend.EmpleadoViewController">
    <children>
       <VBox prefHeight="607.0" prefWidth="232.0" style="-fx-background-color: #00254e;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -113,37 +113,26 @@
       </VBox>
       <StackPane layoutX="235.0" layoutY="-1.0" prefHeight="616.0" prefWidth="767.0">
          <children>
-            <Pane fx:id="cierreCajaPanel" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;">
+            <Pane fx:id="cierreCajaPanel" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;" visible="false">
                <children>
                   <Pane prefHeight="616.0" prefWidth="777.0" style="-fx-background-color: #8EB2D9;">
                      <children>
                         <Pane layoutY="58.0" prefHeight="475.0" prefWidth="777.0" style="-fx-background-color: #FFFFFF;">
                            <children>
-                              <Pane layoutX="346.0" layoutY="79.0" prefHeight="252.0" prefWidth="94.0" style="-fx-background-color: #565651;" />
-                              <Pane layoutX="346.0" layoutY="328.0" prefHeight="145.0" prefWidth="434.0" style="-fx-background-color: #565651;">
+                              <Pane layoutX="3.0" layoutY="328.0" prefHeight="145.0" prefWidth="777.0" style="-fx-background-color: #565651;">
                                  <children>
-                                    <Label fx:id="confirmacionLabel" layoutX="62.0" layoutY="44.0" prefHeight="58.0" prefWidth="311.0" text="Jlabel" textFill="WHITE">
+                                    <Label fx:id="confirmacionLabel" layoutX="524.0" layoutY="44.0" prefHeight="58.0" prefWidth="205.0" text="Jlabel" textFill="WHITE">
                                        <font>
                                           <Font name="Roboto Black" size="48.0" />
                                        </font>
                                     </Label>
                                  </children>
                               </Pane>
-                              <Pane layoutX="438.0" layoutY="81.0" prefHeight="58.0" prefWidth="344.0" style="-fx-background-color: #C7DCE5;">
+                              <Pane layoutX="4.0" layoutY="79.0" prefHeight="58.0" prefWidth="395.0" style="-fx-background-color: #C7DCE5;">
                                  <children>
-                                    <Label layoutX="465.0" layoutY="16.0" text="Ingresos">
-                                       <font>
-                                          <Font name="Roboto Medium" size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="657.0" layoutY="16.0" text="Valor">
-                                       <font>
-                                          <Font name="Roboto Medium" size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <Line endX="-124.935546875" endY="-335.5" fill="#5d83b1" layoutX="566.0" layoutY="394.0" startX="228.43560791015625" startY="-335.5" stroke="#5d83b1" strokeWidth="5.0" />
-                                    <Line endX="-124.935546875" endY="-335.5" fill="#5d83b1" layoutX="564.0" layoutY="582.0" startX="228.43560791015625" startY="-335.5" stroke="#5d83b1" strokeWidth="5.0" />
-                                    <Label layoutX="219.0" layoutY="14.0" text="Valor">
+                                    <Line endX="-124.935546875" endY="-335.5" fill="#5d83b1" layoutX="122.0" layoutY="394.0" startX="272.5355224609375" startY="-335.5" stroke="#5d83b1" strokeWidth="5.0" />
+                                    <Line endX="-566.0" endY="-333.0000305175781" fill="#5d83b1" layoutX="564.0" layoutY="582.0" startX="208.99993896484375" startY="-333.0000305175781" stroke="#5d83b1" strokeWidth="5.0" />
+                                    <Label layoutX="243.0" layoutY="16.0" text="Valor">
                                        <font>
                                           <Font name="Roboto Medium" size="18.0" />
                                        </font>
@@ -153,148 +142,89 @@
                                           <Font name="Roboto Medium" size="18.0" />
                                        </font>
                                     </Label>
+                                    <Line endX="-16.999996185302734" endY="-335.5" fill="#5d83b1" layoutX="167.0" layoutY="338.0" startX="-17.0" startY="-90.80001831054688" stroke="#5d83b1" strokeWidth="5.0" />
+                                    <Line endX="-16.999996185302734" endY="-335.5" fill="#5d83b1" layoutX="413.0" layoutY="334.0" startX="-17.00006103515625" startY="-87.5" stroke="#5d83b1" strokeWidth="5.0" />
                                  </children>
                               </Pane>
-                              <Pane layoutY="81.0" prefHeight="58.0" prefWidth="344.0" style="-fx-background-color: #C7DCE5;">
-                                 <children>
-                                    <Label layoutX="51.0" layoutY="18.0" text="Gastos">
-                                       <font>
-                                          <Font name="Roboto Medium" size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="230.0" layoutY="18.0" text="Valor">
-                                       <font>
-                                          <Font name="Roboto Medium" size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <Line endX="-124.935546875" endY="-335.5" fill="#5d83b1" layoutX="566.0" layoutY="394.0" startX="228.43560791015625" startY="-335.5" stroke="#5d83b1" strokeWidth="5.0" />
-                                    <Line endX="-124.935546875" endY="-335.5" fill="#5d83b1" layoutX="564.0" layoutY="582.0" startX="228.43560791015625" startY="-335.5" stroke="#5d83b1" strokeWidth="5.0" />
-                                 </children>
-                              </Pane>
-                              <Line endX="242.43560791015625" fill="#5d83b1" layoutX="102.0" layoutY="140.0" startX="-100.0" stroke="#5d83b1" strokeWidth="5.0" />
-                              <Label fx:id="precioUnitFacturaLabel11" layoutX="592.0" layoutY="204.0" text="\$">
+                              <Label fx:id="precioUnitFacturaLabel11" layoutX="178.0" layoutY="195.0" text="\$">
                                  <font>
                                     <Font name="Roboto Medium" size="15.0" />
                                  </font>
                               </Label>
                               <Line endX="475.264404296875" endY="1.0" fill="#00254e" layoutX="303.0" layoutY="473.0" startX="-303.0" startY="1.0" stroke="#00254e" strokeWidth="5.0" />
-                              <Line endX="-16.999996185302734" endY="-335.5" fill="#5d83b1" layoutX="173.0" layoutY="415.0" startX="-17.0" startY="55.0" stroke="#5d83b1" strokeWidth="5.0" />
-                              <TextField fx:id="motivoField1" layoutX="14.0" layoutY="154.0" prefHeight="25.0" prefWidth="127.0" />
-                              <Line endX="-16.999996185302734" endY="-335.5" fill="#5d83b1" layoutX="363.0" layoutY="415.0" startX="-17.0" startY="55.0" stroke="#5d83b1" strokeWidth="5.0" />
-                              <Label fx:id="precioUnitFacturaLabel111" layoutX="592.0" layoutY="157.0" text="\$">
+                              <Label fx:id="precioUnitFacturaLabel111" layoutX="178.0" layoutY="148.0" text="\$">
                                  <font>
                                     <Font name="Roboto Medium" size="15.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="efectivoTextField" layoutX="617.0" layoutY="154.0" prefHeight="25.0" prefWidth="128.0">
+                              <TextField fx:id="efectivoTextField" layoutX="200.0" layoutY="145.0" prefHeight="25.0" prefWidth="128.0" promptText="Efectivo">
                                  <font>
                                     <Font name="Roboto Medium" size="12.0" />
                                  </font>
                               </TextField>
-                              <Line endX="-16.999996185302734" endY="-335.5" fill="#5d83b1" layoutX="596.0" layoutY="414.0" startX="-17.00006103515625" startY="-87.5" stroke="#5d83b1" strokeWidth="5.0" />
-                              <Line endX="240.4644775390625" fill="#5d83b1" layoutX="102.0" layoutY="190.0" startX="-100.0" stroke="#5d83b1" strokeWidth="5.0" />
-                              <Label layoutX="463.0" layoutY="155.0" text="Efectivo:">
+                              <Label layoutX="26.0" layoutY="146.0" text="Efectivo:">
                                  <font>
                                     <Font name="Roboto Medium" size="18.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="463.0" layoutY="202.0" text="Nequi:">
+                              <Label layoutX="35.0" layoutY="193.0" text="Nequi:">
                                  <font>
                                     <Font name="Roboto Medium" size="18.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="462.0" layoutY="248.0" text="Daviplata:">
+                              <Label layoutX="21.0" layoutY="239.0" text="Daviplata:">
                                  <font>
                                     <Font name="Roboto Medium" size="18.0" />
                                  </font>
                               </Label>
-                              <Line endX="240.4644775390625" fill="#5d83b1" layoutX="102.0" layoutY="236.0" startX="-100.0" stroke="#5d83b1" strokeWidth="5.0" />
-                              <Line endX="239.4644775390625" fill="#5d83b1" layoutX="103.0" layoutY="280.0" startX="-100.0" stroke="#5d83b1" strokeWidth="5.0" />
-                              <Label fx:id="precioUnitFacturaLabel112" layoutX="592.0" layoutY="250.0" text="\$">
+                              <Label fx:id="precioUnitFacturaLabel112" layoutX="178.0" layoutY="241.0" text="\$">
                                  <font>
                                     <Font name="Roboto Medium" size="15.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="motivoField2" layoutX="14.0" layoutY="201.0" prefHeight="25.0" prefWidth="127.0" />
-                              <TextField fx:id="motivoField3" layoutX="14.0" layoutY="247.0" prefHeight="25.0" prefWidth="127.0" />
-                              <TextField fx:id="motivoField4" layoutX="14.0" layoutY="292.0" prefHeight="25.0" prefWidth="127.0" />
-                              <Line endX="240.4644775390625" fill="#5d83b1" layoutX="102.0" layoutY="329.0" startX="-100.0" stroke="#5d83b1" strokeWidth="5.0" />
-                              <TextField fx:id="motivoField5" layoutX="14.0" layoutY="342.0" prefHeight="25.0" prefWidth="127.0" />
-                              <TextField fx:id="valorField1" layoutX="194.0" layoutY="154.0" prefHeight="25.0" prefWidth="127.0" />
-                              <Label fx:id="precioUnitFacturaLabel1111" layoutX="172.0" layoutY="157.0" text="\$">
-                                 <font>
-                                    <Font name="Roboto Medium" size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="precioUnitFacturaLabel11111" layoutX="172.0" layoutY="204.0" text="\$">
-                                 <font>
-                                    <Font name="Roboto Medium" size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="precioUnitFacturaLabel11112" layoutX="172.0" layoutY="250.0" text="\$">
-                                 <font>
-                                    <Font name="Roboto Medium" size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="precioUnitFacturaLabel11113" layoutX="172.0" layoutY="295.0" text="\$">
-                                 <font>
-                                    <Font name="Roboto Medium" size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="precioUnitFacturaLabel11114" layoutX="172.0" layoutY="345.0" text="\$">
-                                 <font>
-                                    <Font name="Roboto Medium" size="15.0" />
-                                 </font>
-                              </Label>
-                              <Line endX="239.4644775390625" endY="-3.0517578125E-5" fill="#5d83b1" layoutX="103.0" layoutY="377.0" startX="-100.0" stroke="#5d83b1" strokeWidth="5.0" />
-                              <TextField fx:id="valorField2" layoutX="194.0" layoutY="201.0" prefHeight="25.0" prefWidth="127.0" />
-                              <TextField fx:id="valorField3" layoutX="194.0" layoutY="247.0" prefHeight="25.0" prefWidth="127.0" />
-                              <TextField fx:id="valorField4" layoutX="194.0" layoutY="292.0" prefHeight="25.0" prefWidth="127.0" />
-                              <TextField fx:id="valorField5" layoutX="194.0" layoutY="342.0" prefHeight="25.0" prefWidth="127.0" />
-                              <TextField fx:id="valorField6" layoutX="194.0" layoutY="390.0" prefHeight="25.0" prefWidth="127.0" />
-                              <Line endX="239.4644775390625" endY="-3.0517578125E-5" fill="#5d83b1" layoutX="103.0" layoutY="425.0" startX="-100.0" stroke="#5d83b1" strokeWidth="5.0" />
-                              <TextField fx:id="motivoField6" layoutX="14.0" layoutY="390.0" prefHeight="25.0" prefWidth="127.0" />
-                              <TextField fx:id="motivoField7" layoutX="14.0" layoutY="436.0" prefHeight="25.0" prefWidth="127.0" />
-                              <Label fx:id="precioUnitFacturaLabel111142" layoutX="172.0" layoutY="393.0" text="\$">
-                                 <font>
-                                    <Font name="Roboto Medium" size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="precioUnitFacturaLabel111143" layoutX="172.0" layoutY="439.0" text="\$">
-                                 <font>
-                                    <Font name="Roboto Medium" size="15.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="valorField7" layoutX="194.0" layoutY="436.0" prefHeight="25.0" prefWidth="127.0" />
-                              <Line endX="-16.999996185302734" endY="-335.5" fill="#5d83b1" layoutX="456.0" layoutY="417.0" startX="-17.0" startY="-90.80001831054688" stroke="#5d83b1" strokeWidth="5.0" />
-                              <Label layoutX="458.0" layoutY="293.0" text="Datafono:">
+                              <Label layoutX="22.0" layoutY="288.0" text="Datafono:">
                                  <font>
                                     <Font name="Roboto Medium" size="18.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="precioUnitFacturaLabel1121" layoutX="592.0" layoutY="295.0" text="\$">
+                              <Label fx:id="precioUnitFacturaLabel1121" layoutX="178.0" layoutY="290.0" text="\$">
                                  <font>
                                     <Font name="Roboto Medium" size="15.0" />
                                  </font>
                               </Label>
-                              <Line endX="-124.935546875" endY="-335.5" fill="#5d83b1" layoutX="564.0" layoutY="526.0" startX="228.43560791015625" startY="-335.5" stroke="#5d83b1" strokeWidth="5.0" />
-                              <Line endX="-124.935546875" endY="-335.5" fill="#5d83b1" layoutX="565.0" layoutY="573.0" startX="228.43560791015625" startY="-335.5" stroke="#5d83b1" strokeWidth="5.0" />
-                              <Line endX="-124.935546875" endY="-335.5" fill="#5d83b1" layoutX="567.0" layoutY="616.0" startX="228.43560791015625" startY="-335.5" stroke="#5d83b1" strokeWidth="5.0" />
+                              <Line endX="-133.99998474121094" endY="-335.5" fill="#5d83b1" layoutX="135.0" layoutY="517.0" startX="264.6287841796875" startY="-335.5" stroke="#5d83b1" strokeWidth="5.0" />
+                              <Line endX="-124.935546875" endY="-335.5" fill="#5d83b1" layoutX="126.0" layoutY="561.0" startX="274.22882080078125" startY="-335.5" stroke="#5d83b1" strokeWidth="5.0" />
+                              <Line endX="-124.935546875" endY="-335.5" fill="#5d83b1" layoutX="126.0" layoutY="609.0" startX="274.22882080078125" startY="-335.5" stroke="#5d83b1" strokeWidth="5.0" />
                               <Line endX="-16.999996185302734" endY="-335.5" fill="#5d83b1" layoutX="18.0" layoutY="414.0" startX="-17.0" startY="55.0" stroke="#5d83b1" strokeWidth="5.0" />
-                              <Line endX="-16.999996185302734" endY="-335.5" fill="#5d83b1" layoutX="792.0" layoutY="418.0" startX="-17.0" startY="-90.80001831054688" stroke="#5d83b1" strokeWidth="5.0" />
-                              <Label fx:id="nequiTotalLabel" layoutX="617.0" layoutY="204.0" text="Jlabel">
+                              <Label fx:id="nequiTotalLabel" layoutX="244.0" layoutY="195.0" text="Jlabel">
                                  <font>
                                     <Font name="Roboto Medium" size="15.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="daviplataTotalLabel" layoutX="617.0" layoutY="250.0" text="Jlabel">
+                              <Label fx:id="daviplataTotalLabel" layoutX="244.0" layoutY="241.0" text="Jlabel">
                                  <font>
                                     <Font name="Roboto Medium" size="15.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="datafonoTotalLabel" layoutX="617.0" layoutY="295.0" text="Jlabel">
+                              <Label fx:id="datafonoTotalLabel" layoutX="244.0" layoutY="290.0" text="Jlabel">
                                  <font>
                                     <Font name="Roboto Medium" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Line endX="-16.999996185302734" endY="-335.5" fill="#5d83b1" layoutX="792.0" layoutY="414.0" startX="-17.00006103515625" startY="55.0" stroke="#5d83b1" strokeWidth="5.0" />
+                              <Label fx:id="confirmacionLabel1" layoutX="415.0" layoutY="131.0" prefHeight="72.0" prefWidth="348.0" text="Ingresar el dinero de la caja dejando la base" wrapText="true">
+                                 <font>
+                                    <Font name="Roboto Black" size="23.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="confirmacionLabel11" layoutX="415.0" layoutY="215.0" prefHeight="72.0" prefWidth="348.0" text="Ubicar los gastos diarios en el apartado &quot;gastos&quot;" wrapText="true">
+                                 <font>
+                                    <Font name="Roboto Black" size="23.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="confirmacionLabel12" layoutX="415.0" layoutY="94.0" prefHeight="37.0" prefWidth="111.0" text="- Detalles" wrapText="true">
+                                 <font>
+                                    <Font name="Roboto Black" size="23.0" />
                                  </font>
                               </Label>
                            </children>
@@ -331,16 +261,11 @@
                               </Label>
                            </children>
                         </Pane>
-                        <Button fx:id="agregarButton" layoutX="14.0" layoutY="543.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="111.0" style="-fx-background-color: white;" text="Agregar ">
-                           <font>
-                              <Font name="Roboto Medium" size="18.0" />
-                           </font>
-                        </Button>
                      </children>
                   </Pane>
                </children>
             </Pane>
-            <Pane fx:id="devolucionPanel" layoutX="10.0" layoutY="10.0" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: fff;" visible="false">
+            <Pane fx:id="devolucionPanel" layoutX="10.0" layoutY="10.0" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: fff;">
                <children>
                   <Pane prefHeight="616.0" prefWidth="777.0" style="-fx-background-color: #8EB2D9;">
                      <children>
@@ -391,7 +316,7 @@
                                     <Font name="Roboto Medium" size="15.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="cantProductoField1" layoutX="320.0" layoutY="154.0" prefHeight="25.0" prefWidth="48.0">
+                              <TextField fx:id="cantProductoField1" layoutX="314.0" layoutY="154.0" prefHeight="25.0" prefWidth="48.0" promptText="Cant">
                                  <font>
                                     <Font name="Roboto Medium" size="12.0" />
                                  </font>
@@ -414,7 +339,7 @@
                               <Line endX="-15.535400390625" endY="-56.0" fill="#5d83b1" layoutX="595.0" layoutY="139.0" startX="-15.535400390625" startY="330.5" stroke="#5d83b1" strokeWidth="5.0" />
                               <Line endX="475.264404296875" endY="1.0" fill="#00254e" layoutX="303.0" layoutY="473.0" startX="-303.0" startY="1.0" stroke="#00254e" strokeWidth="5.0" />
                               <Line endX="-16.999996185302734" endY="-335.5" fill="#5d83b1" layoutX="173.0" layoutY="415.0" startX="-17.0" startY="55.0" stroke="#5d83b1" strokeWidth="5.0" />
-                              <TextField fx:id="codigoFacturaField" layoutX="14.0" layoutY="154.0" prefHeight="25.0" prefWidth="127.0" />
+                              <TextField fx:id="codigoFacturaField" layoutX="14.0" layoutY="154.0" prefHeight="25.0" prefWidth="127.0" text="Codigo" />
                            </children>
                         </Pane>
                         <Button fx:id="devolverButton" layoutX="573.0" layoutY="543.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="190.0" style="-fx-background-color: white;" text="Devolver factura">
@@ -489,7 +414,7 @@
                                  </children>
                               </Pane>
                               <Line endX="674.46435546875" fill="#5d83b1" layoutX="102.0" layoutY="140.0" startX="-100.0" stroke="#5d83b1" strokeWidth="5.0" />
-                              <TextField fx:id="codProductoField" layoutX="95.0" layoutY="154.0" prefHeight="25.0" prefWidth="134.0">
+                              <TextField fx:id="codProductoField" layoutX="95.0" layoutY="154.0" prefHeight="25.0" prefWidth="134.0" promptText="Codigo">
                                  <font>
                                     <Font name="Roboto Medium" size="12.0" />
                                  </font>
@@ -509,7 +434,7 @@
                                     <Font name="Roboto Medium" size="15.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="cantProductoField" layoutX="363.0" layoutY="154.0" prefHeight="25.0" prefWidth="48.0">
+                              <TextField fx:id="cantProductoField" layoutX="363.0" layoutY="154.0" prefHeight="25.0" prefWidth="48.0" promptText="Cant">
                                  <font>
                                     <Font name="Roboto Medium" size="12.0" />
                                  </font>
