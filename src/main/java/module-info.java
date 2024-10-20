@@ -12,6 +12,7 @@ module com.gestor_inventarios.gestor_inventarios {
     requires java.sql;
     requires spring.security.crypto;
     requires micrometer.observation;
+    requires java.desktop;
 
     exports com.gestor_inventarios.backend;
 }
