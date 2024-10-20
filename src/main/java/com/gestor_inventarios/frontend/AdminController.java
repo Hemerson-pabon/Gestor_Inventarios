@@ -1,8 +1,14 @@
 package com.gestor_inventarios.frontend;
 
+import javafx.beans.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 
 
@@ -101,6 +107,36 @@ public class AdminController {
     public void botonUsuariosClickeado() {
 
     }
+
+
+    // Interfaz de inventario
+
+    /*
+    @FXML
+    private TableView<Producto> tablaProductos;
+    @FXML
+    private TableColumn<Producto, String> columnaNombre;
+    @FXML
+    private TableColumn<Producto, String> columnaDescripcion;
+    @FXML
+    private TableColumn<Producto, Float> columnaPrecio;
+
+
+    @FXML
+    private void botonsucursal(){
+        ObservableList<Producto> productos = FXCollections.observableArrayList();
+        productos.add(new Producto("producto1", "descripción del producto 1", 2345));
+        productos.add(new Producto("producto2", "descripción del producto 2", 2234));
+
+        columnaNombre.setCellValueFactory(new PropertyValueFactory<Producto, String>("Nombre"));
+        columnaDescripcion.setCellValueFactory(new PropertyValueFactory<Producto, String>("Descripcion"));
+        columnaPrecio.setCellValueFactory(new PropertyValueFactory<Producto, Float>("Precio"));
+
+        tablaProductos.setItems(productos);
+
+    }
+
+     */
 
 }
 
