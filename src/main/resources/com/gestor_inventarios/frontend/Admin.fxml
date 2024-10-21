@@ -42,7 +42,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button id="button" fx:id="btnCrear" alignment="BASELINE_LEFT" graphicTextGap="0.0" layoutX="10.0" layoutY="331.0" mnemonicParsing="false" onAction="#botonCrearClickeado" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Crear producto" textFill="WHITE">
+            <Button fx:id="btnCrear" alignment="BASELINE_LEFT" graphicTextGap="0.0" layoutX="10.0" layoutY="331.0" mnemonicParsing="false" onAction="#botonCrearClickeado" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Crear producto" textFill="WHITE">
                <padding>
                   <Insets left="20.0" />
                </padding>
@@ -56,7 +56,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button id="button" fx:id="btnEntrada" alignment="BASELINE_LEFT" graphicTextGap="0.0" mnemonicParsing="false" onAction="#botonEntradaClickeado" pickOnBounds="false" prefHeight="54.0" prefWidth="234.0" styleClass="button" stylesheets="@Style.css" text="Entrada y salida de productos" textFill="WHITE">
+            <Button fx:id="btnEntrada" alignment="BASELINE_LEFT" graphicTextGap="0.0" mnemonicParsing="false" onAction="#botonEntradaClickeado" pickOnBounds="false" prefHeight="54.0" prefWidth="234.0" styleClass="button" stylesheets="@Style.css" text="Entrada y salida de productos" textFill="WHITE">
                <padding>
                   <Insets left="20.0" />
                </padding>
@@ -70,7 +70,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-         <Button id="button" fx:id="btnEdicion" alignment="BASELINE_LEFT" graphicTextGap="0.0" layoutX="10.0" layoutY="160.0" mnemonicParsing="false" onAction="#botonEdicionClickeado" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Edición de productos" textFill="WHITE">
+         <Button fx:id="btnEdicion" alignment="BASELINE_LEFT" graphicTextGap="0.0" layoutX="10.0" layoutY="160.0" mnemonicParsing="false" onAction="#botonEdicionClickeado" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Edición de productos" textFill="WHITE">
             <padding>
                <Insets left="20.0" />
             </padding>
@@ -84,7 +84,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button id="button" fx:id="btnUsuarios" alignment="BASELINE_LEFT" graphicTextGap="0.0" layoutX="10.0" layoutY="274.0" mnemonicParsing="false" onAction="#botonUsuariosClickeado" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Usuarios y permisos" textFill="WHITE">
+            <Button fx:id="btnUsuarios" alignment="BASELINE_LEFT" graphicTextGap="0.0" layoutX="10.0" layoutY="274.0" mnemonicParsing="false" onAction="#botonUsuariosClickeado" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Usuarios y permisos" textFill="WHITE">
                <padding>
                   <Insets left="20.0" />
                </padding>
@@ -98,7 +98,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button id="button" fx:id="btnInventario" alignment="BASELINE_LEFT" graphicTextGap="0.0" layoutX="10.0" layoutY="388.0" mnemonicParsing="false" onAction="#botonInventarioClickeado" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Inventario" textFill="WHITE">
+            <Button fx:id="btnInventario" alignment="BASELINE_LEFT" graphicTextGap="0.0" layoutX="10.0" layoutY="388.0" mnemonicParsing="false" onAction="#botonInventarioClickeado" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Inventario" textFill="WHITE">
                <padding>
                   <Insets left="20.0" />
                </padding>
@@ -112,7 +112,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button id="button" fx:id="btnVentas" alignment="BASELINE_LEFT" graphicTextGap="0.0" layoutX="10.0" layoutY="445.0" mnemonicParsing="false" onAction="#botonVentasClickeado" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Ventas" textFill="WHITE">
+            <Button fx:id="btnVentas" alignment="BASELINE_LEFT" graphicTextGap="0.0" layoutX="10.0" layoutY="445.0" mnemonicParsing="false" onAction="#botonVentasClickeado" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Ventas" textFill="WHITE">
                <padding>
                   <Insets left="20.0" />
                </padding>
@@ -327,22 +327,22 @@
                         <Font name="Roboto Black" size="28.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="22.0" layoutY="101.0" prefHeight="26.0" prefWidth="352.0" stylesheets="@Style.css" />
+                  <TextField fx:id="FieldNombre" layoutX="22.0" layoutY="101.0" prefHeight="26.0" prefWidth="352.0" stylesheets="@Style.css" />
                   <Label layoutX="20.0" layoutY="137.0" text="Descripción corta" textFill="#565651" />
                   <Label layoutX="22.0" layoutY="75.0" text="Nombre" textFill="#565651" />
-                  <TextField editable="false" layoutX="426.0" layoutY="102.0" stylesheets="@Style.css" />
+                  <TextField fx:id="FieldCodigo" editable="false" layoutX="426.0" layoutY="102.0" stylesheets="@Style.css" />
                   <Label layoutX="426.0" layoutY="84.0" text="Código" textFill="#565651" />
-                  <ChoiceBox fx:id="chUndM" layoutX="426.0" layoutY="173.0" prefHeight="1.0" prefWidth="103.0" stylesheets="@Style.css" />
+                  <ChoiceBox fx:id="ChUnidad" layoutX="426.0" layoutY="173.0" prefHeight="1.0" prefWidth="103.0" stylesheets="@Style.css" />
                   <Label layoutX="426.0" layoutY="150.0" text="U.M" textFill="#565651" />
                   <Label layoutX="33.0" layoutY="243.0" text="Categoría" textFill="#565651" />
-                  <ChoiceBox layoutX="107.0" layoutY="239.0" prefHeight="26.0" prefWidth="280.0" stylesheets="@Style.css" />
+                  <ChoiceBox fx:id="ChCategoria" layoutX="107.0" layoutY="239.0" prefHeight="26.0" prefWidth="280.0" stylesheets="@Style.css" />
                   <Pane layoutX="32.0" layoutY="282.0" prefHeight="20.0" prefWidth="702.0" style="-fx-background-color: #393936;" />
                   <Label layoutX="380.0" layoutY="282.0" text="COSTOS" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
-                  <TextArea layoutX="22.0" layoutY="158.0" prefHeight="67.0" prefWidth="352.0" styleClass="text-area" stylesheets="@Style.css" />
+                  <TextArea fx:id="AreaDescripcion" layoutX="22.0" layoutY="158.0" prefHeight="67.0" prefWidth="352.0" styleClass="text-area" stylesheets="@Style.css" />
                   <VBox layoutX="33.0" layoutY="317.0" prefHeight="237.0" prefWidth="301.0">
                      <children>
                         <HBox prefHeight="31.0" prefWidth="254.0">
@@ -363,7 +363,7 @@
                                     <Font name="Roboto" size="16.0" />
                                  </font>
                               </Label>
-                              <TextField prefHeight="31.0" prefWidth="175.0" stylesheets="@Style.css">
+                              <TextField fx:id="FieldCostoB" prefHeight="31.0" prefWidth="175.0" stylesheets="@Style.css">
                                  <font>
                                     <Font name="Roboto" size="14.0" />
                                  </font>
@@ -380,7 +380,7 @@
                                     <Font name="Roboto" size="14.0" />
                                  </font>
                               </Label>
-                              <TextField prefHeight="28.0" prefWidth="43.0" stylesheets="@Style.css">
+                              <TextField fx:id="FieldIVA" prefHeight="28.0" prefWidth="43.0" stylesheets="@Style.css">
                                  <font>
                                     <Font name="Roboto" size="14.0" />
                                  </font>
@@ -410,7 +410,7 @@
                                     <Font name="Roboto" size="16.0" />
                                  </font>
                               </Label>
-                              <Label prefHeight="40.0" prefWidth="163.0" text="CostoMasIVA" textFill="#565651">
+                              <Label fx:id="LabelCostoI" prefHeight="40.0" prefWidth="163.0" textFill="#565651">
                                  <font>
                                     <Font name="Roboto" size="14.0" />
                                  </font>
@@ -427,7 +427,7 @@
                                     <Font name="Roboto" size="14.0" />
                                  </font>
                               </Label>
-                              <TextField prefHeight="28.0" prefWidth="43.0" stylesheets="@Style.css">
+                              <TextField fx:id="FieldUtilidad" prefHeight="28.0" prefWidth="43.0" stylesheets="@Style.css">
                                  <font>
                                     <Font name="Roboto" size="14.0" />
                                  </font>
@@ -457,7 +457,7 @@
                                     <Insets left="5.0" right="5.0" />
                                  </HBox.margin>
                               </Label>
-                              <Label prefHeight="35.0" prefWidth="125.0" text="Precio" textFill="#565651">
+                              <Label fx:id="LabelPrecio" prefHeight="35.0" prefWidth="125.0" textFill="#565651">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -472,7 +472,7 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <Button layoutX="546.0" layoutY="498.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="184.0" style="-fx-background-color: #00254e; -fx-background-radius: 0;" text="Crear producto" textFill="WHITE">
+                  <Button layoutX="546.0" layoutY="498.0" mnemonicParsing="false" onAction="#BotonCrearProductoClickeado" prefHeight="57.0" prefWidth="184.0" style="-fx-background-color: #00254e; -fx-background-radius: 0;" text="Crear producto" textFill="WHITE">
                      <font>
                         <Font name="Roboto Black" size="21.0" />
                      </font>
@@ -480,6 +480,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
+                  <DatePicker fx:id="FechaVencimiento" layoutX="426.0" layoutY="239.0" />
                </children>
             </Pane>
          </children>
