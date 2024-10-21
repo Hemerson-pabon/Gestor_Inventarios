@@ -18,6 +18,7 @@ public class main extends Application {
         stage.setTitle("Gestión de inventarios");
         stage.setScene(scene);
         stage.show();
+
     }
 
     public static void main(String[] args) {

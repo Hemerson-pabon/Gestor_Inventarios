@@ -5,7 +5,6 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
@@ -19,18 +18,13 @@
       <VBox prefHeight="607.0" prefWidth="232.0" style="-fx-background-color: #00254e;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <ImageView fitHeight="112.0" fitWidth="234.0" pickOnBounds="true" preserveRatio="true" />
-            <Button id="button" fx:id="mostradorButton" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="22.0" mnemonicParsing="false" onAction="#buttonMostradorClickeado" pickOnBounds="false" prefHeight="54.0" prefWidth="234.0" styleClass="button" stylesheets="@Style.css" text="Mostrador de ventas" textAlignment="CENTER" textFill="WHITE">
+            <Button id="button" fx:id="mostradorButton" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="22.0" mnemonicParsing="false" onAction="#buttonMostradorClickeado" pickOnBounds="false" prefHeight="54.0" prefWidth="138.0" styleClass="button" stylesheets="@Style.css" text="Mostrador de ventas" textAlignment="CENTER" textFill="WHITE">
                <padding>
                   <Insets left="20.0" />
                </padding>
                <font>
                   <Font name="Roboto Black" size="12.0" />
                </font>
-               <graphic>
-                  <ImageView fitHeight="60.0" fitWidth="162.0" pickOnBounds="true" preserveRatio="true">
-
-                  </ImageView>
-               </graphic>
             </Button>
          <Button id="button" fx:id="devolucionButton" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="160.0" mnemonicParsing="false" onAction="#buttonDevolucionClickeado" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Devolucion de productos" textFill="WHITE">
             <padding>
@@ -42,11 +36,6 @@
                <font>
                   <Font name="Roboto Black" size="12.0" />
                </font>
-               <graphic>
-               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-
-               </ImageView>
-               </graphic>
             </Button>
             <Button id="button" fx:id="cierreButton" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="274.0" mnemonicParsing="false" onAction="#buttonCierreClickeado" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Cierre de caja" textFill="WHITE">
                <padding>
@@ -58,20 +47,8 @@
                <font>
                   <Font name="Roboto Black" size="12.0" />
                </font>
-               <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-
-                  </ImageView>
-               </graphic>
             </Button>
             <Button id="button" fx:id="gastosButton" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="331.0" mnemonicParsing="false" onAction="#buttonGastosClickeado" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Gastos" textFill="WHITE">
-               <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../../../../Pictures/jovenes.jpg" />
-                     </image>
-                  </ImageView>
-               </graphic>
                <padding>
                   <Insets left="20.0" />
                </padding>
@@ -83,13 +60,6 @@
                </font>
             </Button>
             <Button id="button" fx:id="btnInventario" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="388.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Inventario">
-               <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../../../../Pictures/jovenes.jpg" />
-                     </image>
-                  </ImageView>
-               </graphic>
                <padding>
                   <Insets left="20.0" />
                </padding>
@@ -98,13 +68,6 @@
                </VBox.margin>
             </Button>
             <Button id="button" fx:id="btnVentas" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="445.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Ventas">
-               <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../../../../Pictures/jovenes.jpg" />
-                     </image>
-                  </ImageView>
-               </graphic>
                <padding>
                   <Insets left="20.0" />
                </padding>
