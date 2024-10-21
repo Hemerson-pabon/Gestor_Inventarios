@@ -1,9 +1,15 @@
 package com.gestor_inventarios.backend;
 
+import com.gestor_inventarios.frontend.main;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+
+import java.io.IOException;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class producto {
     private int ID_Producto;
@@ -18,6 +24,19 @@ public class producto {
     private float CostoB; // Costo base del producto
     private float IVA; // Unidad en porcentaje
 
+    // Métodos set para los atributos
+
+    public void setCostoB(float costoB) {
+        CostoB = costoB;
+    }
+
+    public void setIVA(float IVA) {
+        this.IVA = IVA;
+    }
+
+    public void setUtilidad(float utilidad) {
+        Utilidad = utilidad;
+    }
     // Métodos get para todos los atributos
 
     public int getID_Producto() {
@@ -56,7 +75,7 @@ public class producto {
     Este método añade los atributos del objeto a la base de datos, creando un nuevo producto.
     retorna true si el producto se creo correctamente.
     */
-    public boolean crearProducto(String nombre, String Descripcion, String UnidadMedida, int ID_Categoria, int ID_Proveedor, String Fecha_Vencimiento, float CostoB, float IVA, float Utilidad) {
+    public boolean crearProducto(String nombre, String Descripcion, String UnidadMedida, int ID_Categoria, int ID_Proveedor, String Fecha_Vencimiento, float CostoB, float IVA, float Utilidad){
         this.Utilidad = Utilidad;
         this.CostoB = CostoB;
         this.IVA = IVA;
@@ -88,7 +107,11 @@ public class producto {
         values.add(Descripcion);
         values.add(ID_Categoria);
         values.add(ID_Proveedor);
-        values.add(Date.valueOf(Fecha_Vencimiento));
+        if (Objects.equals(Fecha_Vencimiento, "")){
+            values.add(null);
+        }else{
+            values.add(Date.valueOf(Fecha_Vencimiento));
+        }
         values.add(CostoB);
         values.add(UnidadMedida);
         values.add(IVA);
@@ -100,19 +123,22 @@ public class producto {
     }
 
     // Método para calcular el costo + iva
-    private float calcularCosto() {
+    public float calcularCosto() {
         return CostoB + (CostoB*(IVA/100));
     }
 
     // Método para calcular el precio de venta ---> Precio sugerido
-    private float calcularPrecio() {
+    public float calcularPrecio() {
         return  calcularCosto() + calcularCosto() * (Utilidad/100);
     }
 
     /* Método para crear códigos para los productos
     Genera un código entre 0 y 99999, basándose en el nombre y la unidad de medida
     */
-    private int generarCodigo(String nombre, String unidadMedida) {
+    public int generarCodigo(String nombre, String unidadMedida) {
+        if (Objects.equals(nombre, "") && Objects.equals(unidadMedida, "")){
+            return 0;
+        }
         int hashNombre = nombre.hashCode();
         int hashUnidadMedida = unidadMedida.hashCode();
         int codigo = Math.abs(hashUnidadMedida + hashNombre);

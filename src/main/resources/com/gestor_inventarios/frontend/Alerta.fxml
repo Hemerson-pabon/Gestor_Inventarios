@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="166.0" prefWidth="266.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestor_inventarios.frontend.AlertaController">
+   <children>
+      <VBox layoutX="-2.0" prefHeight="200.0" prefWidth="300.0">
+         <children>
+            <Label fx:id="LabelMensaje" alignment="CENTER" prefHeight="102.0" prefWidth="300.0" text="Texto" textAlignment="CENTER">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Roboto" size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="BtnCerrar" mnemonicParsing="false" onAction="#BotonCerrarAlertaClickeado" prefHeight="32.0" prefWidth="70.0" style="-fx-background-color: #fff; -fx-border-color: #565651; -fx-background-radius: 0px;" text="Cerrar">
+               <VBox.margin>
+                  <Insets left="115.0" top="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Roboto Black" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

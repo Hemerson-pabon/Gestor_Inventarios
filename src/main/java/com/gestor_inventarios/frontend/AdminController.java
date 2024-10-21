@@ -1,15 +1,21 @@
 package com.gestor_inventarios.frontend;
 
 import com.gestor_inventarios.backend.producto;
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
-import java.lang.reflect.Array;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 
 
 public class AdminController {
@@ -19,9 +25,6 @@ public class AdminController {
 
     @FXML
     private ChoiceBox<String> chUndM;
-
-    @FXML
-    private ChoiceBox<String> chUndM1;
 
     @FXML
     private Button btnHome;
@@ -66,11 +69,80 @@ public class AdminController {
     private void initialize() {
         OpcionEyS.getItems().addAll(" ", "Entrada","Salida");
         OpcionEyS.setValue(" ");
-        chUndM.getItems().addAll("UND", "KG","GR");
-        chUndM.setValue("UND");
-        chUndM1.getItems().addAll("UND", "KG","GR");
-        chUndM1.setValue("UND");
+        //
+        ChCategoria.getItems().addAll("Categoria1");
+        ChCategoria.setValue("Categoria1");
+        ChUnidad.getItems().addAll("UND", "KG","GR");
+        ChUnidad.setValue("UND");
         paneDefault.toFront();
+
+        //
+        FieldCodigo.setText("");
+        // Eventos para modificar el valor de costo + IVA automaticamente
+        FieldCostoB.textProperty().addListener((observable -> {
+            try {
+                producto p = new producto();
+                p.setCostoB(Float.parseFloat(FieldCostoB.getText()));
+                p.setIVA(Float.parseFloat(FieldIVA.getText()));
+                p.setUtilidad(Float.parseFloat(FieldUtilidad.getText()));
+                LabelCostoI.setText(String.valueOf(p.calcularCosto()));
+                LabelPrecio.setText(String.valueOf(p.calcularPrecio()));
+            }catch (NullPointerException e){
+                FieldCostoB.setText("0");
+            }catch (NumberFormatException e){
+                LabelCostoI.setText("");
+            }
+        }));
+        FieldIVA.textProperty().addListener((observable -> {
+            try {
+                producto p = new producto();
+                p.setCostoB(Float.parseFloat(FieldCostoB.getText()));
+                p.setIVA(Float.parseFloat(FieldIVA.getText()));
+                p.setUtilidad(Float.parseFloat(FieldUtilidad.getText()));
+                LabelCostoI.setText(String.valueOf(p.calcularCosto()));
+                LabelPrecio.setText(String.valueOf(p.calcularPrecio()));
+            }catch (NullPointerException e){
+                FieldIVA.setText("0");
+            }catch (NumberFormatException e){
+                LabelCostoI.setText("");
+            }
+        }));
+        FieldUtilidad.textProperty().addListener((observable -> {
+            try {
+                producto p = new producto();
+                p.setCostoB(Float.parseFloat(FieldCostoB.getText()));
+                p.setIVA(Float.parseFloat(FieldIVA.getText()));
+                p.setUtilidad(Float.parseFloat(FieldUtilidad.getText()));
+                LabelCostoI.setText(String.valueOf(p.calcularCosto()));
+                LabelPrecio.setText(String.valueOf(p.calcularPrecio()));
+            }catch (NullPointerException e){
+                FieldUtilidad.setText("0");
+            }catch (NumberFormatException e){
+                LabelPrecio.setText("");
+            }
+        }));
+
+        FieldNombre.textProperty().addListener(observable -> {
+            try {
+                producto p = new producto();
+                FieldCodigo.setText(String.valueOf(p.generarCodigo(FieldNombre.getText(), ChUnidad.getSelectionModel().getSelectedItem())));
+            }catch (NullPointerException e){
+                FieldCodigo.setText("");
+            }
+        });
+        ChUnidad.setOnAction(actionEvent -> {
+            try {
+                producto p = new producto();
+                FieldCodigo.setText(String.valueOf(p.generarCodigo(FieldNombre.getText(), ChUnidad.getSelectionModel().getSelectedItem())));
+            }catch (NullPointerException e){
+                FieldCodigo.setText("");
+            }
+        });
+
+
+
+
+
     }
 
     @FXML
@@ -89,6 +161,12 @@ public class AdminController {
 
     @FXML
     public void botonCrearClickeado() {
+
+
+
+        if (Objects.equals(FieldNombre.getText(), "") && Objects.equals(ChUnidad.getSelectionModel().getSelectedItem() ,"")){
+            FieldCodigo.setText("");
+        }
         pnlCrear.toFront();
     }
 
@@ -112,13 +190,15 @@ public class AdminController {
     @FXML
     private TextField FieldNombre;
     @FXML
+    private TextField FieldCodigo;
+    @FXML
     private TextArea AreaDescripcion;
     @FXML
     private ChoiceBox<String> ChUnidad;
     @FXML
     private ChoiceBox<String> ChCategoria;
     @FXML
-    private TextField FieldCosto;
+    private TextField FieldCostoB;
     @FXML
     private TextField FieldIVA;
     @FXML
@@ -127,22 +207,117 @@ public class AdminController {
     private TextField FieldUtilidad;
     @FXML
     private Label LabelPrecio;
+    @FXML
+    private DatePicker FechaVencimiento;
+
+
 
     // Evento de presionar el boton de crear producto
     @FXML
     protected void BotonCrearProductoClickeado(){
-        String Nombre = FieldNombre.getText();
-        String Descripcion = AreaDescripcion.getText();
-        String Unidad = ChUnidad.getSelectionModel().getSelectedItem();
-        String Categoria = ChCategoria.getSelectionModel().getSelectedItem();
-        float costo = Integer.parseInt(FieldCosto.getText());
-        FieldIVA.getText();
-        FieldUtilidad.getText();
+        try{
+            String Nombre = FieldNombre.getText();
+            String Descripcion = AreaDescripcion.getText();
+            String Unidad = ChUnidad.getSelectionModel().getSelectedItem();
+            String Categoria = ChCategoria.getSelectionModel().getSelectedItem();
+            float costoB;
+            if (Objects.equals(FieldCostoB.getText(), "")){
+                costoB = 0;
+            }else{
+                costoB = Float.parseFloat(FieldCostoB.getText());
+            }
+            float IVA;
+            if (Objects.equals(FieldIVA.getText(), "")){
+                IVA = 0;
+            }else {
+                IVA = Float.parseFloat(FieldIVA.getText());
+            }
+            float Utilidad;
+            if (Objects.equals(FieldUtilidad.getText(), "")){
+                Utilidad = 0;
+            }else {
+                Utilidad = Float.parseFloat(FieldUtilidad.getText());
+            }
 
-        producto p = new producto();
+            /*
+            float costoB =  Float.parseFloat(FieldCostoB.getText());
+            float IVA = Float.parseFloat(FieldIVA.getText());
+            float Utilidad = Float.parseFloat(FieldUtilidad.getText());
+            */
+            // Obtener la fecha de vencimiento y cambiar el formato para ingresarla en la base de datos
+
+            LocalDate FechaVencimientoSel = FechaVencimiento.getValue();
+            String FechaVencimientoFor;
+            if (FechaVencimientoSel == null){
+                FechaVencimientoFor = "";
+            }else{
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                FechaVencimientoFor = FechaVencimientoSel.format(formatter);
+            }
+            producto p = new producto();
+            boolean res = p.crearProducto(Nombre, Descripcion, Unidad, 1, 1,FechaVencimientoFor,costoB,IVA, Utilidad);
+            if(res){
+                try {
+                    Alerta("Se agrego el producto.");
+                    ResetearPaneCrearProducto();
+
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }else {
+                try{
+                    Alerta("No se agrego el producto.");
+                    ResetearPaneCrearProducto();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }catch (NumberFormatException e){
+            try {
+                Alerta("Hay campos vacios, rellenelos y vuelva a intentar.");
+                ResetearPaneCrearProducto();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+
+        }
 
 
     }
+
+    // Resetar pane de creación de productos
+
+    private void ResetearPaneCrearProducto(){
+        FieldNombre.setText("");
+        AreaDescripcion.setText("");
+        FieldCodigo.setText("");
+        ChUnidad.setValue("");
+        ChCategoria.setValue("");
+        FechaVencimiento.setValue(null);
+        FieldCostoB.setText("");
+        FieldIVA.setText("");
+        LabelCostoI.setText("");
+        FieldUtilidad.setText("");
+        LabelPrecio.setText("");
+        if (Objects.equals(FieldNombre.getText(), "") && Objects.equals(ChUnidad.getSelectionModel().getSelectedItem() ,"")){
+            FieldCodigo.setText("");
+        }
+    }
+
+    // Método para crear una alerta
+
+    private void Alerta(String mensaje) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("Alerta.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        AlertaController controlador = fxmlLoader.getController();
+        controlador.setMensaje(mensaje);
+        Stage stage = new Stage();
+        stage.centerOnScreen();
+        stage.setScene(scene);
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.show();
+    }
+
 
 
 
