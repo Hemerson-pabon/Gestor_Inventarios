@@ -23,15 +23,15 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="995.0" style="-fx-background-color: #565651;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestor_inventarios.frontend.AdminController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="995.0" style="-fx-background-color: #565651;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestor_inventarios.frontend.Administrador.AdminController">
    <children>
       <VBox prefHeight="616.0" prefWidth="233.0" style="-fx-background-color: #00254e;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button fx:id="btnHome" alignment="CENTER" mnemonicParsing="false" onAction="#botonHomeClickeado" prefHeight="108.0" prefWidth="152.0">
+            <Button fx:id="btnHome" alignment="CENTER" mnemonicParsing="false" onAction="#botonHomeClickeado" prefHeight="108.0" prefWidth="152.0" stylesheets="@Style.css">
                <graphic>
                   <ImageView fitHeight="88.0" fitWidth="135.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@Images/home.png" />
+                        <Image url="@../Images/home.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -42,7 +42,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="btnCrear" alignment="BASELINE_LEFT" graphicTextGap="0.0" layoutX="10.0" layoutY="331.0" mnemonicParsing="false" onAction="#botonCrearClickeado" prefHeight="57.0" prefWidth="233.0" text="Crear producto" textFill="WHITE">
+            <Button fx:id="btnCrear" alignment="BASELINE_LEFT" graphicTextGap="0.0" layoutX="10.0" layoutY="331.0" mnemonicParsing="false" onAction="#botonCrearClickeado" prefHeight="57.0" prefWidth="233.0" stylesheets="@Style.css" text="Crear producto" textFill="WHITE">
                <padding>
                   <Insets left="20.0" />
                </padding>
@@ -56,7 +56,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="btnEntrada" alignment="BASELINE_LEFT" graphicTextGap="0.0" mnemonicParsing="false" onAction="#botonEntradaClickeado" pickOnBounds="false" prefHeight="54.0" prefWidth="234.0" text="Entrada y salida de productos" textFill="WHITE">
+            <Button fx:id="btnEntrada" alignment="BASELINE_LEFT" graphicTextGap="0.0" mnemonicParsing="false" onAction="#botonEntradaClickeado" pickOnBounds="false" prefHeight="54.0" prefWidth="234.0" stylesheets="@Style.css" text="Entrada y salida de productos" textFill="WHITE">
                <padding>
                   <Insets left="20.0" />
                </padding>
@@ -70,7 +70,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-         <Button fx:id="btnEdicion" alignment="BASELINE_LEFT" graphicTextGap="0.0" layoutX="10.0" layoutY="160.0" mnemonicParsing="false" onAction="#botonEdicionClickeado" prefHeight="57.0" prefWidth="233.0" styleClass="button" text="Edición de productos" textFill="WHITE">
+         <Button fx:id="btnEdicion" alignment="BASELINE_LEFT" graphicTextGap="0.0" layoutX="10.0" layoutY="160.0" mnemonicParsing="false" onAction="#botonEdicionClickeado" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Edición de productos" textFill="WHITE">
             <padding>
                <Insets left="20.0" />
             </padding>

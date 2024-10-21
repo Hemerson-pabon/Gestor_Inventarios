@@ -1,4 +1,4 @@
-package com.gestor_inventarios.frontend;
+package com.gestor_inventarios.frontend.Empleados;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

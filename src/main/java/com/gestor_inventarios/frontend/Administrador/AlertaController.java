@@ -1,4 +1,4 @@
-package com.gestor_inventarios.frontend;
+package com.gestor_inventarios.frontend.Administrador;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

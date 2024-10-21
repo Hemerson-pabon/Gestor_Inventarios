@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="166.0" prefWidth="266.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestor_inventarios.frontend.AlertaController">
+<AnchorPane prefHeight="166.0" prefWidth="266.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestor_inventarios.frontend.Administrador.AlertaController">
    <children>
       <VBox layoutX="-2.0" prefHeight="200.0" prefWidth="300.0">
          <children>

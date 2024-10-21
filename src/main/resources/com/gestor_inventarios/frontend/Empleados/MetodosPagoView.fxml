@@ -5,7 +5,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="303.0" prefWidth="384.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestor_inventarios.frontend.MetodosPagoViewController">
+<AnchorPane prefHeight="303.0" prefWidth="384.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestor_inventarios.frontend.Empleados.MetodosPagoViewController">
    <children>
       <Pane layoutX="-2.0" prefHeight="66.0" prefWidth="416.0" style="-fx-background-color: #5D83B1;">
          <children>

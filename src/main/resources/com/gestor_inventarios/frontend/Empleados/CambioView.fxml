@@ -5,7 +5,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="455.0" style="-fx-background-color: #C7DCE5;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestor_inventarios.frontend.CambioViewController">
+<AnchorPane prefHeight="400.0" prefWidth="455.0" style="-fx-background-color: #C7DCE5;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestor_inventarios.frontend.Empleados.CambioViewController">
    <children>
       <Pane prefHeight="74.0" prefWidth="464.0" style="-fx-background-color: #5D83B1;">
          <children>

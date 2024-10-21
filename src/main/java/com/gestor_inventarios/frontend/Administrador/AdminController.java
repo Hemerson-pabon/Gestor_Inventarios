@@ -1,6 +1,7 @@
-package com.gestor_inventarios.frontend;
+package com.gestor_inventarios.frontend.Administrador;
 
 import com.gestor_inventarios.backend.producto;
+import com.gestor_inventarios.frontend.main;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -67,8 +68,8 @@ public class AdminController {
 
     @FXML
     private void initialize() {
-        OpcionEyS.getItems().addAll(" ", "Entrada","Salida");
-        OpcionEyS.setValue(" ");
+        //OpcionEyS.getItems().addAll(" ", "Entrada","Salida");
+        //OpcionEyS.setValue(" ");
         //
         ChCategoria.getItems().addAll("Categoria1");
         ChCategoria.setValue("Categoria1");

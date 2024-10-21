@@ -1,4 +1,4 @@
-package com.gestor_inventarios.frontend;
+package com.gestor_inventarios.frontend.Empleados;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -43,6 +43,11 @@ public class FacturacionViewController {
 
     @FXML
     private CheckBox ventaCheckout;;
+
+    @FXML
+    protected void buttonMostradorClickeado(){
+        System.out.println("Mostrando");
+    }
 
 
 }

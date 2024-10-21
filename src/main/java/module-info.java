@@ -17,4 +17,8 @@ module com.gestor_inventarios.gestor_inventarios {
     exports com.gestor_inventarios.frontend;
     exports com.gestor_inventarios.backend;
     opens com.gestor_inventarios.frontend to javafx.fxml;
+    exports com.gestor_inventarios.frontend.Administrador;
+    opens com.gestor_inventarios.frontend.Administrador to javafx.fxml;
+    exports com.gestor_inventarios.frontend.Empleados;
+    opens com.gestor_inventarios.frontend.Empleados to javafx.fxml;
 }
