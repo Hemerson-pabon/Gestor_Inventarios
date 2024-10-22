@@ -13,6 +13,7 @@ module com.gestor_inventarios.gestor_inventarios {
     requires spring.security.crypto;
     requires micrometer.observation;
     requires java.desktop;
+    requires jfxrt;
 
     exports com.gestor_inventarios.frontend;
     exports com.gestor_inventarios.backend;

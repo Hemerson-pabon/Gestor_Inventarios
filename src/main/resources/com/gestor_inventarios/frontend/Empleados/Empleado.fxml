@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,12 +12,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="995.0" style="-fx-background-color: #565651;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestor_inventarios.frontend.Empleados.EmpleadoViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="995.0" style="-fx-background-color: #565651;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestor_inventarios.frontend.Empleados.EmpleadoController">
    <children>
       <VBox prefHeight="607.0" prefWidth="232.0" style="-fx-background-color: #5D83b1;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <ImageView fitHeight="112.0" fitWidth="234.0" pickOnBounds="true" preserveRatio="true" />
-            <Button id="button" fx:id="btnEntrada" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="22.0" mnemonicParsing="false" pickOnBounds="false" prefHeight="54.0" prefWidth="234.0" styleClass="button" stylesheets="@Style.css" text="Entrada y salida de productos" textAlignment="CENTER" textFill="WHITE">
+            <Button id="button" fx:id="mostradorButton" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="22.0" mnemonicParsing="false" onAction="#buttonMostradorClickeado" pickOnBounds="false" prefHeight="54.0" prefWidth="268.0" styleClass="button" stylesheets="@Style.css" text="Mostrador de ventas" textAlignment="CENTER" textFill="WHITE">
                <padding>
                   <Insets left="20.0" />
                </padding>
@@ -27,9 +28,9 @@
                   <Insets bottom="20.0" />
                </VBox.margin>
             </Button>
-         <Button id="button" fx:id="btnEdicion" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="22.0" layoutX="10.0" layoutY="160.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Edición de productos" textFill="WHITE">
+         <Button id="button" fx:id="devolucionButton" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="22.0" layoutX="10.0" layoutY="160.0" mnemonicParsing="false" onAction="#buttonDevolucionClickeado" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Devolucion de productos" textFill="WHITE">
             <graphic>
-               <ImageView fitHeight="30.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+               <ImageView fitHeight="30.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                      <Image url="@../../../../../../../../Pictures/jovenes.jpg" />
                   </image>
@@ -42,7 +43,7 @@
                   <Font name="Roboto Black" size="12.0" />
                </font>
             </Button>
-            <Button id="button" fx:id="btnUsuarios" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="22.0" layoutX="10.0" layoutY="274.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Usuarios y permisos" textFill="WHITE">
+            <Button id="button" fx:id="cierreCajaButton" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="22.0" layoutX="10.0" layoutY="274.0" mnemonicParsing="false" onAction="#buttonCierreClickeado" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Cierre de caja" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -57,7 +58,7 @@
                   <Font name="Roboto Black" size="12.0" />
                </font>
             </Button>
-            <Button id="button" fx:id="btnActualizar" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="22.0" layoutX="10.0" layoutY="331.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Actualizar precios" textFill="WHITE">
+            <Button id="button" fx:id="gastosButton" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="22.0" layoutX="10.0" layoutY="331.0" mnemonicParsing="false" onAction="#buttonGastosClickeado" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Gastos diarios" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -65,22 +66,6 @@
                      </image>
                   </ImageView>
                </graphic>
-               <VBox.margin>
-                  <Insets bottom="20.0" />
-               </VBox.margin>
-               <font>
-                  <Font name="Roboto Black" size="12.0" />
-               </font>
-            </Button>
-            <Button id="button" fx:id="btnInventario" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="22.0" layoutX="10.0" layoutY="388.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Inventario" textFill="WHITE">
-               <VBox.margin>
-                  <Insets bottom="20.0" />
-               </VBox.margin>
-               <font>
-                  <Font name="Roboto Black" size="12.0" />
-               </font>
-            </Button>
-            <Button id="button" fx:id="btnVentas" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="22.0" layoutX="10.0" layoutY="445.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Ventas" textFill="WHITE">
                <VBox.margin>
                   <Insets bottom="20.0" />
                </VBox.margin>
@@ -92,14 +77,401 @@
       </VBox>
       <StackPane layoutX="235.0" layoutY="-1.0" prefHeight="616.0" prefWidth="767.0">
          <children>
-            <Pane fx:id="paneDefault" layoutX="10.0" layoutY="10.0" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;" visible="false">
+            <Pane fx:id="paneDefault" layoutX="10.0" layoutY="10.0" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;">
                <children>
                   <Label layoutX="282.0" layoutY="147.0" text="Este es el panel por defecto" />
                </children>
             </Pane>
-            <Pane fx:id="paneDefault1" layoutX="10.0" layoutY="10.0" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;">
+            <Pane fx:id="mostradorPanel" layoutX="10.0" layoutY="10.0" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;">
                <children>
-                  <Label layoutX="47.0" layoutY="80.0" prefHeight="57.0" prefWidth="191.0" text="sus cambios" />
+                  <Label layoutX="220.0" layoutY="28.0" text="MOSTRADOR DE VENTAS" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Black" size="28.0" />
+                     </font></Label>
+                  <Label layoutX="577.0" layoutY="36.0" text="Vendedor:" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium" size="14.0" />
+                     </font>
+                  </Label>
+                  <Pane layoutX="21.0" layoutY="62.0" prefHeight="9.0" prefWidth="726.0" style="-fx-background-color: #565651;" />
+                  <Label fx:id="nombVendedor" layoutX="650.0" layoutY="36.0" text="nombVendedor" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="41.0" layoutY="82.0" prefHeight="18.0" prefWidth="149.0" text="-----------Codigo-----------" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="312.0" layoutY="82.0" text="Cantidad" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="399.0" layoutY="82.0" text="Precio unidad" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="625.0" layoutY="82.0" text="Total" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="codigoProdMostrador" layoutX="44.0" layoutY="109.0" promptText="Codigo producto">
+                     <font>
+                        <Font name="Roboto Light" size="12.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="cantProductoField" layoutX="312.0" layoutY="108.0" prefHeight="25.0" prefWidth="56.0" promptText="Cant">
+                     <font>
+                        <Font name="Roboto Light" size="12.0" />
+                     </font>
+                  </TextField>
+                  <Label fx:id="precioUnitMostrador" layoutX="390.0" layoutY="112.0" prefHeight="18.0" prefWidth="104.0" text="precioUnitMostrador" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="totalPrecioMostrador" layoutX="574.0" layoutY="112.0" text="totalPrecioMostrador" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium" size="14.0" />
+                     </font>
+                  </Label>
+                  <Pane layoutX="21.0" layoutY="379.0" prefHeight="73.0" prefWidth="726.0" style="-fx-background-color: #565651;">
+                     <children>
+                        <Label layoutX="225.0" layoutY="13.0" text="TOTAL VENTA=" textFill="WHITE">
+                           <font>
+                              <Font name="Roboto Black" size="38.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="totalVentaMostrador" layoutX="526.0" layoutY="20.0" prefHeight="34.0" prefWidth="213.0" text="totalVentaMostrador" textFill="WHITE">
+                           <font>
+                              <Font name="Roboto Black" size="28.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="531.0" layoutY="70.0" prefHeight="312.0" prefWidth="16.0" style="-fx-background-color: #565651;" />
+                  <Pane layoutX="21.0" layoutY="452.0" prefHeight="126.0" prefWidth="726.0" style="-fx-background-color: #5D83b1;">
+                     <children>
+                        <Button fx:id="nextProductoButton" layoutX="14.0" layoutY="18.0" mnemonicParsing="false" onAction="#buttonSiguienteMostradorClickeado" prefHeight="90.0" prefWidth="253.0" stylesheets="@Style.css" text="Siguiente producto" textFill="WHITE">
+                           <font>
+                              <Font name="Roboto Medium" size="25.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="editarFacturaButton" layoutX="280.0" layoutY="18.0" mnemonicParsing="false" onAction="#buttonEdicionMostradorClickeado" prefHeight="90.0" prefWidth="194.0" stylesheets="@Style.css" text="Editar factura" textFill="WHITE">
+                           <font>
+                              <Font name="Roboto Medium" size="25.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="facturarButton" layoutX="499.0" layoutY="18.0" mnemonicParsing="false" onAction="#buttonMostradorClickeado" prefHeight="90.0" prefWidth="213.0" stylesheets="@Style.css" text="Facturar venta" textFill="WHITE">
+                           <font>
+                              <Font name="Roboto Medium" size="25.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="738.0" layoutY="70.0" prefHeight="312.0" prefWidth="9.0" style="-fx-background-color: #565651;" />
+                  <Pane layoutX="21.0" layoutY="70.0" prefHeight="312.0" prefWidth="9.0" style="-fx-background-color: #565651;" />
+                  <Label layoutX="226.0" layoutY="82.0" text="Nombre" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="nombreProdMostrador" layoutX="208.0" layoutY="112.0" prefHeight="18.0" prefWidth="86.0" text="nombreProdMostrador" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="devolucionPanel" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;" visible="false">
+               <children>
+                  <Label layoutX="173.0" layoutY="28.0" text="DEVOLUCION DE PRODUCTOS" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Black" size="28.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="577.0" layoutY="36.0" text="Vendedor:" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium" size="14.0" />
+                     </font>
+                  </Label>
+                  <Pane layoutX="21.0" layoutY="62.0" prefHeight="9.0" prefWidth="726.0" style="-fx-background-color: #565651;" />
+                  <Label fx:id="nombVendedorDevol" layoutX="650.0" layoutY="36.0" text="nombVendedor" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="37.0" layoutY="82.0" prefHeight="18.0" prefWidth="149.0" text="-----------Codigo-----------" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="327.0" layoutY="82.0" text="Cantidad" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="399.0" layoutY="82.0" text="Precio unidad" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="625.0" layoutY="82.0" text="Total" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="codigoProductoDevolucion" layoutX="37.0" layoutY="108.0" promptText="Codigo producto">
+                     <font>
+                        <Font name="Roboto Light" size="12.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="cantProductoDevolucionField" layoutX="337.0" layoutY="110.0" prefHeight="25.0" prefWidth="37.0" promptText="Cant" />
+                  <Label fx:id="precioUnitDevol" layoutX="392.0" layoutY="113.0" text="precioUnitDevol" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="totalPrecioDevol" layoutX="589.0" layoutY="111.0" text="totalPrecioDevol" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium" size="14.0" />
+                     </font>
+                  </Label>
+                  <Pane layoutX="21.0" layoutY="379.0" prefHeight="73.0" prefWidth="726.0" style="-fx-background-color: #565651;">
+                     <children>
+                        <Label layoutX="225.0" layoutY="13.0" text="DEVOLUCION=" textFill="WHITE">
+                           <font>
+                              <Font name="Roboto Black" size="38.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="totalDevolucion" layoutX="526.0" layoutY="20.0" prefHeight="34.0" prefWidth="213.0" text="totalDevolucion" textFill="WHITE">
+                           <font>
+                              <Font name="Roboto Black" size="28.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="531.0" layoutY="70.0" prefHeight="312.0" prefWidth="16.0" style="-fx-background-color: #565651;" />
+                  <Pane layoutX="21.0" layoutY="452.0" prefHeight="126.0" prefWidth="726.0" style="-fx-background-color: #5D83b1;">
+                     <children>
+                        <Button fx:id="nextProductDevolButton" layoutX="10.0" layoutY="20.0" mnemonicParsing="false" onAction="#buttonSiguienteDevolClickeado" prefHeight="90.0" prefWidth="213.0" stylesheets="@Style.css" text="Siguiente producto" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="Roboto Medium" size="25.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="editarFactDevolButton" layoutX="280.0" layoutY="20.0" mnemonicParsing="false" onAction="#buttonEdicionDevolClickeado" prefHeight="90.0" prefWidth="194.0" stylesheets="@Style.css" text="Editar factura" textFill="WHITE">
+                           <font>
+                              <Font name="Roboto Medium" size="25.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="devolverButton" layoutX="499.0" layoutY="20.0" mnemonicParsing="false" onAction="#buttonDevolucionClickeado" prefHeight="90.0" prefWidth="213.0" stylesheets="@Style.css" text="Devolver al sistema" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="Roboto Medium" size="25.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="738.0" layoutY="70.0" prefHeight="312.0" prefWidth="9.0" style="-fx-background-color: #565651;" />
+                  <Pane layoutX="21.0" layoutY="70.0" prefHeight="312.0" prefWidth="9.0" style="-fx-background-color: #565651;" />
+                  <Label layoutX="205.0" layoutY="82.0" text="Nombre prod." textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="nombreProdDevol" layoutX="191.0" layoutY="113.0" text="nombreProdDevol" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="cierreCajaPanel" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;" visible="false">
+               <children>
+                  <Label layoutX="211.0" layoutY="28.0" text="CIERRE DE CAJA DIARIA" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Black" size="28.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="577.0" layoutY="36.0" text="Vendedor:" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium" size="14.0" />
+                     </font>
+                  </Label>
+                  <Pane layoutX="116.0" layoutY="129.0" prefHeight="9.0" prefWidth="480.0" style="-fx-background-color: #565651;" />
+                  <Label fx:id="nombVendedorCierre" layoutX="650.0" layoutY="36.0" text="nombVendedor" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="efectivoTextField" alignment="TOP_CENTER" layoutX="391.0" layoutY="211.0" prefHeight="47.0" prefWidth="174.0" promptText="Efectivo">
+                     <font>
+                        <Font name="Roboto Light" size="24.0" />
+                     </font>
+                  </TextField>
+                  <Pane layoutX="116.0" layoutY="446.0" prefHeight="73.0" prefWidth="480.0" style="-fx-background-color: #565651;">
+                     <children>
+                        <Button fx:id="insertIngresosButton" layoutX="13.0" layoutY="10.0" mnemonicParsing="false" onAction="#buttonCierreClickeado" prefHeight="54.0" prefWidth="457.0" stylesheets="@Style.css" text="Ingresar datos" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="Roboto Medium" size="25.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="360.0" layoutY="137.0" prefHeight="312.0" prefWidth="16.0" style="-fx-background-color: #565651;" />
+                  <Pane layoutX="587.0" layoutY="137.0" prefHeight="312.0" prefWidth="9.0" style="-fx-background-color: #565651;" />
+                  <Pane layoutX="116.0" layoutY="137.0" prefHeight="312.0" prefWidth="9.0" style="-fx-background-color: #565651;" />
+                  <Label layoutX="136.0" layoutY="143.0" text="Tipo de ingreso" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="nombreProdDevol1" layoutX="194.0" layoutY="220.0" text="Efectivo:" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium Italic" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="nombreProdDevol11" layoutX="198.0" layoutY="279.0" text="Nequi:" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium Italic" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="nombreProdDevol111" layoutX="198.0" layoutY="332.0" text="Daviplata:" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="nombreProdDevol112" layoutX="200.0" layoutY="390.0" text="Datafono:" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium Italic" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="442.0" layoutY="143.0" text="Valor" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="nequiTotalLabel" layoutX="442.0" layoutY="279.0" prefHeight="29.0" prefWidth="113.0" text="nequiTotalLabel" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="daviplataTotalLabel" layoutX="431.0" layoutY="332.0" prefHeight="29.0" prefWidth="134.0" text="daviplataTotalLabel" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="datafonoTotalLabel" layoutX="433.0" layoutY="390.0" prefHeight="29.0" prefWidth="123.0" text="datafonoTotalLabel" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium" size="24.0" />
+                     </font>
+                  </Label>
+                  <Pane layoutX="120.0" layoutY="186.0" prefHeight="9.0" prefWidth="472.0" style="-fx-background-color: #565651;" />
+                  <Label fx:id="nombreProdDevol113" layoutX="405.0" layoutY="279.0" text="\$." textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium Italic" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="nombreProdDevol1131" layoutX="405.0" layoutY="332.0" text="\$." textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium Italic" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="nombreProdDevol1132" layoutX="405.0" layoutY="390.0" text="\$." textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium Italic" size="24.0" />
+                     </font>
+                  </Label>
+                  <Pane layoutX="21.0" layoutY="62.0" prefHeight="9.0" prefWidth="726.0" style="-fx-background-color: #565651;" />
+                  <Pane layoutX="21.0" layoutY="585.0" prefHeight="9.0" prefWidth="726.0" style="-fx-background-color: #565651;" />
+                  <Pane layoutX="738.0" layoutY="64.0" prefHeight="522.0" prefWidth="9.0" style="-fx-background-color: #565651;" />
+                  <Pane layoutX="21.0" layoutY="64.0" prefHeight="522.0" prefWidth="9.0" style="-fx-background-color: #565651;" />
+               </children>
+            </Pane>
+            <Pane fx:id="gastosPanel" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;" visible="false">
+               <children>
+                  <Label layoutX="255.0" layoutY="28.0" text="GASTOS DIARIOS" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Black" size="28.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="577.0" layoutY="36.0" text="Vendedor:" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium" size="14.0" />
+                     </font>
+                  </Label>
+                  <Pane layoutX="116.0" layoutY="129.0" prefHeight="9.0" prefWidth="480.0" style="-fx-background-color: #565651;" />
+                  <Label fx:id="nombVendedorGastos" layoutX="650.0" layoutY="36.0" text="nombVendedor" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="valorGastoField" alignment="TOP_CENTER" layoutX="394.0" layoutY="149.0" prefHeight="34.0" prefWidth="174.0" promptText="Valor">
+                     <font>
+                        <Font name="Roboto Light" size="24.0" />
+                     </font>
+                  </TextField>
+                  <Pane layoutX="116.0" layoutY="446.0" prefHeight="73.0" prefWidth="480.0" style="-fx-background-color: #565651;">
+                     <children>
+                        <Button fx:id="ingresoGastoButton" layoutX="13.0" layoutY="10.0" mnemonicParsing="false" onAction="#buttonGastosClickeado" prefHeight="54.0" prefWidth="457.0" stylesheets="@Style.css" text="Ingresar gasto" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="Roboto Medium" size="25.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="360.0" layoutY="137.0" prefHeight="320.0" prefWidth="16.0" style="-fx-background-color: #565651;" />
+                  <Pane layoutX="587.0" layoutY="137.0" prefHeight="312.0" prefWidth="9.0" style="-fx-background-color: #565651;" />
+                  <Pane layoutX="116.0" layoutY="137.0" prefHeight="312.0" prefWidth="9.0" style="-fx-background-color: #565651;" />
+                  <Label layoutX="147.0" layoutY="80.0" text="Motivo de gasto" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="446.0" layoutY="80.0" text="Valor" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium" size="30.0" />
+                     </font>
+                  </Label>
+                  <Pane layoutX="120.0" layoutY="204.0" prefHeight="9.0" prefWidth="472.0" style="-fx-background-color: #565651;" />
+                  <Pane layoutX="21.0" layoutY="62.0" prefHeight="9.0" prefWidth="726.0" style="-fx-background-color: #565651;" />
+                  <Pane layoutX="21.0" layoutY="585.0" prefHeight="9.0" prefWidth="726.0" style="-fx-background-color: #565651;" />
+                  <Pane layoutX="738.0" layoutY="64.0" prefHeight="522.0" prefWidth="9.0" style="-fx-background-color: #565651;" />
+                  <Pane layoutX="21.0" layoutY="64.0" prefHeight="522.0" prefWidth="9.0" style="-fx-background-color: #565651;" />
+                  <TextField fx:id="motivoGastoField" alignment="TOP_CENTER" layoutX="142.0" layoutY="149.0" prefHeight="45.0" prefWidth="194.0" promptText="Motivo">
+                     <font>
+                        <Font name="Roboto Light" size="24.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="174.0" layoutY="222.0" text="Motivo de gasto" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="430.0" layoutY="222.0" text="Valor gastos" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium" size="18.0" />
+                     </font>
+                  </Label>
+                  <Pane layoutX="120.0" layoutY="393.0" prefHeight="9.0" prefWidth="472.0" style="-fx-background-color: #565651;" />
+                  <Label layoutX="141.0" layoutY="411.0" text="TOTAL GASTOS DIARIO:" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="totalGastosDia" layoutX="421.0" layoutY="411.0" text="totalGastosDia" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="394.0" layoutY="411.0" text="\$." textFill="#565651">
+                     <font>
+                        <Font name="Roboto Medium" size="21.0" />
+                     </font>
+                  </Label>
                </children>
             </Pane>
          </children>
