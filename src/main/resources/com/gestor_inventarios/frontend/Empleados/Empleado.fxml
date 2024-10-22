@@ -17,7 +17,7 @@
       <VBox prefHeight="607.0" prefWidth="232.0" style="-fx-background-color: #5D83b1;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <ImageView fitHeight="112.0" fitWidth="234.0" pickOnBounds="true" preserveRatio="true" />
-            <Button id="button" fx:id="mostradorButton" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="22.0" mnemonicParsing="false" onAction="#buttonMostradorClickeado" pickOnBounds="false" prefHeight="54.0" prefWidth="268.0" styleClass="button" stylesheets="@Style.css" text="Mostrador de ventas" textAlignment="CENTER" textFill="WHITE">
+            <Button id="button" fx:id="mostradorButton" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="22.0" mnemonicParsing="false" onAction="#buttonMostradorInterfazClickeado" pickOnBounds="false" prefHeight="54.0" prefWidth="268.0" styleClass="button" stylesheets="@Style.css" text="Mostrador de ventas" textAlignment="CENTER" textFill="WHITE">
                <padding>
                   <Insets left="20.0" />
                </padding>
@@ -28,7 +28,7 @@
                   <Insets bottom="20.0" />
                </VBox.margin>
             </Button>
-         <Button id="button" fx:id="devolucionButton" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="22.0" layoutX="10.0" layoutY="160.0" mnemonicParsing="false" onAction="#buttonDevolucionClickeado" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Devolucion de productos" textFill="WHITE">
+         <Button id="button" fx:id="devolucionButton" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="22.0" layoutX="10.0" layoutY="160.0" mnemonicParsing="false" onAction="#buttonDevolucionInterfazClickeado" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Devolucion de productos" textFill="WHITE">
             <graphic>
                <ImageView fitHeight="30.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                   <image>
@@ -43,7 +43,7 @@
                   <Font name="Roboto Black" size="12.0" />
                </font>
             </Button>
-            <Button id="button" fx:id="cierreCajaButton" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="22.0" layoutX="10.0" layoutY="274.0" mnemonicParsing="false" onAction="#buttonCierreClickeado" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Cierre de caja" textFill="WHITE">
+            <Button id="button" fx:id="cierreCajaButton" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="22.0" layoutX="10.0" layoutY="274.0" mnemonicParsing="false" onAction="#buttonCierreInterfazClickeado" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Cierre de caja" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -58,7 +58,7 @@
                   <Font name="Roboto Black" size="12.0" />
                </font>
             </Button>
-            <Button id="button" fx:id="gastosButton" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="22.0" layoutX="10.0" layoutY="331.0" mnemonicParsing="false" onAction="#buttonGastosClickeado" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Gastos diarios" textFill="WHITE">
+            <Button id="button" fx:id="gastosButton" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="22.0" layoutX="10.0" layoutY="331.0" mnemonicParsing="false" onAction="#buttonGastosInterfazClickeado" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Gastos diarios" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -82,7 +82,7 @@
                   <Label layoutX="282.0" layoutY="147.0" text="Este es el panel por defecto" />
                </children>
             </Pane>
-            <Pane fx:id="mostradorPanel" layoutX="10.0" layoutY="10.0" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;">
+            <Pane fx:id="mostradorPanel" layoutX="10.0" layoutY="10.0" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;" visible="false">
                <children>
                   <Label layoutX="220.0" layoutY="28.0" text="MOSTRADOR DE VENTAS" textFill="#565651">
                      <font>
@@ -289,7 +289,7 @@
                   </Label>
                </children>
             </Pane>
-            <Pane fx:id="cierreCajaPanel" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;" visible="false">
+            <Pane fx:id="cierreCajaPanel" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;">
                <children>
                   <Label layoutX="211.0" layoutY="28.0" text="CIERRE DE CAJA DIARIA" textFill="#565651">
                      <font>
@@ -391,7 +391,7 @@
                   <Pane layoutX="21.0" layoutY="64.0" prefHeight="522.0" prefWidth="9.0" style="-fx-background-color: #565651;" />
                </children>
             </Pane>
-            <Pane fx:id="gastosPanel" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;" visible="false">
+            <Pane fx:id="gastosPanel" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;">
                <children>
                   <Label layoutX="255.0" layoutY="28.0" text="GASTOS DIARIOS" textFill="#565651">
                      <font>

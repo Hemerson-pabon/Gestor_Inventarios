@@ -21,6 +21,8 @@ public class EmpleadoController {
     private TextField motivoGastoField;
     @FXML
     private Button ingresoGastoButton;
+    @FXML
+    private Button gastosButton;
 
     //Cierre de caja
     @FXML
@@ -35,6 +37,8 @@ public class EmpleadoController {
     private Label datafonoTotalLabel;
     @FXML
     private Button insertIngresosButton;
+    @FXML
+    private Button cierreCajaButton;
 
     //Devolucion
     @FXML
@@ -59,6 +63,8 @@ public class EmpleadoController {
     private TextField cantProductoDevolucionField;
     @FXML
     private TextField codigoProductoDevolucion;
+    @FXML
+    private Button devolucionButton;
 
     //Mostrador de ventas
     @FXML
@@ -83,20 +89,39 @@ public class EmpleadoController {
     private Button editarFacturaButton;
     @FXML
     private Button nextProductoButton;
+    @FXML
+    private Button mostradorButton;
+
+
 
     //Metodos
         //Mostrador de venta
-    protected void buttonSiguienteMostradorClickeado(){}
-    protected void buttonEdicionMostradorClickeado(){}
-    protected void buttonMostradorClickeado(){}
-        //Devolucion de productos
-    protected void buttonSiguienteDevolClickeado(){}
-    protected void buttonEdicionDevolClickeado(){}
-    protected void buttonDevolucionClickeado(){}
+    public void buttonMostradorInterfazClickeado(){
+        mostradorPanel.toFront();
+    }
+    public void buttonSiguienteMostradorClickeado(){}
+    public void buttonEdicionMostradorClickeado(){}
+    public void buttonMostradorClickeado(){}
+
+        //Devolucion de producto
+    public void buttonDevolucionInterfazClickeado(){
+        devolucionPanel.toFront();
+    }
+    public  void buttonSiguienteDevolClickeado(){}
+    public void buttonEdicionDevolClickeado(){}
+    public void buttonDevolucionClickeado(){}
+
         //Cierre de caja
-    protected void buttonCierreClickeado(){}
+    public void buttonCierreInterfazClickeado(){
+        cierreCajaPanel.toFront();
+    }
+    public void buttonCierreClickeado(){}
+
         //Gastos de caja
-    protected void buttonGastosClickeado(){}
+    public void buttonGastosInterfazClickeado(){
+        gastosPanel.toFront();
+    }
+    public void buttonGastosClickeado(){}
 
 
 }
