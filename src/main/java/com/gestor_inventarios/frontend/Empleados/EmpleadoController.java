@@ -1,10 +1,16 @@
 package com.gestor_inventarios.frontend.Empleados;
 
+import com.gestor_inventarios.backend.producto;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+
+import java.lang.reflect.Field;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class EmpleadoController {
 //Declaraciones de objetos
@@ -92,6 +98,27 @@ public class EmpleadoController {
     @FXML
     private Button mostradorButton;
 
+    // Metodo de inicialización
+
+    @FXML
+    private void initialize() {
+        codigoProdMostrador.textProperty().addListener((observable -> {
+            try {
+                producto p = new producto();
+                ArrayList<String> columns = new ArrayList<>();
+                columns.add("Descripción");
+                columns.add("Precio_Venta");
+                ResultSet res = p.Select("productos", columns, "ID_Producto = " + Integer.parseInt(codigoProdMostrador.getText()));
+                res.next();
+                System.out.println("Nombre: " + res.getString(1));
+                System.out.println("Precio: " + res.getString(2));
+            }catch (SQLException | NullPointerException ex){
+                codigoProdMostrador.setText("0");
+            } catch (NumberFormatException e){
+                LabelCostoI.setText("");
+            }
+        }));
+    }
 
 
     //Metodos

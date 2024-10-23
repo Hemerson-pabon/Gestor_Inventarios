@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="995.0" style="-fx-background-color: #565651;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestor_inventarios.frontend.Empleados.EmpleadoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="995.0" style="-fx-background-color: #565651;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestor_inventarios.frontend.Empleados.EmpleadoController">
    <children>
       <VBox prefHeight="607.0" prefWidth="232.0" style="-fx-background-color: #5D83b1;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -82,7 +82,7 @@
                   <Label layoutX="282.0" layoutY="147.0" text="Este es el panel por defecto" />
                </children>
             </Pane>
-            <Pane fx:id="mostradorPanel" layoutX="10.0" layoutY="10.0" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;" visible="false">
+            <Pane fx:id="mostradorPanel" layoutX="10.0" layoutY="10.0" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;">
                <children>
                   <Label layoutX="220.0" layoutY="28.0" text="MOSTRADOR DE VENTAS" textFill="#565651">
                      <font>
@@ -289,7 +289,7 @@
                   </Label>
                </children>
             </Pane>
-            <Pane fx:id="cierreCajaPanel" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;">
+            <Pane fx:id="cierreCajaPanel" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;" visible="false">
                <children>
                   <Label layoutX="211.0" layoutY="28.0" text="CIERRE DE CAJA DIARIA" textFill="#565651">
                      <font>
@@ -391,7 +391,7 @@
                   <Pane layoutX="21.0" layoutY="64.0" prefHeight="522.0" prefWidth="9.0" style="-fx-background-color: #565651;" />
                </children>
             </Pane>
-            <Pane fx:id="gastosPanel" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;">
+            <Pane fx:id="gastosPanel" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;" visible="false">
                <children>
                   <Label layoutX="255.0" layoutY="28.0" text="GASTOS DIARIOS" textFill="#565651">
                      <font>
@@ -416,7 +416,7 @@
                   </TextField>
                   <Pane layoutX="116.0" layoutY="446.0" prefHeight="73.0" prefWidth="480.0" style="-fx-background-color: #565651;">
                      <children>
-                        <Button fx:id="ingresoGastoButton" layoutX="13.0" layoutY="10.0" mnemonicParsing="false" onAction="#buttonGastosClickeado" prefHeight="54.0" prefWidth="457.0" stylesheets="@Style.css" text="Ingresar gasto" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                        <Button fx:id="ingresoGastoButton" layoutX="13.0" layoutY="10.0" mnemonicParsing="false" onAction="#buttonGastosClickeado" prefHeight="54.0" prefWidth="457.0" styleClass="button1" stylesheets="@Style.css" text="Ingresar gasto" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                            <font>
                               <Font name="Roboto Medium" size="25.0" />
                            </font>

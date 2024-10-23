@@ -6,3 +6,10 @@
 .button:hover{
     -fx-background-color: #00254e;
 }
+
+.button1{
+    -fx-background-color: transparent;
+}
+.button1:hover{
+    -fx-background-color: #000;
+}
