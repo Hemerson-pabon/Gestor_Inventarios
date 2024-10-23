@@ -2,6 +2,7 @@ module com.gestor_inventarios.gestor_inventarios {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
+    requires javafx.swing;
 
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
@@ -10,16 +11,13 @@ module com.gestor_inventarios.gestor_inventarios {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires java.sql;
-    requires spring.security.crypto;
-    requires micrometer.observation;
     requires java.desktop;
-    requires jfxrt;
+    requires micrometer.observation;
+    requires spring.security.crypto;
 
-    exports com.gestor_inventarios.frontend;
-    exports com.gestor_inventarios.backend;
-    opens com.gestor_inventarios.frontend to javafx.fxml;
-    exports com.gestor_inventarios.frontend.Administrador;
-    opens com.gestor_inventarios.frontend.Administrador to javafx.fxml;
-    exports com.gestor_inventarios.frontend.Empleados;
+
     opens com.gestor_inventarios.frontend.Empleados to javafx.fxml;
+    opens com.gestor_inventarios.frontend.Administrador to javafx.fxml;
+    exports com.gestor_inventarios.backend;
+    exports com.gestor_inventarios.frontend;
 }
