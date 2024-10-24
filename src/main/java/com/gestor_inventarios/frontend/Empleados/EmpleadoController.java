@@ -1,5 +1,6 @@
 package com.gestor_inventarios.frontend.Empleados;
 
+import com.gestor_inventarios.backend.Operaciones_SQL;
 import com.gestor_inventarios.backend.producto;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -97,31 +98,48 @@ public class EmpleadoController {
     private Button nextProductoButton;
     @FXML
     private Button mostradorButton;
-
+    //variables de instancias
+    int precioProduct= 0;
+    int totalVenta = 0;
     // Metodo de inicialización
 
     @FXML
     private void initialize() {
+        //obtener valores en el Field del codigo del mostrador
         codigoProdMostrador.textProperty().addListener((observable -> {
             try {
-                producto p = new producto();
+                Operaciones_SQL op = new Operaciones_SQL();
                 ArrayList<String> columns = new ArrayList<>();
                 columns.add("Descripción");
                 columns.add("Precio_Venta");
-                ResultSet res = p.Select("productos", columns, "ID_Producto = " + Integer.parseInt(codigoProdMostrador.getText()));
+                ResultSet res = op.Select("productos", columns, "ID_Producto = " + Integer.parseInt(codigoProdMostrador.getText()));
                 res.next();
                 System.out.println("Nombre: " + res.getString(1));
                 System.out.println("Precio: " + res.getString(2));
+                precioProduct = res.getInt(2);
             }catch (SQLException | NullPointerException ex){
                 codigoProdMostrador.setText("0");
             } catch (NumberFormatException e){
-                LabelCostoI.setText("");
+                precioUnitMostrador.setText("");
             }
         }));
+        //aca valida si  el Field de cantidad es llenado con un numero, aun no puedo hacer que el numero sea solo positivo
+        try{
+            int valorCantProduct = Integer.parseInt(cantProductoField.getText());
+            int resultado = valorCantProduct * precioProduct;
+            totalPrecioMostrador.setText(String.valueOf(resultado));
+            totalVenta += resultado;
+            totalVentaMostrador.setText(String.valueOf(totalVenta));
+        }catch(NumberFormatException e){
+            System.out.println("El valor ingresado debe ser un numero.");
+        }
+
     }
 
 
     //Metodos
+
+
         //Mostrador de venta
     public void buttonMostradorInterfazClickeado(){
         mostradorPanel.toFront();
