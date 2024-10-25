@@ -16,7 +16,7 @@ module com.gestor_inventarios.gestor_inventarios {
     requires spring.security.crypto;
 
 
-    opens com.gestor_inventarios.frontend.Empleados to javafx.fxml;
+    opens com.gestor_inventarios.frontend.Empleados to javafx.fxml, javafx.base;
     opens com.gestor_inventarios.frontend.Administrador to javafx.fxml;
     exports com.gestor_inventarios.backend;
     exports com.gestor_inventarios.frontend;

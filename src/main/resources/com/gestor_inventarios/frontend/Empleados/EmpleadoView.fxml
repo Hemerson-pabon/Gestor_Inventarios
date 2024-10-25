@@ -284,7 +284,7 @@
                                           <Font name="Roboto Medium" size="18.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="94.0" layoutY="18.0" text="Codigo producto">
+                                    <Label layoutX="94.0" layoutY="18.0" text="Codigo productoDevo">
                                        <font>
                                           <Font name="Roboto Medium" size="18.0" />
                                        </font>

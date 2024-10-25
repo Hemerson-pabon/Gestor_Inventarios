@@ -42,7 +42,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="btnCrear" alignment="BASELINE_LEFT" graphicTextGap="0.0" layoutX="10.0" layoutY="331.0" mnemonicParsing="false" onAction="#botonCrearClickeado" prefHeight="57.0" prefWidth="233.0" stylesheets="@Style.css" text="Crear producto" textFill="WHITE">
+            <Button fx:id="btnCrear" alignment="BASELINE_LEFT" graphicTextGap="0.0" layoutX="10.0" layoutY="331.0" mnemonicParsing="false" onAction="#botonCrearClickeado" prefHeight="57.0" prefWidth="233.0" stylesheets="@Style.css" text="Crear productoDevo" textFill="WHITE">
                <padding>
                   <Insets left="20.0" />
                </padding>
@@ -472,7 +472,7 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <Button layoutX="546.0" layoutY="498.0" mnemonicParsing="false" onAction="#BotonCrearProductoClickeado" prefHeight="57.0" prefWidth="184.0" style="-fx-background-color: #00254e; -fx-background-radius: 0;" text="Crear producto" textFill="WHITE">
+                  <Button layoutX="546.0" layoutY="498.0" mnemonicParsing="false" onAction="#BotonCrearProductoClickeado" prefHeight="57.0" prefWidth="184.0" style="-fx-background-color: #00254e; -fx-background-radius: 0;" text="Crear productoDevo" textFill="WHITE">
                      <font>
                         <Font name="Roboto Black" size="21.0" />
                      </font>
