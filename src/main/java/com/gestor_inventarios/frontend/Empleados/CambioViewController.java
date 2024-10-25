@@ -1,12 +1,19 @@
 package com.gestor_inventarios.frontend.Empleados;
 
+import com.gestor_inventarios.frontend.main;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.CheckBox;
+import javafx.scene.layout.Pane;
 
 public class CambioViewController {
+    //Panel por defecto
+    @FXML
+    private Pane cambioPane;
+
     //label's de la pantalla
     @FXML
     private Label valorLabel;
@@ -34,8 +41,14 @@ public class CambioViewController {
 
     //Eventos de los botones de la pantalla
         //cancelButton
-    private void botonCerrarClickeado(){
-
+    @FXML
+    public void botonCerrarClickeado() {
+        System.out.println("vaina esa");
     }
-
+    @FXML
+    public void OtrosMetodosButtonClick(){}
+    @FXML
+    public void facturarButtonClick(){}
+    @FXML
+    public void efectivoCheckClick(){}
 }

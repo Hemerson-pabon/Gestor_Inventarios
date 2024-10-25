@@ -94,7 +94,7 @@
                      </font>
                   </Label>
                   <Pane layoutX="21.0" layoutY="62.0" prefHeight="9.0" prefWidth="726.0" style="-fx-background-color: #565651;" />
-                  <Label fx:id="nombVendedor" layoutX="650.0" layoutY="36.0" text="nombVendedor" textFill="#565651">
+                  <Label fx:id="nombVendedor" layoutX="650.0" layoutY="36.0" prefHeight="18.0" prefWidth="99.0" text="nombVendedor" textFill="#565651">
                      <font>
                         <Font name="Roboto Medium" size="14.0" />
                      </font>
@@ -166,7 +166,7 @@
                               <Font name="Roboto Medium" size="25.0" />
                            </font>
                         </Button>
-                        <Button fx:id="facturarButton" layoutX="499.0" layoutY="18.0" mnemonicParsing="false" onAction="#buttonMostradorClickeado" prefHeight="90.0" prefWidth="213.0" stylesheets="@Style.css" text="Facturar venta" textFill="WHITE">
+                        <Button fx:id="facturarButton" layoutX="499.0" layoutY="18.0" mnemonicParsing="false" onAction="#buttonFacturarClickeado" prefHeight="90.0" prefWidth="213.0" stylesheets="@Style.css" text="Facturar venta" textFill="WHITE">
                            <font>
                               <Font name="Roboto Medium" size="25.0" />
                            </font>
