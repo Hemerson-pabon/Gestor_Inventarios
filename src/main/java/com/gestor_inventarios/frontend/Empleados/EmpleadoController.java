@@ -19,6 +19,14 @@ import java.io.IOException;
 
 public class EmpleadoController {
     //Declaraciones de objetos
+
+    //Home
+    @FXML
+    private Button homeBtn;
+
+    @FXML
+    private Pane paneDefault;
+
     //Gastos de caja
     @FXML
     private Pane gastosPanel;
@@ -147,6 +155,11 @@ public class EmpleadoController {
 
     //Metodos
 
+        //Ventana Home
+    @FXML
+    public void buttonHomeClickeado(){
+        paneDefault.toFront();
+    }
 
         //Mostrador de venta
     @FXML

@@ -16,7 +16,24 @@
    <children>
       <VBox prefHeight="607.0" prefWidth="232.0" style="-fx-background-color: #5D83b1;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fitHeight="112.0" fitWidth="234.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="homeBtn" mnemonicParsing="false" onAction="#buttonHomeClickeado" prefHeight="56.0" prefWidth="232.0" stylesheets="@Style.css">
+               <graphic>
+                  <ImageView fitHeight="96.0" fitWidth="107.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets bottom="50.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="10.0" />
+               </padding>
+            </Button>
             <Button id="button" fx:id="mostradorButton" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="22.0" mnemonicParsing="false" onAction="#buttonMostradorInterfazClickeado" pickOnBounds="false" prefHeight="54.0" prefWidth="268.0" styleClass="button" stylesheets="@Style.css" text="Mostrador de ventas" textAlignment="CENTER" textFill="WHITE">
                <padding>
                   <Insets left="20.0" />
@@ -25,8 +42,11 @@
                   <Font name="Roboto Black" size="12.0" />
                </font>
                <VBox.margin>
-                  <Insets bottom="20.0" />
+                  <Insets bottom="50.0" />
                </VBox.margin>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
             </Button>
          <Button id="button" fx:id="devolucionButton" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="22.0" layoutX="10.0" layoutY="160.0" mnemonicParsing="false" onAction="#buttonDevolucionInterfazClickeado" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Devolucion de productos" textFill="WHITE">
             <graphic>
@@ -37,11 +57,14 @@
                </ImageView>
             </graphic>
                <VBox.margin>
-                  <Insets bottom="20.0" />
+                  <Insets bottom="50.0" />
                </VBox.margin>
                <font>
                   <Font name="Roboto Black" size="12.0" />
                </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
             </Button>
             <Button id="button" fx:id="cierreCajaButton" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="22.0" layoutX="10.0" layoutY="274.0" mnemonicParsing="false" onAction="#buttonCierreInterfazClickeado" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Cierre de caja" textFill="WHITE">
                <graphic>
@@ -52,11 +75,14 @@
                   </ImageView>
                </graphic>
                <VBox.margin>
-                  <Insets bottom="20.0" />
+                  <Insets bottom="50.0" />
                </VBox.margin>
                <font>
                   <Font name="Roboto Black" size="12.0" />
                </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
             </Button>
             <Button id="button" fx:id="gastosButton" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="22.0" layoutX="10.0" layoutY="331.0" mnemonicParsing="false" onAction="#buttonGastosInterfazClickeado" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Gastos diarios" textFill="WHITE">
                <graphic>
@@ -67,11 +93,14 @@
                   </ImageView>
                </graphic>
                <VBox.margin>
-                  <Insets bottom="20.0" />
+                  <Insets bottom="50.0" />
                </VBox.margin>
                <font>
                   <Font name="Roboto Black" size="12.0" />
                </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
             </Button>
          </children>
       </VBox>
@@ -187,7 +216,7 @@
                   </Label>
                </children>
             </Pane>
-            <Pane fx:id="devolucionPanel" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;" visible="false">
+            <Pane fx:id="devolucionPanel" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;">
                <children>
                   <Label layoutX="173.0" layoutY="28.0" text="DEVOLUCION DE PRODUCTOS" textFill="#565651">
                      <font>
@@ -289,7 +318,7 @@
                   </Label>
                </children>
             </Pane>
-            <Pane fx:id="cierreCajaPanel" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;" visible="false">
+            <Pane fx:id="cierreCajaPanel" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;">
                <children>
                   <Label layoutX="211.0" layoutY="28.0" text="CIERRE DE CAJA DIARIA" textFill="#565651">
                      <font>
@@ -391,7 +420,7 @@
                   <Pane layoutX="21.0" layoutY="64.0" prefHeight="522.0" prefWidth="9.0" style="-fx-background-color: #565651;" />
                </children>
             </Pane>
-            <Pane fx:id="gastosPanel" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;" visible="false">
+            <Pane fx:id="gastosPanel" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;">
                <children>
                   <Label layoutX="255.0" layoutY="28.0" text="GASTOS DIARIOS" textFill="#565651">
                      <font>
