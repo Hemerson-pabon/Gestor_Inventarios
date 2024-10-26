@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="995.0" style="-fx-background-color: #565651;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestor_inventarios.frontend.Empleados.EmpleadoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="995.0" style="-fx-background-color: #565651;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestor_inventarios.frontend.Empleados.EmpleadoController">
    <children>
       <VBox prefHeight="607.0" prefWidth="232.0" style="-fx-background-color: #5D83b1;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -115,37 +115,38 @@
             </Pane>
             <Pane fx:id="mostradorPanel" layoutX="10.0" layoutY="10.0" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;">
                <children>
-                  <Label layoutX="219.0" text="MOSTRADOR DE VENTAS" textFill="#565651">
+                  <Label layoutX="222.0" layoutY="26.0" text="MOSTRADOR DE VENTAS" textFill="#565651">
                      <font>
                         <Font name="Roboto Black" size="28.0" />
-                     </font></Label>
-                  <Label layoutX="576.0" layoutY="8.0" text="Vendedor:" textFill="#565651">
+                     </font>
+                  </Label>
+                  <Label layoutX="561.0" layoutY="34.0" text="Vendedor:" textFill="#565651">
                      <font>
                         <Font name="Roboto Medium" size="14.0" />
                      </font>
                   </Label>
                   <Pane layoutX="21.0" layoutY="62.0" prefHeight="9.0" prefWidth="726.0" style="-fx-background-color: #565651;" />
-                  <Label fx:id="nombVendedor" layoutX="649.0" layoutY="8.0" prefHeight="18.0" prefWidth="99.0" text="nombVendedor" textFill="#565651">
+                  <Label fx:id="nombVendedor" layoutX="625.0" layoutY="34.0" prefHeight="18.0" prefWidth="99.0" text="nombVendedor" textFill="#565651">
                      <font>
                         <Font name="Roboto Medium" size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="codigoProdMostrador" layoutX="36.0" layoutY="33.0" promptText="Codigo producto">
+                  <TextField fx:id="codigoProdMostrador" layoutX="39.0" layoutY="78.0" prefHeight="23.0" prefWidth="130.0" promptText="Codigo producto">
                      <font>
                         <Font name="Roboto Light" size="12.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cantProductoField" layoutX="304.0" layoutY="32.0" prefHeight="25.0" prefWidth="56.0" promptText="Cant">
+                  <TextField fx:id="cantProductoField" layoutX="354.0" layoutY="77.0" prefHeight="25.0" prefWidth="56.0" promptText="Cant">
                      <font>
                         <Font name="Roboto Light" size="12.0" />
                      </font>
                   </TextField>
-                  <Label fx:id="precioUnitMostrador" layoutX="382.0" layoutY="36.0" prefHeight="18.0" prefWidth="104.0" text="600" textFill="#565651">
+                  <Label fx:id="precioUnitMostrador" layoutX="472.0" layoutY="81.0" prefHeight="18.0" prefWidth="104.0" text="600" textFill="#565651">
                      <font>
                         <Font name="Roboto Medium" size="14.0" />
                      </font>
                   </Label>
-                  <Pane layoutX="21.0" layoutY="379.0" prefHeight="73.0" prefWidth="726.0" style="-fx-background-color: #565651;">
+                  <Pane layoutX="21.0" layoutY="407.0" prefHeight="73.0" prefWidth="726.0" style="-fx-background-color: #565651;">
                      <children>
                         <Label layoutX="225.0" layoutY="13.0" text="TOTAL VENTA=" textFill="WHITE">
                            <font>
@@ -159,33 +160,14 @@
                         </Label>
                      </children>
                   </Pane>
-                  <Pane layoutX="21.0" layoutY="452.0" prefHeight="126.0" prefWidth="726.0" style="-fx-background-color: #5D83b1;">
-                     <children>
-                        <Button fx:id="nextProductoButton" layoutX="14.0" layoutY="18.0" mnemonicParsing="false" onAction="#buttonSiguienteMostradorClickeado" prefHeight="90.0" prefWidth="253.0" stylesheets="@Style.css" text="Siguiente producto" textFill="WHITE">
-                           <font>
-                              <Font name="Roboto Medium" size="25.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="editarFacturaButton" layoutX="280.0" layoutY="18.0" mnemonicParsing="false" onAction="#buttonEdicionMostradorClickeado" prefHeight="90.0" prefWidth="194.0" stylesheets="@Style.css" text="Editar factura" textFill="WHITE">
-                           <font>
-                              <Font name="Roboto Medium" size="25.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="facturarButton" layoutX="499.0" layoutY="18.0" mnemonicParsing="false" onAction="#buttonFacturarClickeado" prefHeight="90.0" prefWidth="213.0" stylesheets="@Style.css" text="Facturar venta" textFill="WHITE">
-                           <font>
-                              <Font name="Roboto Medium" size="25.0" />
-                           </font>
-                        </Button>
-                     </children>
-                  </Pane>
-                  <Pane layoutX="738.0" layoutY="70.0" prefHeight="312.0" prefWidth="9.0" style="-fx-background-color: #565651;" />
-                  <Pane layoutX="21.0" layoutY="70.0" prefHeight="312.0" prefWidth="9.0" style="-fx-background-color: #565651;" />
-                  <Label fx:id="nombreProdMostrador" layoutX="200.0" layoutY="36.0" prefHeight="18.0" prefWidth="86.0" text="nombreProdMostrador" textFill="#565651">
+                  <Pane layoutX="738.0" layoutY="70.0" prefHeight="337.0" prefWidth="9.0" style="-fx-background-color: #565651;" />
+                  <Pane layoutX="21.0" layoutY="70.0" prefHeight="337.0" prefWidth="9.0" style="-fx-background-color: #565651;" />
+                  <Label fx:id="nombreProdMostrador" layoutX="186.0" layoutY="81.0" prefHeight="18.0" prefWidth="123.0" text="nombreProdMostrador" textFill="#565651">
                      <font>
                         <Font name="Roboto Medium" size="14.0" />
                      </font>
                   </Label>
-                  <TableView fx:id="tablaVentas" layoutX="30.0" layoutY="71.0" prefHeight="304.0" prefWidth="711.0">
+                  <TableView fx:id="tablaVentas" layoutX="29.0" layoutY="116.0" prefHeight="291.0" prefWidth="711.0">
                     <columns>
                       <TableColumn fx:id="colCodigoVentas" prefWidth="75.0" text="Código" />
                       <TableColumn fx:id="colNombreVentas" prefWidth="75.0" text="Nombre Producto" />
@@ -197,38 +179,58 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
+                  <Pane layoutX="21.0" layoutY="107.0" prefHeight="9.0" prefWidth="726.0" style="-fx-background-color: #565651;" />
+                  <Pane layoutX="21.0" layoutY="480.0" prefHeight="90.0" prefWidth="726.0" style="-fx-background-color: #5D83b1;">
+                     <children>
+                        <Button fx:id="nextProductoButton" layoutX="14.0" layoutY="17.0" mnemonicParsing="false" onAction="#buttonSiguienteMostradorClickeado" prefHeight="57.0" prefWidth="265.0" stylesheets="@Style.css" text="Siguiente producto" textFill="WHITE">
+                           <font>
+                              <Font name="Roboto Medium" size="25.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="editarFacturaButton" layoutX="279.0" layoutY="17.0" mnemonicParsing="false" onAction="#buttonEdicionMostradorClickeado" prefHeight="57.0" prefWidth="208.0" stylesheets="@Style.css" text="Editar factura" textFill="WHITE">
+                           <font>
+                              <Font name="Roboto Medium" size="25.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="facturarButton" layoutX="480.0" layoutY="18.0" mnemonicParsing="false" onAction="#buttonFacturarClickeado" prefHeight="54.0" prefWidth="232.0" stylesheets="@Style.css" text="Facturar venta" textFill="WHITE">
+                           <font>
+                              <Font name="Roboto Medium" size="25.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </Pane>
                </children>
             </Pane>
             <Pane fx:id="devolucionPanel" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;" visible="false">
                <children>
-                  <Label layoutX="178.0" text="DEVOLUCION DE PRODUCTOS" textFill="#565651">
+                  <Label layoutX="178.0" layoutY="38.0" text="DEVOLUCION DE PRODUCTOS" textFill="#565651">
                      <font>
                         <Font name="Roboto Black" size="28.0" />
                      </font>
                   </Label>
-                  <Label layoutX="582.0" layoutY="8.0" text="Vendedor:" textFill="#565651">
+                  <Label layoutX="580.0" layoutY="46.0" text="Vendedor:" textFill="#565651">
                      <font>
                         <Font name="Roboto Medium" size="14.0" />
                      </font>
                   </Label>
-                  <Pane layoutX="21.0" layoutY="79.0" prefHeight="9.0" prefWidth="726.0" style="-fx-background-color: #565651;" />
-                  <Label fx:id="nombVendedorDevol" layoutX="655.0" layoutY="8.0" text="nombVendedor" textFill="#565651">
+                  <Pane layoutX="21.0" layoutY="80.0" prefHeight="9.0" prefWidth="726.0" style="-fx-background-color: #565651;" />
+                  <Label fx:id="nombVendedorDevol" layoutX="644.0" layoutY="46.0" text="nombVendedor" textFill="#565651">
                      <font>
                         <Font name="Roboto Medium" size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="codigoProductoDevolucion" layoutX="26.0" layoutY="47.0" promptText="Codigo producto">
+                  <TextField fx:id="codigoProductoDevolucion" layoutX="37.0" layoutY="97.0" prefHeight="23.0" prefWidth="123.0" promptText="Codigo producto">
                      <font>
                         <Font name="Roboto Light" size="12.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="cantProductoDevolucionField" layoutX="332.0" layoutY="47.0" prefHeight="25.0" prefWidth="37.0" promptText="Cant" />
-                  <Label fx:id="precioUnitDevol" layoutX="387.0" layoutY="50.0" text="1250" textFill="#565651">
+                  <TextField fx:id="cantProductoDevolucionField" layoutX="370.0" layoutY="97.0" prefHeight="25.0" prefWidth="45.0" promptText="Cant" />
+                  <Label fx:id="precioUnitDevol" layoutX="510.0" layoutY="101.0" text="1250" textFill="#565651">
                      <font>
                         <Font name="Roboto Medium" size="14.0" />
                      </font>
                   </Label>
-                  <Pane layoutX="21.0" layoutY="456.0" prefHeight="73.0" prefWidth="726.0" style="-fx-background-color: #565651;">
+                  <Pane layoutX="21.0" layoutY="428.0" prefHeight="73.0" prefWidth="726.0" style="-fx-background-color: #565651;">
                      <children>
                         <Label layoutX="225.0" layoutY="13.0" text="DEVOLUCION=" textFill="WHITE">
                            <font>
@@ -242,33 +244,33 @@
                         </Label>
                      </children>
                   </Pane>
-                  <Pane layoutX="21.0" layoutY="529.0" prefHeight="73.0" prefWidth="726.0" style="-fx-background-color: #5D83b1;">
+                  <Pane layoutX="21.0" layoutY="501.0" prefHeight="90.0" prefWidth="726.0" style="-fx-background-color: #5D83b1;">
                      <children>
-                        <Button fx:id="nextProductDevolButton" layoutX="14.0" layoutY="11.0" mnemonicParsing="false" onAction="#buttonSiguienteDevolClickeado" prefHeight="51.0" prefWidth="246.0" stylesheets="@Style.css" text="Siguiente producto" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                        <Button fx:id="nextProductDevolButton" layoutX="14.0" layoutY="17.0" mnemonicParsing="false" onAction="#buttonSiguienteDevolClickeado" prefHeight="57.0" prefWidth="253.0" stylesheets="@Style.css" text="Siguiente producto" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                            <font>
                               <Font name="Roboto Medium" size="25.0" />
                            </font>
                         </Button>
-                        <Button fx:id="editarFactDevolButton" layoutX="280.0" layoutY="-8.0" mnemonicParsing="false" onAction="#buttonEdicionDevolClickeado" prefHeight="90.0" prefWidth="194.0" stylesheets="@Style.css" text="Editar factura" textFill="WHITE">
+                        <Button fx:id="devolverButton" layoutX="459.0" layoutY="17.0" mnemonicParsing="false" onAction="#buttonDevolucionClickeado" prefHeight="57.0" prefWidth="253.0" stylesheets="@Style.css" text="Devolver al sistema" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                            <font>
                               <Font name="Roboto Medium" size="25.0" />
                            </font>
                         </Button>
-                        <Button fx:id="devolverButton" layoutX="499.0" layoutY="-8.0" mnemonicParsing="false" onAction="#buttonDevolucionClickeado" prefHeight="90.0" prefWidth="213.0" stylesheets="@Style.css" text="Devolver al sistema" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                        <Button fx:id="editarFactDevolButton" layoutX="266.0" layoutY="17.0" mnemonicParsing="false" onAction="#buttonEdicionDevolClickeado" prefHeight="57.0" prefWidth="194.0" stylesheets="@Style.css" text="Editar factura" textFill="WHITE">
                            <font>
                               <Font name="Roboto Medium" size="25.0" />
                            </font>
                         </Button>
                      </children>
                   </Pane>
-                  <Pane layoutX="737.0" layoutY="89.0" prefHeight="368.0" prefWidth="9.0" style="-fx-background-color: #565651;" />
+                  <Pane layoutX="738.0" layoutY="89.0" prefHeight="368.0" prefWidth="9.0" style="-fx-background-color: #565651;" />
                   <Pane layoutX="21.0" layoutY="87.0" prefHeight="374.0" prefWidth="9.0" style="-fx-background-color: #565651;" />
-                  <Label fx:id="nombreProdDevol" layoutX="182.0" layoutY="50.0" text="nombreProdDevol" textFill="#565651">
+                  <Label fx:id="nombreProdDevol" layoutX="185.0" layoutY="100.0" text="nombreProdDevol" textFill="#565651">
                      <font>
                         <Font name="Roboto Medium" size="14.0" />
                      </font>
                   </Label>
-                  <TableView fx:id="tablaDevolucion" layoutX="29.0" layoutY="88.0" prefHeight="368.0" prefWidth="711.0">
+                  <TableView fx:id="tablaDevolucion" layoutX="29.0" layoutY="137.0" prefHeight="291.0" prefWidth="711.0">
                     <columns>
                       <TableColumn fx:id="colCodigo" prefWidth="75.0" text="Código" />
                       <TableColumn fx:id="colNombre" prefWidth="75.0" text="Nombre Producto" />
@@ -280,6 +282,7 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
+                  <Pane layoutX="21.0" layoutY="128.0" prefHeight="9.0" prefWidth="723.0" style="-fx-background-color: #565651;" />
                </children>
             </Pane>
             <Pane fx:id="cierreCajaPanel" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;" visible="false">

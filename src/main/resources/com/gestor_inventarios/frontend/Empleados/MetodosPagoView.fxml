@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="303.0" prefWidth="384.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestor_inventarios.frontend.Empleados.MetodosPagoViewController">
+<AnchorPane prefHeight="303.0" prefWidth="384.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestor_inventarios.frontend.Empleados.MetodosPagoViewController">
    <children>
       <Pane layoutX="-2.0" prefHeight="66.0" prefWidth="416.0" style="-fx-background-color: #5D83B1;">
          <children>
-            <Button fx:id="atrasButton" layoutX="14.0" layoutY="11.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="44.0" style="-fx-background-color: #C7DCE5;" text="&lt;" textFill="WHITE">
+            <Button fx:id="atrasButton" layoutX="14.0" layoutY="11.0" mnemonicParsing="false" onAction="#atrasButtonClickeado" prefHeight="44.0" prefWidth="44.0" style="-fx-background-color: #C7DCE5;" text="&lt;" textFill="WHITE">
                <font>
                   <Font name="Roboto" size="24.0" />
                </font>
@@ -21,22 +24,22 @@
             </Label>
          </children>
       </Pane>
-      <CheckBox fx:id="nequiChekout" layoutX="31.0" layoutY="119.0" mnemonicParsing="false" text="Nequi">
+      <CheckBox fx:id="nequiCheckout" layoutX="31.0" layoutY="119.0" mnemonicParsing="false" onAction="#nequiAction" text="Nequi">
          <font>
             <Font name="Roboto" size="22.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="daviplataCheckout" layoutX="31.0" layoutY="169.0" mnemonicParsing="false" text="Daviplata">
+      <CheckBox fx:id="daviplataCheckout" layoutX="31.0" layoutY="169.0" mnemonicParsing="false" onAction="#daviplataAction" text="Daviplata">
          <font>
             <Font name="Roboto" size="22.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="debitoCheckout" layoutX="259.0" layoutY="119.0" mnemonicParsing="false" text="Debito">
+      <CheckBox fx:id="debitoCheckout" layoutX="259.0" layoutY="119.0" mnemonicParsing="false" onAction="#debitoAction" text="Debito">
          <font>
             <Font name="Roboto" size="22.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="debitoCheckout" layoutX="259.0" layoutY="164.0" mnemonicParsing="false" text="Credito">
+      <CheckBox fx:id="creditoCheckout" layoutX="259.0" layoutY="164.0" mnemonicParsing="false" onAction="#creditoAction" text="Credito">
          <font>
             <Font name="Roboto" size="22.0" />
          </font>
@@ -51,10 +54,10 @@
             <Font name="Roboto Medium" size="25.0" />
          </font>
       </Label>
-      <Pane layoutX="207.0" layoutY="225.0" prefHeight="82.0" prefWidth="206.0" style="-fx-background-color: #5D83B1;">
+      <Pane layoutX="208.0" layoutY="225.0" prefHeight="82.0" prefWidth="206.0" style="-fx-background-color: #5D83B1;">
          <children>
             <Line endX="25.399993896484375" endY="-51.99998474121094" layoutX="181.0" layoutY="52.0" startX="-176.66441345214844" startY="-52.60002136230469" strokeWidth="5.0" />
-            <Button fx:id="siguienteButton" layoutX="31.0" layoutY="18.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="138.0" style="-fx-background-color: #C7DCE5;" text="Siguiente" textFill="WHITE">
+            <Button fx:id="siguienteButton" layoutX="31.0" layoutY="18.0" mnemonicParsing="false" onAction="#siguienteButtonClickeado" prefHeight="46.0" prefWidth="138.0" style="-fx-background-color: #C7DCE5;" text="Siguiente" textFill="WHITE">
                <font>
                   <Font name="Roboto" size="24.0" />
                </font>
@@ -63,7 +66,7 @@
       </Pane>
       <Line endX="225.86444091796875" endY="-52.59999084472656" layoutX="184.0" layoutY="119.0" startX="-180.99998474121094" startY="-52.599998474121094" strokeWidth="5.0" />
       <Line endX="10.800064086914062" endY="171.0" layoutX="197.0" layoutY="132.0" startX="10.800048828125" startY="-62.59999084472656" strokeWidth="5.0" />
-      <CheckBox fx:id="ahorroCheckout" contentDisplay="CENTER" layoutX="31.0" layoutY="212.0" lineSpacing="1.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="46.0" prefWidth="158.0" text="Ahorro a la mano">
+      <CheckBox fx:id="ahorroCheckout" contentDisplay="CENTER" layoutX="31.0" layoutY="212.0" lineSpacing="1.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#ahorroAction" prefHeight="46.0" prefWidth="158.0" text="Ahorro a la mano">
          <font>
             <Font name="Roboto" size="22.0" />
          </font>

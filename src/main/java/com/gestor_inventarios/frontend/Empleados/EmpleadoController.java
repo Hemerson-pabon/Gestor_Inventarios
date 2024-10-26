@@ -249,9 +249,9 @@ public class EmpleadoController {
         ProductoVentas productoVentas = new ProductoVentas(name, code, cant, precioUnd);
         //Vacia los campos para escribir
         codigoProdMostrador.clear();
-        nombreProdMostrador.setText("nombreProducto");
+        nombreProdMostrador.setText(" ");
         cantProductoField.clear();
-        precioUnitMostrador.setText("600");
+        precioUnitMostrador.setText("0");
     }
 
     @FXML
@@ -264,15 +264,11 @@ public class EmpleadoController {
     public void buttonFacturarClickeado() throws IOException {
         /*Aca debe se debe hacer un metodo para abrir el CambioView.fxml,
           ademas que envie losa datos del total de venta a las label de ahi*/
-            // Cargar el archivo FXML de la nueva ventana
             FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("Empleados/CambioView.fxml"));
-            //Parent root = loader.load();
-            // Crear una nueva escena y un nuevo stage (ventana)
             Scene scene = new Scene(fxmlLoader.load());
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.setTitle("Cambio");
-            //stage.setScene(new Scene(root));
             stage.show();
     }
 

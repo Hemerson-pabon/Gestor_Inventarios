@@ -3,11 +3,15 @@ package com.gestor_inventarios.frontend.Empleados;
 import com.gestor_inventarios.frontend.main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.CheckBox;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class CambioViewController {
     //Panel por defecto
@@ -43,10 +47,18 @@ public class CambioViewController {
         //cancelButton
     @FXML
     public void botonCerrarClickeado() {
-        System.out.println("vaina esa");
+        Stage stage = (Stage) cancelButton.getScene().getWindow();
+        stage.close();
     }
     @FXML
-    public void OtrosMetodosButtonClick(){}
+    public void OtrosMetodosButtonClick() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("Empleados/MetodosPagoView.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.setTitle("Metodos de pago");
+        stage.show();
+    }
     @FXML
     public void facturarButtonClick(){}
     @FXML
