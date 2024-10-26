@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="995.0" style="-fx-background-color: #565651;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestor_inventarios.frontend.Empleados.EmpleadoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="995.0" style="-fx-background-color: #565651;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestor_inventarios.frontend.Empleados.EmpleadoController">
    <children>
       <VBox prefHeight="607.0" prefWidth="232.0" style="-fx-background-color: #5D83b1;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -51,13 +51,6 @@
                </opaqueInsets>
             </Button>
          <Button id="button" fx:id="devolucionButton" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="22.0" layoutX="10.0" layoutY="160.0" mnemonicParsing="false" onAction="#buttonDevolucionInterfazClickeado" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Devolucion de productos" textFill="WHITE">
-            <graphic>
-               <ImageView fitHeight="30.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../../../../../../../../Pictures/jovenes.jpg" />
-                  </image>
-               </ImageView>
-            </graphic>
                <VBox.margin>
                   <Insets bottom="50.0" />
                </VBox.margin>
@@ -69,13 +62,6 @@
                </opaqueInsets>
             </Button>
             <Button id="button" fx:id="cierreCajaButton" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="22.0" layoutX="10.0" layoutY="274.0" mnemonicParsing="false" onAction="#buttonCierreInterfazClickeado" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Cierre de caja" textFill="WHITE">
-               <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../../../../Pictures/jovenes.jpg" />
-                     </image>
-                  </ImageView>
-               </graphic>
                <VBox.margin>
                   <Insets bottom="50.0" />
                </VBox.margin>
@@ -87,13 +73,6 @@
                </opaqueInsets>
             </Button>
             <Button id="button" fx:id="gastosButton" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="22.0" layoutX="10.0" layoutY="331.0" mnemonicParsing="false" onAction="#buttonGastosInterfazClickeado" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Gastos diarios" textFill="WHITE">
-               <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../../../../Pictures/jovenes.jpg" />
-                     </image>
-                  </ImageView>
-               </graphic>
                <VBox.margin>
                   <Insets bottom="50.0" />
                </VBox.margin>
@@ -153,7 +132,7 @@
                               <Font name="Roboto Black" size="38.0" />
                            </font>
                         </Label>
-                        <Label fx:id="totalVentaMostrador" layoutX="526.0" layoutY="20.0" prefHeight="34.0" prefWidth="213.0" text="totalVentaMostrador" textFill="WHITE">
+                        <Label fx:id="totalVentaMostrador" layoutX="526.0" layoutY="20.0" prefHeight="34.0" prefWidth="213.0" text="\$ 0.0" textFill="WHITE">
                            <font>
                               <Font name="Roboto Black" size="28.0" />
                            </font>
@@ -201,7 +180,7 @@
                   </Pane>
                </children>
             </Pane>
-            <Pane fx:id="devolucionPanel" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;" visible="false">
+            <Pane fx:id="devolucionPanel" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;">
                <children>
                   <Label layoutX="178.0" layoutY="38.0" text="DEVOLUCION DE PRODUCTOS" textFill="#565651">
                      <font>
@@ -237,7 +216,7 @@
                               <Font name="Roboto Black" size="38.0" />
                            </font>
                         </Label>
-                        <Label fx:id="totalDevolucion" layoutX="526.0" layoutY="20.0" prefHeight="34.0" prefWidth="213.0" text="totalDevolucion" textFill="WHITE">
+                        <Label fx:id="totalDevolucion" layoutX="526.0" layoutY="20.0" prefHeight="34.0" prefWidth="213.0" text="\$ 0.0" textFill="WHITE">
                            <font>
                               <Font name="Roboto Black" size="28.0" />
                            </font>
@@ -387,7 +366,7 @@
                   <Pane layoutX="21.0" layoutY="64.0" prefHeight="522.0" prefWidth="9.0" style="-fx-background-color: #565651;" />
                </children>
             </Pane>
-            <Pane fx:id="gastosPanel" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;" visible="false">
+            <Pane fx:id="gastosPanel" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;">
                <children>
                   <Label layoutX="255.0" layoutY="28.0" text="GASTOS DIARIOS" textFill="#565651">
                      <font>
@@ -399,15 +378,15 @@
                         <Font name="Roboto Medium" size="14.0" />
                      </font>
                   </Label>
-                  <Pane layoutX="116.0" layoutY="129.0" prefHeight="9.0" prefWidth="480.0" style="-fx-background-color: #565651;" />
+                  <Pane layoutX="116.0" layoutY="121.0" prefHeight="9.0" prefWidth="480.0" style="-fx-background-color: #565651;" />
                   <Label fx:id="nombVendedorGastos" layoutX="650.0" layoutY="36.0" text="nombVendedor" textFill="#565651">
                      <font>
                         <Font name="Roboto Medium" size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="valorGastoField" alignment="TOP_CENTER" layoutX="394.0" layoutY="149.0" prefHeight="34.0" prefWidth="174.0" promptText="Valor">
+                  <TextField fx:id="valorGastoField" alignment="TOP_CENTER" layoutX="394.0" layoutY="134.0" prefHeight="25.0" prefWidth="174.0" promptText="Valor">
                      <font>
-                        <Font name="Roboto Light" size="24.0" />
+                        <Font size="14.0" />
                      </font>
                   </TextField>
                   <Pane layoutX="116.0" layoutY="446.0" prefHeight="73.0" prefWidth="480.0" style="-fx-background-color: #565651;">
@@ -419,9 +398,8 @@
                         </Button>
                      </children>
                   </Pane>
-                  <Pane layoutX="360.0" layoutY="137.0" prefHeight="320.0" prefWidth="16.0" style="-fx-background-color: #565651;" />
-                  <Pane layoutX="587.0" layoutY="137.0" prefHeight="312.0" prefWidth="9.0" style="-fx-background-color: #565651;" />
-                  <Pane layoutX="116.0" layoutY="137.0" prefHeight="312.0" prefWidth="9.0" style="-fx-background-color: #565651;" />
+                  <Pane layoutX="587.0" layoutY="128.0" prefHeight="321.0" prefWidth="9.0" style="-fx-background-color: #565651;" />
+                  <Pane layoutX="116.0" layoutY="128.0" prefHeight="321.0" prefWidth="9.0" style="-fx-background-color: #565651;" />
                   <Label layoutX="147.0" layoutY="80.0" text="Motivo de gasto" textFill="#565651">
                      <font>
                         <Font name="Roboto Medium" size="30.0" />
@@ -432,42 +410,41 @@
                         <Font name="Roboto Medium" size="30.0" />
                      </font>
                   </Label>
-                  <Pane layoutX="120.0" layoutY="204.0" prefHeight="9.0" prefWidth="472.0" style="-fx-background-color: #565651;" />
+                  <Pane layoutX="120.0" layoutY="167.0" prefHeight="9.0" prefWidth="472.0" style="-fx-background-color: #565651;" />
                   <Pane layoutX="21.0" layoutY="62.0" prefHeight="9.0" prefWidth="726.0" style="-fx-background-color: #565651;" />
                   <Pane layoutX="21.0" layoutY="585.0" prefHeight="9.0" prefWidth="726.0" style="-fx-background-color: #565651;" />
                   <Pane layoutX="738.0" layoutY="64.0" prefHeight="522.0" prefWidth="9.0" style="-fx-background-color: #565651;" />
                   <Pane layoutX="21.0" layoutY="64.0" prefHeight="522.0" prefWidth="9.0" style="-fx-background-color: #565651;" />
-                  <TextField fx:id="motivoGastoField" alignment="TOP_CENTER" layoutX="142.0" layoutY="149.0" prefHeight="45.0" prefWidth="194.0" promptText="Motivo">
+                  <TextField fx:id="motivoGastoField" alignment="TOP_CENTER" layoutX="133.0" layoutY="134.0" prefHeight="17.0" prefWidth="213.0" promptText="Motivo">
                      <font>
-                        <Font name="Roboto Light" size="24.0" />
+                        <Font size="14.0" />
                      </font>
                   </TextField>
-                  <Label layoutX="174.0" layoutY="222.0" text="Motivo de gasto" textFill="#565651">
-                     <font>
-                        <Font name="Roboto Medium" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="430.0" layoutY="222.0" text="Valor gastos" textFill="#565651">
-                     <font>
-                        <Font name="Roboto Medium" size="18.0" />
-                     </font>
-                  </Label>
                   <Pane layoutX="120.0" layoutY="393.0" prefHeight="9.0" prefWidth="472.0" style="-fx-background-color: #565651;" />
                   <Label layoutX="141.0" layoutY="411.0" text="TOTAL GASTOS DIARIO:" textFill="#565651">
                      <font>
                         <Font name="Roboto Medium" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="totalGastosDia" layoutX="421.0" layoutY="411.0" text="totalGastosDia" textFill="#565651">
+                  <Label fx:id="totalGastosDia" layoutX="421.0" layoutY="411.0" text="0.0" textFill="#565651">
                      <font>
                         <Font name="Roboto Medium" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="394.0" layoutY="411.0" text="\$." textFill="#565651">
+                  <Label layoutX="395.0" layoutY="411.0" text="\$" textFill="#565651">
                      <font>
                         <Font name="Roboto Medium" size="21.0" />
                      </font>
                   </Label>
+                  <TableView fx:id="tablaGastosDiarios" layoutX="125.0" layoutY="176.0" prefHeight="217.0" prefWidth="464.0">
+                    <columns>
+                      <TableColumn fx:id="colMotivo" prefWidth="75.0" text="Motivo de gasto" />
+                      <TableColumn fx:id="colValorGastos" prefWidth="75.0" text="Valor" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
                </children>
             </Pane>
          </children>

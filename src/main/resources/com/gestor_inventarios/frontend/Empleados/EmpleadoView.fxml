@@ -448,7 +448,7 @@
                               <Line endX="-124.935546875" endY="-335.5" fill="#5d83b1" layoutX="126.0" layoutY="609.0" startX="274.22882080078125" startY="-335.5" stroke="#5d83b1" strokeWidth="5.0" />
                               <Line endX="-16.999996185302734" endY="-335.5" fill="#5d83b1" layoutX="18.0" layoutY="414.0" startX="-17.0" startY="55.0" stroke="#5d83b1" strokeWidth="5.0" />
                               <Line endX="-16.999996185302734" endY="-335.5" fill="#5d83b1" layoutX="792.0" layoutY="414.0" startX="-17.00006103515625" startY="55.0" stroke="#5d83b1" strokeWidth="5.0" />
-                              <Label fx:id="confirmacionLabel11" layoutX="415.0" layoutY="131.0" prefHeight="72.0" prefWidth="348.0" text="Ingresar el valor del gasto" wrapText="true">
+                              <Label fx:id="confirmacionLabel11" layoutX="415.0" layoutY="131.0" prefHeight="72.0" prefWidth="348.0" text="Ingresar el valorGasto del gasto" wrapText="true">
                                  <font>
                                     <Font name="Roboto Black" size="23.0" />
                                  </font>

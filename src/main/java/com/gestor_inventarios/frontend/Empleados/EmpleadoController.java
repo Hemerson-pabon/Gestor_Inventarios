@@ -19,6 +19,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.List;
 
 public class EmpleadoController {
     //Declaraciones de objetos
@@ -30,6 +31,12 @@ public class EmpleadoController {
     private Pane paneDefault;
 
     //Gastos de caja
+    @FXML
+    private TableView tablaGastosDiarios;
+    @FXML
+    private TableColumn<String, Gastos> colMotivo;
+    @FXML
+    private TableColumn<Double, Gastos> colValorGastos;
     @FXML
     private Pane gastosPanel;
     @FXML
@@ -142,6 +149,8 @@ public class EmpleadoController {
 
     private ObservableList<ProductoVentas> listaProductoVentas = FXCollections.observableArrayList();
 
+    private ObservableList<Gastos> listaGastos = FXCollections.observableArrayList();
+
     //Variables de instancias
     int precioProduct = 0;
     int totalVenta = 0;
@@ -150,6 +159,9 @@ public class EmpleadoController {
     // Metodo de inicialización
     @FXML
     private void initialize() {
+        //Home por default
+        paneDefault.setVisible(true);
+        paneDefault.toFront();
         //obtener valores en el Field del codigo del mostrador
         codigoProdMostrador.textProperty().addListener((observable -> {
             try {
@@ -173,7 +185,7 @@ public class EmpleadoController {
             int valorCantProduct = Integer.parseInt(cantProductoField.getText());
             resultado = valorCantProduct * precioProduct;
         } catch (NumberFormatException e) {
-            System.out.println("El valor ingresado debe ser un numero.");
+            System.out.println("El valorGasto ingresado debe ser un numero.");
         } finally {
             totalVenta += resultado;
             //totalPrecioMostrador.setText(String.valueOf(resultado));
@@ -195,6 +207,8 @@ public class EmpleadoController {
 
         //Asocia la lista con la tabla
         tablaVentas.setItems(listaProductoVentas);
+
+
         //Tabla Devolucion
         //Enlaza cada columna con el atributo que corresponde
         colCodigo.setCellValueFactory(new PropertyValueFactory<>("codigo"));
@@ -215,6 +229,17 @@ public class EmpleadoController {
              double totalDevo = totalPrecioDevolucion();
              totalDevolucion.setText("$ " + String.format("%.2f", totalDevo));
          });
+
+         //Tabla Gastos
+         colMotivo.setCellValueFactory(new PropertyValueFactory<>("motivo"));
+         colValorGastos.setCellValueFactory(new PropertyValueFactory<>("valorGasto"));
+
+         tablaGastosDiarios.setItems(listaGastos);
+
+         listaGastos.addListener((ListChangeListener<? super Gastos>) c -> {
+             double total = totalGastosDia();
+             totalGastosDia.setText("$ " + String.format("%.2f", total));
+         });
     }
 
 
@@ -225,6 +250,7 @@ public class EmpleadoController {
         //Ventana Home
     @FXML
     public void buttonHomeClickeado(){
+        paneDefault.setVisible(true);
         paneDefault.toFront();
     }
 
@@ -235,10 +261,23 @@ public class EmpleadoController {
         // y envia ese panel al frente
         mostradorPanel.toFront();
         mostradorPanel.setVisible(true);
+        codigoProdMostrador.requestFocus();
+        //Hacer que vaya al siguiente textfield al presionar enter
+        codigoProdMostrador.setOnAction(event -> {
+            cantProductoField.setText("1");
+            cantProductoField.requestFocus();});
+        cantProductoField.setOnAction(event -> {
+            nextProductoButton.setStyle("-fx-background-color: #00254e;");
+            nextProductoButton.requestFocus();});
     }
+
+
+
 
     @FXML
     public void buttonSiguienteMostradorClickeado() {
+        nextProductoButton.setStyle("-fx-background-color: transparent;");
+        codigoProdMostrador.requestFocus();
         //Tomar los datos
         String code = codigoProdMostrador.getText();
         String name = nombreProdMostrador.getText();
@@ -279,9 +318,19 @@ public class EmpleadoController {
         // y envia ese panel al frente
         devolucionPanel.toFront();
         devolucionPanel.setVisible(true);
+        //hacer que vaya al siguiente text field al presionar enter
+        codigoProductoDevolucion.requestFocus();
+        codigoProductoDevolucion.setOnAction(event -> {
+            cantProductoDevolucionField.setText("1");
+            cantProductoDevolucionField.requestFocus();});
+        cantProductoDevolucionField.setOnAction(event -> {
+            nextProductDevolButton.setStyle("-fx-background-color: #00254e;");
+            nextProductDevolButton.requestFocus();});
     }
     @FXML
     public  void buttonSiguienteDevolClickeado(){
+        codigoProductoDevolucion.requestFocus();
+        nextProductDevolButton.setStyle("-fx-background-color: transparent;");
         // Tomar los datos
         String codigo = codigoProductoDevolucion.getText();
         String nombre = nombreProdDevol.getText();
@@ -316,6 +365,17 @@ public class EmpleadoController {
     public void buttonDevolucionClickeado(){
         /*En este metodo se debe hacer que se devuelva al inventario los productos
         * puestos a devolucion ademas de restarlo en los ingresos de ese mismo dia*/
+        tablaDevolucion.setItems(listaProductoDevos);
+        List<ProductoDevo> productoDevosSave = new ArrayList<>(tablaDevolucion.getItems());
+        productoDevosSave.forEach(productoDevo -> {
+            //Metodo para llevar a la base datos
+
+
+            System.out.println("Codigo: " + productoDevo.getCodigo());
+            System.out.println("Cantidad: " + productoDevo.getCantidad());
+            System.out.println("Precio Total: " + productoDevo.getPrecioUnd()*productoDevo.getCantidad());
+        });
+        tablaDevolucion.getItems().clear();
     }
 
         //Cierre de caja
@@ -342,13 +402,30 @@ public class EmpleadoController {
             // y envia ese panel al frente
         gastosPanel.toFront();
         gastosPanel.setVisible(true);
+        motivoGastoField.requestFocus();
+        motivoGastoField.setOnAction(event -> {valorGastoField.requestFocus();});
+        valorGastoField.setOnAction(event -> {ingresoGastoButton.requestFocus();});
     }
     @FXML
     public void buttonGastosClickeado(){
+        motivoGastoField.requestFocus();
+        String motivo = motivoGastoField.getText();
+        Double valor = Double.parseDouble(valorGastoField.getText());
 
+        Gastos gastos = new Gastos(motivo, valor);
+        listaGastos.add(gastos);
 
+        motivoGastoField.clear();
+        valorGastoField.clear();
     }
-
+    @FXML
+    public Double totalGastosDia(){
+        Double totalGastos = 0.0;
+        for(Gastos gastos: listaGastos){
+            totalGastos += gastos.getValorGasto();
+        }
+        return totalGastos;
+    }
 
 
 }
