@@ -3,7 +3,6 @@ package com.gestor_inventarios.frontend.Empleados;
 import com.gestor_inventarios.backend.Operaciones_SQL;
 import com.gestor_inventarios.frontend.main;
 import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -258,18 +257,25 @@ public class EmpleadoController {
     public void buttonEdicionMostradorClickeado() {
         /*En este metodo hay que hacer una tabla donde se puedan eliminar productos
           que el cliente ya no desee*/
-
     }
     @FXML
     public void buttonFacturarClickeado() throws IOException {
         /*Aca debe se debe hacer un metodo para abrir el CambioView.fxml,
-          ademas que envie losa datos del total de venta a las label de ahi*/
+          ademas que envie los datos del total de venta a las label de ahi
+          despues de esto cierre la ventana dependiendo si se oprimio el boton
+          de facturar en el cambio.fxml*/
             FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("Empleados/CambioView.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.setTitle("Cambio");
             stage.show();
+
+            /*if(/*poner condicion en el que el cambio fue dado* /){
+
+                Stage stage = (Stage) facturarButton.getScene().getWindow();
+                stage.close();
+            }*/
     }
 
         //Devolucion de producto
@@ -307,6 +313,12 @@ public class EmpleadoController {
         }
         return totalDevolucion;
     }
+    protected double value = totalPrecioDevolucion();
+
+    public EmpleadoController(){
+        this.value =value;
+    }
+
     @FXML
     public void buttonEdicionDevolClickeado(){
         /*En este metodo hay que hacer una tabla donde se puedan eliminar productos

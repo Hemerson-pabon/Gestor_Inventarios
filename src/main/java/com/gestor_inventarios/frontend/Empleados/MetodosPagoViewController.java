@@ -44,19 +44,61 @@ public class MetodosPagoViewController {
     }
 
     @FXML
-    public void nequiAction(){}
+    public void nequiAction(){
+        if (nequiChekout.isSelected()) {
+            daviplataCheckout.setSelected(false);
+            ahorroCheckout.setSelected(false);
+            debitoCheckout.setSelected(false);
+            creditoCheckout.setSelected(false);
+        }
+    }
 
     @FXML
-    public void daviplataAction(){}
+    public void daviplataAction(){
+        if (daviplataCheckout.isSelected()) {
+            nequiChekout.setSelected(false);
+            ahorroCheckout.setSelected(false);
+            debitoCheckout.setSelected(false);
+            creditoCheckout.setSelected(false);
+        }
+    }
 
     @FXML
-    public void ahorroAction(){}
+    public void ahorroAction(){
+        if (ahorroCheckout.isSelected()) {
+            daviplataCheckout.setSelected(false);
+            nequiChekout.setSelected(false);
+            debitoCheckout.setSelected(false);
+            creditoCheckout.setSelected(false);
+    }
+
+    }
 
     @FXML
-    public void debitoAction(){}
+    public void debitoAction(){
+        if (debitoCheckout.isSelected()) {
+            daviplataCheckout.setSelected(false);
+            ahorroCheckout.setSelected(false);
+            nequiChekout.setSelected(false);
+            creditoCheckout.setSelected(false);
+        }
+    }
 
     @FXML
-    public void creditoAction(){}
+    public void creditoAction(){
+        if (creditoCheckout.isSelected()) {
+            daviplataCheckout.setSelected(false);
+            ahorroCheckout.setSelected(false);
+            debitoCheckout.setSelected(false);
+            nequiChekout.setSelected(false);
+        }
+    }
+
+    //MetodosPagoViewController ventanaMetodos = new MetodosPagoViewController();
+
+
+
+
 
 
 }

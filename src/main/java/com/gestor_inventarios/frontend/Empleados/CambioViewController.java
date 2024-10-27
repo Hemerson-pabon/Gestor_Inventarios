@@ -1,19 +1,14 @@
 package com.gestor_inventarios.frontend.Empleados;
 
-import com.gestor_inventarios.frontend.main;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.scene.control.CheckBox;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+public class CambioViewController extends EmpleadoController {
+    String eleccion;
 
-public class CambioViewController {
     //Panel por defecto
     @FXML
     private Pane cambioPane;
@@ -21,46 +16,121 @@ public class CambioViewController {
     //label's de la pantalla
     @FXML
     private Label valorLabel;
-
     @FXML
     private Label cambioLabel;
 
     //button's de la pantalla
     @FXML
-    private Button OtrosMetodosButton;
-
-    @FXML
     private Button facturarButton;
-
     @FXML
     private Button cancelButton;
-
-    //checkbox de la pantalla
-    @FXML
-    private CheckBox efectivoCheckout;
 
     //TextField de la pantalla
     @FXML
     private TextField pagoField;
+    @FXML
+    private ComboBox <String> metodosComboBox;
 
     //Eventos de los botones de la pantalla
         //cancelButton
+    @FXML
+    public void initialize(){
+        metodosComboBox.setItems(FXCollections.observableArrayList("Efectivo","Nequi", "Daviplata","Ahorro a la mano","Tarjeta debito","Tarjeta credito"));
+    }
     @FXML
     public void botonCerrarClickeado() {
         Stage stage = (Stage) cancelButton.getScene().getWindow();
         stage.close();
     }
     @FXML
-    public void OtrosMetodosButtonClick() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("Empleados/MetodosPagoView.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.setTitle("Metodos de pago");
-        stage.show();
+    public void facturarButtonClick(){
+        Stage stage = (Stage) facturarButton.getScene().getWindow();
+        stage.close();
     }
     @FXML
-    public void facturarButtonClick(){}
-    @FXML
-    public void efectivoCheckClick(){}
+    public void metodosAction(){
+        verificadorField();
+    }
+
+    public int seleccionMetodoUsuario(){
+        eleccion = metodosComboBox.getValue();
+        switch (eleccion){
+            case "Efectivo":
+                return 1;
+            case "Nequi":
+            return 2;
+            case "Daviplata":
+                return 3;
+            case "Ahorro a la mano":
+                return 4;
+            case "Tarjeta debito":
+                return 5;
+            case "Tarjeta credito":
+                return 6;
+
+
+        }
+        return 0;
+    }
+
+    public void verificadorField(){
+        int elector = seleccionMetodoUsuario();
+        if (elector != 1){
+            pagoField.setDisable(true);
+            //pagoField.setText();  //asignarle el valor de la label de valor total
+        }else{
+            pagoField.setDisable(false);
+            //aca se debe hacer la resta del valor ingresado por el cambio y el valor total de venta
+            //tambien debe enviar a la label del cambio
+        }
+    }
+
+
+    //CambioViewController ventanaCambio = new CambioViewController();
+    /*public int Insert(String table, ArrayList<String> columns, ArrayList<Object> values){
+        // Construcción del string para insertar datos
+        StringBuilder sql = new StringBuilder("INSERT INTO ");
+        sql.append(table);
+        sql.append(" (");
+        for (int i = 0; i < columns.size(); i++) {
+            if (i == columns.size() - 1) {
+                sql.append(columns.get(i));
+            }else{
+                sql.append(columns.get(i)).append(", ");
+            }
+        }
+        sql.append(") VALUES (");
+
+        for (int i = 0; i < values.size(); i++) {
+            if (i == values.size() - 1) {
+                sql.append("?");
+            }
+            else {
+                sql.append("?, ");
+            }
+        }
+        sql.append(")");
+        try{
+            ST = cn.getConexion().prepareStatement(sql.toString());
+            for (int i = 0; i < values.size(); i++) {
+                Object value = values.get(i);
+                switch (value) {
+                    case String s -> ST.setString(i + 1, s);  // Para cadenas
+                    case Integer integer -> ST.setInt(i + 1, integer);  // Para enteros
+                    case Double v -> ST.setDouble(i + 1, v);  // Para números decimales
+                    case Boolean b -> ST.setBoolean(i + 1, b);  // Para valores booleanos
+                    case null, default -> ST.setObject(i + 1, value);  // Para otros tipos de datos
+                }
+            }
+
+            return ST.executeUpdate();
+        }catch (SQLException e) {
+            System.err.println("Error al intentar consultar datos: " + e.getMessage());
+        }
+        finally {
+            cn.close();
+        }
+        return 0;
+    }*/
+
 }
