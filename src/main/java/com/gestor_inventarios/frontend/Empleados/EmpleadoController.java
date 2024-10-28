@@ -175,14 +175,29 @@ public class EmpleadoController {
                 ArrayList<String> columns = new ArrayList<>();
                 columns.add("Descripción");
                 columns.add("Precio_Venta");
+                columns.add("Stock");
                 ResultSet res = op.Select("productos", columns, "ID_Producto = " + Integer.parseInt(codigoProdMostrador.getText()));
                 res.next();
                 nombreProdMostrador.setText(res.getString("Descripción"));
                 precioUnitMostrador.setText(res.getString("Precio_Venta"));
+                int stockProducto = res.getInt("Stock");
                 int valorCantProduct = Integer.parseInt(cantProductoField.getText());
+                if (stockProducto < valorCantProduct) {
+                    // aca hay que desarrollar el error de falta de stock
+                    FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("Empleados/AlertaView.fxml"));
+                    Scene scene = new Scene(fxmlLoader.load());
+                    Stage stage = new Stage();
+                    stage.setScene(scene);
+                    stage.setTitle("Error");
+                    stage.show();
+                }
+                //System.out.println(valorCantProduct);
                 totalPrecioMostrador.setText(String.valueOf(valorCantProduct * res.getInt(2)));
+                //System.out.println(totalPrecioMostrador.getText());
                 precioProduct = res.getInt(2);
-            } catch (SQLException | NullPointerException ex) {
+                //int valorStock = res.getInt(3);
+                //System.out.println(valorStock);
+            } catch (SQLException | NullPointerException | IOException ex) {
                 codigoProdMostrador.setText("0");
 
             } catch (NumberFormatException e) {

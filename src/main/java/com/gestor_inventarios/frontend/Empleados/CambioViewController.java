@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -45,15 +46,16 @@ public class CambioViewController extends EmpleadoController {
     public void initialize(){
         metodosComboBox.setItems(FXCollections.observableArrayList("Efectivo","Nequi", "Daviplata","Ahorro a la mano","Tarjeta debito","Tarjeta credito"));
     }
+
     @FXML
-    public void botonCerrarClickeado() {
+    public void botonCerrarClickeado(){
         Stage stage = (Stage) cancelButton.getScene().getWindow();
         stage.close();
     }
     @FXML
     public void facturarButtonClick() throws IOException {
 
-        int newStock =1;
+        int newStock = 1;
         int productoEleccion = 2;
 
         Operaciones_SQL op = new Operaciones_SQL();
