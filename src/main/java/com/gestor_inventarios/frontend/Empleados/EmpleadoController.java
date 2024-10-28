@@ -18,10 +18,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 public class EmpleadoController {
     //Declaraciones de objetos
+
+    int ID_SucursalEd = 1;
 
     //Home
     @FXML
@@ -184,7 +187,7 @@ public class EmpleadoController {
                 precioProduct = res.getInt(2);
             } catch (SQLException | NullPointerException ex) {
                 //codigoProdMostrador.setText("0");
-
+//m
             } catch (NumberFormatException e) {
                 // precioUnitMostrador.setText("");
             }
@@ -285,7 +288,7 @@ public class EmpleadoController {
 
         //Mostrador de venta
     @FXML
-    public void buttonMostradorInterfazClickeado() {
+    public void buttonMostradorInterfazClickeado() throws IOException {
         //en este metodo activa el panel de mostrador
         // y envia ese panel al frente
         mostradorPanel.toFront();
@@ -302,16 +305,36 @@ public class EmpleadoController {
             columns.add("Precio_Venta");
             ResultSet res = op.Select("productos", columns, "ID_Producto = " + Integer.parseInt(codigoProdMostrador.getText()));
             res.next();
+            int valorCantProduct = Integer.parseInt(cantProductoField.getText());
             nombreProdMostrador.setText(res.getString("Nombre"));
             precioUnitMostrador.setText(res.getString("Precio_Venta"));
-            int valorCantProduct = Integer.parseInt(cantProductoField.getText());
             totalPrecioMostrador.setText(String.valueOf(valorCantProduct * res.getInt(2)));
+            // precioProduct = res.getInt(2);
+            //
+            // Obtener el stock de la tabla de inventario
+            ArrayList<String> columnsI = new ArrayList<>(Arrays.asList("Stock_Actual"));
+            ResultSet resI = op.Select("inventario", columnsI, "ID_Producto = " + Integer.parseInt(codigoProdMostrador.getText()) + " AND ID_Sucursal = " + ID_SucursalEd);
+            int stockProducto = resI.getInt("Stock_Actual");
+            if (stockProducto < valorCantProduct) {
+                // aca hay que desarrollar el error de falta de stock
+                FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("Empleados/AlertaView.fxml"));
+                Scene scene = new Scene(fxmlLoader.load());
+                Stage stage = new Stage();
+                stage.setScene(scene);
+                stage.setTitle("Error");
+                stage.show();
+            }
+            //System.out.println(valorCantProduct);
+            totalPrecioMostrador.setText(String.valueOf(valorCantProduct * res.getInt(2)));
+            //System.out.println(totalPrecioMostrador.getText());
             precioProduct = res.getInt(2);
         } catch (SQLException | NullPointerException ex) {
             //codigoProdMostrador.setText("0");
 
         } catch (NumberFormatException e) {
             // precioUnitMostrador.setText("");
+        } catch (IOException e) {
+
         }
         });
         cantProductoField.setOnAction(event -> {
