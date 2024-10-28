@@ -366,7 +366,7 @@
                   <Pane layoutX="21.0" layoutY="64.0" prefHeight="522.0" prefWidth="9.0" style="-fx-background-color: #565651;" />
                </children>
             </Pane>
-            <Pane fx:id="gastosPanel" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;" visible="false">
+            <Pane fx:id="gastosPanel" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;">
                <children>
                   <Label layoutX="255.0" layoutY="28.0" text="GASTOS DIARIOS" textFill="#565651">
                      <font>
@@ -426,14 +426,9 @@
                         <Font name="Roboto Medium" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="totalGastosDia" layoutX="421.0" layoutY="411.0" text="0.0" textFill="#565651">
+                  <Label fx:id="totalGastosDia" layoutX="421.0" layoutY="411.0" text="\$ 0.0" textFill="#565651">
                      <font>
                         <Font name="Roboto Medium" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="395.0" layoutY="411.0" text="\$" textFill="#565651">
-                     <font>
-                        <Font name="Roboto Medium" size="21.0" />
                      </font>
                   </Label>
                   <TableView fx:id="tablaGastosDiarios" layoutX="125.0" layoutY="176.0" prefHeight="217.0" prefWidth="464.0">

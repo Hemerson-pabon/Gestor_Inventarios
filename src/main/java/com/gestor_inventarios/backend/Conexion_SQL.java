@@ -10,10 +10,10 @@ public class Conexion_SQL {
     private static final String driver = "com.mysql.cj.jdbc.Driver";
     private static final String url = "jdbc:mysql://localhost:3306/gestor_inventarios";
     private static final String user = "root";
-    //private static final String password = "7P2a%Wj3";
-    private static final String password = "2006";
+    private static final String password = "7P2a%Wj3";
+    //private static final String password = "2006";
 
-    // Método main para la conexión
+    // Metodo main para la conexión
     public Conexion_SQL() {
         conexion = null;
         try {

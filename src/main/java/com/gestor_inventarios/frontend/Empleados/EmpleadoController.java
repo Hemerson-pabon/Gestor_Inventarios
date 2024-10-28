@@ -169,42 +169,27 @@ public class EmpleadoController {
         paneDefault.setVisible(true);
         paneDefault.toFront();
         //obtener valores en el Field del codigo del mostrador
-        codigoProdMostrador.textProperty().addListener(observable -> {
+        /*codigoProdMostrador.textProperty().addListener(observable -> {
             try {
                 Operaciones_SQL op = new Operaciones_SQL();
                 ArrayList<String> columns = new ArrayList<>();
                 columns.add("Descripción");
                 columns.add("Precio_Venta");
-                columns.add("Stock");
                 ResultSet res = op.Select("productos", columns, "ID_Producto = " + Integer.parseInt(codigoProdMostrador.getText()));
                 res.next();
                 nombreProdMostrador.setText(res.getString("Descripción"));
                 precioUnitMostrador.setText(res.getString("Precio_Venta"));
-                int stockProducto = res.getInt("Stock");
                 int valorCantProduct = Integer.parseInt(cantProductoField.getText());
-                if (stockProducto < valorCantProduct) {
-                    // aca hay que desarrollar el error de falta de stock
-                    FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("Empleados/AlertaView.fxml"));
-                    Scene scene = new Scene(fxmlLoader.load());
-                    Stage stage = new Stage();
-                    stage.setScene(scene);
-                    stage.setTitle("Error");
-                    stage.show();
-                }
-                //System.out.println(valorCantProduct);
                 totalPrecioMostrador.setText(String.valueOf(valorCantProduct * res.getInt(2)));
-                //System.out.println(totalPrecioMostrador.getText());
                 precioProduct = res.getInt(2);
-                //int valorStock = res.getInt(3);
-                //System.out.println(valorStock);
-            } catch (SQLException | NullPointerException | IOException ex) {
-                codigoProdMostrador.setText("0");
+            } catch (SQLException | NullPointerException ex) {
+                //codigoProdMostrador.setText("0");
 
             } catch (NumberFormatException e) {
                 // precioUnitMostrador.setText("");
             }
-        });
-        codigoProductoDevolucion.textProperty().addListener(observable -> {
+        });*/
+        /*codigoProductoDevolucion.textProperty().addListener(observable -> {
             try {
                 Operaciones_SQL op = new Operaciones_SQL();
                 ArrayList<String> columns = new ArrayList<>();
@@ -223,38 +208,20 @@ public class EmpleadoController {
             } catch (NumberFormatException e) {
                 // precioUnitMostrador.setText("");
             }
-        });
+        });*/
 
 
 
         // Evento para cuando se ingrese la cantidad, calcular el valor
         //aca valida si  el Field de cantidad es llenado con un numero, aun no puedo hacer que el numero sea solo positivo
 
-        /*
-        try {
-            int valorCantProduct = Integer.parseInt(cantProductoField.getText());
-            resultado = valorCantProduct * precioProduct;
-        } catch (NumberFormatException e) {
-            System.out.println("El valorGasto ingresado debe ser un numero.");
-            FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("Empleados/AlertaView.fxml"));
-            Scene scene = new Scene(fxmlLoader.load());
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.setTitle("Error emergente");
-            stage.show();
-        } finally {
-            totalVenta += resultado;
-            //totalPrecioMostrador.setText(String.valueOf(resultado));
-            totalVentaMostrador.setText(String.valueOf(totalVenta));
-        }
 
-         */
 
         //Tabla Ventas
         //Enlaza cada columna con el atributo que corresponde
         colCodigoVentas.setCellValueFactory(new PropertyValueFactory("codigoVenta"));
         colNombreVentas.setCellValueFactory(new PropertyValueFactory("nombreVenta"));
-        colCantidadVentas.setCellValueFactory(new PropertyValueFactory("cantidadVenta"));
+        colCantidadVentas.setCellValueFactory(new PropertyValueFactory("cantidadVentas"));
         colPrecioUndVentas.setCellValueFactory(new PropertyValueFactory("precioVentaUnd"));
         colPrecioTotalVentas.setCellValueFactory(cellData -> {
             ProductoVentas productoVentas = cellData.getValue();
@@ -265,6 +232,11 @@ public class EmpleadoController {
         //Asocia la lista con la tabla
         tablaVentas.setItems(listaProductoVentas);
 
+        //Actializa el total de venta
+        listaProductoVentas.addListener((ListChangeListener<? super ProductoVentas>) c -> {
+            double totalVentas = totalPrecioVentas();
+            totalVentaMostrador.setText("$ " + String.format("%.2f", totalVentas));
+        });
 
         //Tabla Devolucion
         //Enlaza cada columna con el atributo que corresponde
@@ -322,7 +294,26 @@ public class EmpleadoController {
         //Hacer que vaya al siguiente textfield al presionar enter
         codigoProdMostrador.setOnAction(event -> {
             cantProductoField.setText("1");
-            cantProductoField.requestFocus();});
+            cantProductoField.requestFocus();
+        try {
+            Operaciones_SQL op = new Operaciones_SQL();
+            ArrayList<String> columns = new ArrayList<>();
+            columns.add("Nombre");
+            columns.add("Precio_Venta");
+            ResultSet res = op.Select("productos", columns, "ID_Producto = " + Integer.parseInt(codigoProdMostrador.getText()));
+            res.next();
+            nombreProdMostrador.setText(res.getString("Nombre"));
+            precioUnitMostrador.setText(res.getString("Precio_Venta"));
+            int valorCantProduct = Integer.parseInt(cantProductoField.getText());
+            totalPrecioMostrador.setText(String.valueOf(valorCantProduct * res.getInt(2)));
+            precioProduct = res.getInt(2);
+        } catch (SQLException | NullPointerException ex) {
+            //codigoProdMostrador.setText("0");
+
+        } catch (NumberFormatException e) {
+            // precioUnitMostrador.setText("");
+        }
+        });
         cantProductoField.setOnAction(event -> {
             nextProductoButton.setStyle("-fx-background-color: #00254e;");
             nextProductoButton.requestFocus();});
@@ -339,16 +330,26 @@ public class EmpleadoController {
         String code = codigoProdMostrador.getText();
         String name = nombreProdMostrador.getText();
         int cant = Integer.parseInt(cantProductoField.getText());
-        double precioUnd = Double.parseDouble(codigoProdMostrador.getText());
+        double precioUnd = Double.parseDouble(precioUnitMostrador.getText());
 
         //Crea un nuevo producto
-        ProductoVentas productoVentas = new ProductoVentas(name, code, cant, precioUnd);
+        ProductoVentas productoVentas = new ProductoVentas(code, name, cant, precioUnd);
+        listaProductoVentas.add(productoVentas);
         //Vacia los campos para escribir
         codigoProdMostrador.clear();
         nombreProdMostrador.setText(" ");
         cantProductoField.clear();
         precioUnitMostrador.setText("0");
 
+    }
+    //Calucla el total Venta
+    @FXML
+    public Double totalPrecioVentas(){
+        Double totalVentas = 0.0;
+        for(ProductoVentas productoVentas : listaProductoVentas){
+            totalVentas += productoVentas.getCantidadVentas()*productoVentas.getPrecioVentaUnd();
+        }
+        return totalVentas;
     }
 
     @FXML
@@ -383,7 +384,26 @@ public class EmpleadoController {
         codigoProductoDevolucion.requestFocus();
         codigoProductoDevolucion.setOnAction(event -> {
             cantProductoDevolucionField.setText("1");
-            cantProductoDevolucionField.requestFocus();});
+            cantProductoDevolucionField.requestFocus();
+            try {
+                Operaciones_SQL op = new Operaciones_SQL();
+                ArrayList<String> columns = new ArrayList<>();
+                columns.add("Nombre");
+                columns.add("Precio_Venta");
+                ResultSet res = op.Select("productos", columns, "ID_Producto = " + Integer.parseInt(codigoProductoDevolucion.getText()));
+                res.next();
+                nombreProdDevol.setText(res.getString("Nombre"));
+                precioUnitDevol.setText(res.getString("Precio_Venta"));
+                int valorCantProduct = Integer.parseInt(cantProductoDevolucionField.getText());
+                //totalPrecioDevol.setText(String.valueOf(valorCantProduct * res.getInt(2)));
+                //precioProduct = res.getInt(2);
+            } catch (SQLException | NullPointerException ex) {
+                codigoProductoDevolucion.setText("0");
+
+            } catch (NumberFormatException e) {
+                // precioUnitMostrador.setText("");
+            }
+        });
         cantProductoDevolucionField.setOnAction(event -> {
             nextProductDevolButton.setStyle("-fx-background-color: #00254e;");
             nextProductDevolButton.requestFocus();});
