@@ -124,7 +124,7 @@ public class EmpleadoController {
     @FXML
     private Label nombVendedor;
     @FXML
-    private Label totalPrecioMostrador;
+    protected Label totalPrecioMostrador;
     @FXML
     private Label precioUnitMostrador;
     @FXML
@@ -150,6 +150,13 @@ public class EmpleadoController {
 
     private ObservableList<Gastos> listaGastos = FXCollections.observableArrayList();
 
+
+    public String getTotalPrecioMostradorText() {
+        return totalPrecioMostrador.getText();
+    }
+
+
+
     //Variables de instancias
     int precioProduct = 0;
     int totalVenta = 0;
@@ -157,12 +164,12 @@ public class EmpleadoController {
 
     // Metodo de inicialización
     @FXML
-    private void initialize() {
+    private void initialize() throws IOException {
         //Home por default
         paneDefault.setVisible(true);
         paneDefault.toFront();
         //obtener valores en el Field del codigo del mostrador
-        codigoProdMostrador.textProperty().addListener((observable -> {
+        codigoProdMostrador.textProperty().addListener(observable -> {
             try {
                 Operaciones_SQL op = new Operaciones_SQL();
                 ArrayList<String> columns = new ArrayList<>();
@@ -170,27 +177,63 @@ public class EmpleadoController {
                 columns.add("Precio_Venta");
                 ResultSet res = op.Select("productos", columns, "ID_Producto = " + Integer.parseInt(codigoProdMostrador.getText()));
                 res.next();
-                System.out.println("Nombre: " + res.getString(1));
-                System.out.println("Precio: " + res.getString(2));
+                nombreProdMostrador.setText(res.getString("Descripción"));
+                precioUnitMostrador.setText(res.getString("Precio_Venta"));
+                int valorCantProduct = Integer.parseInt(cantProductoField.getText());
+                totalPrecioMostrador.setText(String.valueOf(valorCantProduct * res.getInt(2)));
                 precioProduct = res.getInt(2);
             } catch (SQLException | NullPointerException ex) {
                 codigoProdMostrador.setText("0");
+
             } catch (NumberFormatException e) {
-                precioUnitMostrador.setText("");
+                // precioUnitMostrador.setText("");
             }
-        }));
+        });
+        codigoProductoDevolucion.textProperty().addListener(observable -> {
+            try {
+                Operaciones_SQL op = new Operaciones_SQL();
+                ArrayList<String> columns = new ArrayList<>();
+                columns.add("Descripción");
+                columns.add("Precio_Venta");
+                ResultSet res = op.Select("productos", columns, "ID_Producto = " + Integer.parseInt(codigoProdMostrador.getText()));
+                res.next();
+                nombreProdDevol.setText(res.getString("Descripción"));
+                precioUnitDevol.setText(res.getString("Precio_Venta"));
+                int valorCantProduct = Integer.parseInt(cantProductoDevolucionField.getText());
+                totalPrecioDevol.setText(String.valueOf(valorCantProduct * res.getInt(2)));
+                //precioProduct = res.getInt(2);
+            } catch (SQLException | NullPointerException ex) {
+                codigoProductoDevolucion.setText("0");
+
+            } catch (NumberFormatException e) {
+                // precioUnitMostrador.setText("");
+            }
+        });
+
+
+
+        // Evento para cuando se ingrese la cantidad, calcular el valor
         //aca valida si  el Field de cantidad es llenado con un numero, aun no puedo hacer que el numero sea solo positivo
+
+        /*
         try {
             int valorCantProduct = Integer.parseInt(cantProductoField.getText());
             resultado = valorCantProduct * precioProduct;
         } catch (NumberFormatException e) {
             System.out.println("El valorGasto ingresado debe ser un numero.");
+            FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("Empleados/AlertaView.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setTitle("Error emergente");
+            stage.show();
         } finally {
             totalVenta += resultado;
             //totalPrecioMostrador.setText(String.valueOf(resultado));
             totalVentaMostrador.setText(String.valueOf(totalVenta));
         }
 
+         */
 
         //Tabla Ventas
         //Enlaza cada columna con el atributo que corresponde
@@ -290,6 +333,7 @@ public class EmpleadoController {
         nombreProdMostrador.setText(" ");
         cantProductoField.clear();
         precioUnitMostrador.setText("0");
+
     }
 
     @FXML
@@ -303,18 +347,14 @@ public class EmpleadoController {
           ademas que envie los datos del total de venta a las label de ahi
           despues de esto cierre la ventana dependiendo si se oprimio el boton
           de facturar en el cambio.fxml*/
-            FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("Empleados/CambioView.fxml"));
-            Scene scene = new Scene(fxmlLoader.load());
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.setTitle("Cambio");
-            stage.show();
 
-            /*if(/*poner condicion en el que el cambio fue dado* /){
-
-                Stage stage = (Stage) facturarButton.getScene().getWindow();
-                stage.close();
-            }*/
+        //aca abre la ventana de cambioView
+        FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("Empleados/CambioView.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.setTitle("Cambio");
+        stage.show();
     }
 
         //Devolucion de producto

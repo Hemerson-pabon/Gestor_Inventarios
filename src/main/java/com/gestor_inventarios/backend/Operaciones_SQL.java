@@ -42,6 +42,7 @@ public class Operaciones_SQL {
         }
         // Ejecución de la sentencia SQL
         try {
+            System.out.println(sql.toString());
             ST = cn.getConexion().prepareStatement(sql.toString());
             return ST.executeQuery();
         } catch (SQLException e) {

@@ -14,6 +14,7 @@ module com.gestor_inventarios.gestor_inventarios {
     requires java.desktop;
     requires micrometer.observation;
     requires spring.security.crypto;
+    requires mysql.connector.j;
 
 
     opens com.gestor_inventarios.frontend.Empleados to javafx.fxml, javafx.base;

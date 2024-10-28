@@ -1,10 +1,18 @@
 package com.gestor_inventarios.frontend.Empleados;
 
+import com.gestor_inventarios.backend.Operaciones_SQL;
+import com.gestor_inventarios.frontend.main;
+import com.mysql.cj.x.protobuf.MysqlxCrud;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class CambioViewController extends EmpleadoController {
     String eleccion;
@@ -43,7 +51,37 @@ public class CambioViewController extends EmpleadoController {
         stage.close();
     }
     @FXML
-    public void facturarButtonClick(){
+    public void facturarButtonClick() throws IOException {
+
+        int newStock =1;
+        int productoEleccion = 2;
+
+        Operaciones_SQL op = new Operaciones_SQL();
+
+        ArrayList <String> columns = new ArrayList<>();
+        columns.add("Stock");
+        ArrayList<Object> values = new ArrayList<>();
+        values.add(newStock);
+
+
+        if((op.Update("Productos", columns, values, "ID_Producto = 2") == 1)){//
+            System.out.println("Update realizado");
+            FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("Empleados/ExitoView.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setTitle("Registro Exitoso");
+            stage.show();
+        }else{
+            //Abre la ventana de alerta por un error en el update
+            FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("Empleados/AlertaView.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setTitle("Error");
+            stage.show();
+        }
+        //cierra la ventana
         Stage stage = (Stage) facturarButton.getScene().getWindow();
         stage.close();
     }
@@ -77,13 +115,26 @@ public class CambioViewController extends EmpleadoController {
         int elector = seleccionMetodoUsuario();
         if (elector != 1){
             pagoField.setDisable(true);
+            mostrarTotalPrecio();
             //pagoField.setText();  //asignarle el valor de la label de valor total
+
         }else{
             pagoField.setDisable(false);
+            int valorIngresado = Integer.parseInt(pagoField.getText());
+            int valorVenta = Integer.parseInt(getTotalPrecioMostradorText());
+            int valorCambio = valorIngresado - valorVenta;
+            cambioLabel.setText(String.valueOf(valorCambio));
             //aca se debe hacer la resta del valor ingresado por el cambio y el valor total de venta
             //tambien debe enviar a la label del cambio
         }
     }
+    public void mostrarTotalPrecio() {
+        String totalPrecio = getTotalPrecioMostradorText();
+        pagoField.setText(totalPrecio);
+    }
+
+
+
 
 
     //CambioViewController ventanaCambio = new CambioViewController();
