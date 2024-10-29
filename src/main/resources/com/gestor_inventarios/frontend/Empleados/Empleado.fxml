@@ -180,7 +180,7 @@
                   </Pane>
                </children>
             </Pane>
-            <Pane fx:id="devolucionPanel" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;" visible="false">
+            <Pane fx:id="devolucionPanel" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;">
                <children>
                   <Label layoutX="178.0" layoutY="38.0" text="DEVOLUCION DE PRODUCTOS" textFill="#565651">
                      <font>
@@ -366,7 +366,7 @@
                   <Pane layoutX="21.0" layoutY="64.0" prefHeight="522.0" prefWidth="9.0" style="-fx-background-color: #565651;" />
                </children>
             </Pane>
-            <Pane fx:id="gastosPanel" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;">
+            <Pane fx:id="gastosPanel" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;" visible="false">
                <children>
                   <Label layoutX="255.0" layoutY="28.0" text="GASTOS DIARIOS" textFill="#565651">
                      <font>

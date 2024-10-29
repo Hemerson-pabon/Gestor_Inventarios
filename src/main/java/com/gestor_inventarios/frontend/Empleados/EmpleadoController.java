@@ -147,11 +147,9 @@ public class EmpleadoController {
     @FXML
     private Button mostradorButton;
 
-    private ObservableList<ProductoDevo> listaProductoDevos = FXCollections.observableArrayList();
-
-    private ObservableList<ProductoVentas> listaProductoVentas = FXCollections.observableArrayList();
-
-    private ObservableList<Gastos> listaGastos = FXCollections.observableArrayList();
+    public ObservableList<ProductoDevo> listaProductoDevos = FXCollections.observableArrayList();
+    public ObservableList<ProductoVentas> listaProductoVentas = FXCollections.observableArrayList();
+    public ObservableList<Gastos> listaGastos = FXCollections.observableArrayList();
 
 
     public String getTotalPrecioMostradorText() {
@@ -367,7 +365,7 @@ public class EmpleadoController {
     }
     //Calucla el total Venta
     @FXML
-    public Double totalPrecioVentas(){
+    private Double totalPrecioVentas(){
         Double totalVentas = 0.0;
         for(ProductoVentas productoVentas : listaProductoVentas){
             totalVentas += productoVentas.getCantidadVentas()*productoVentas.getPrecioVentaUnd();
@@ -386,10 +384,12 @@ public class EmpleadoController {
           ademas que envie los datos del total de venta a las label de ahi
           despues de esto cierre la ventana dependiendo si se oprimio el boton
           de facturar en el cambio.fxml*/
-
+        double totalVenta = totalPrecioVentas();
         //aca abre la ventana de cambioView
         FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("Empleados/CambioView.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
+        CambioViewController cambioController = fxmlLoader.getController();
+        cambioController.mostrarTotalPrecio(totalVenta);
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.setTitle("Cambio");

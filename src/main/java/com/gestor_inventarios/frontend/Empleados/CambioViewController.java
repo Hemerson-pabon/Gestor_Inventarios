@@ -4,6 +4,7 @@ import com.gestor_inventarios.backend.Operaciones_SQL;
 import com.gestor_inventarios.frontend.main;
 import com.mysql.cj.x.protobuf.MysqlxCrud;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -13,6 +14,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class CambioViewController extends EmpleadoController {
@@ -40,11 +42,14 @@ public class CambioViewController extends EmpleadoController {
     @FXML
     private ComboBox <String> metodosComboBox;
 
+    double totalVenta = 0.0;
+
     //Eventos de los botones de la pantalla
         //cancelButton
     @FXML
     public void initialize(){
         metodosComboBox.setItems(FXCollections.observableArrayList("Efectivo","Nequi", "Daviplata","Ahorro a la mano","Tarjeta debito","Tarjeta credito"));
+
     }
 
     @FXML
@@ -91,7 +96,7 @@ public class CambioViewController extends EmpleadoController {
     public void metodosAction(){
         verificadorField();
     }
-
+    @FXML
     public int seleccionMetodoUsuario(){
         eleccion = metodosComboBox.getValue();
         switch (eleccion){
@@ -117,7 +122,7 @@ public class CambioViewController extends EmpleadoController {
         int elector = seleccionMetodoUsuario();
         if (elector != 1){
             pagoField.setDisable(true);
-            mostrarTotalPrecio();
+            mostrarTotalPrecio(totalVenta);
             //pagoField.setText();  //asignarle el valor de la label de valor total
 
         }else{
@@ -130,9 +135,10 @@ public class CambioViewController extends EmpleadoController {
             //tambien debe enviar a la label del cambio
         }
     }
-    public void mostrarTotalPrecio() {
-        String totalPrecio = getTotalPrecioMostradorText();
-        pagoField.setText(totalPrecio);
+
+    @FXML
+    public void mostrarTotalPrecio(double totalVenta) {
+        valorLabel.setText("$ " + String.format("%.2f", totalVenta));
     }
 
 
