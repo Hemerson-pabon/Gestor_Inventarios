@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="358.0" prefWidth="564.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestor_inventarios.frontend.Administrador.CategoriasController">
+   <children>
+      <Label layoutX="229.0" layoutY="22.0" text="Categorias">
+         <font>
+            <Font name="Roboto Medium" size="22.0" />
+         </font>
+      </Label>
+      <VBox layoutX="28.0" layoutY="80.0" prefHeight="256.0" prefWidth="234.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="54.0" prefWidth="241.0" text="Nueva Categoria">
+               <font>
+                  <Font name="Roboto Medium" size="20.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="30.0" />
+               </padding>
+            </Label>
+            <Label text="Nombre de la categoria">
+               <font>
+                  <Font name="Roboto" size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="FieldNuevaCategoria" stylesheets="@Style.css">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="75.0" />
+               </VBox.margin>
+            </TextField>
+            <Button mnemonicParsing="false" onAction="#BtnCrearCategoriaClickeado" prefHeight="51.0" prefWidth="140.0" style="-fx-background-color: #5d83b1;" text="Crear categoria" textFill="WHITE">
+               <font>
+                  <Font name="Roboto Black" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <Line endX="289.0" layoutX="246.0" layoutY="63.0" startX="-218.0" />
+      <Line endX="-100.0" endY="167.0" layoutX="381.0" layoutY="177.0" startX="-100.0" startY="-106.0" />
+      <VBox layoutX="302.0" layoutY="80.0" prefHeight="256.0" prefWidth="234.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="54.0" prefWidth="241.0" text="Editar Categorias">
+               <font>
+                  <Font name="Roboto Medium" size="20.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="30.0" />
+               </padding>
+            </Label>
+            <Label text="Nombre de la categoria">
+               <font>
+                  <Font name="Roboto" size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </Label>
+            <SplitMenuButton fx:id="SplitCategorias" mnemonicParsing="false" prefHeight="32.0" prefWidth="234.0" text="Categorias...">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </SplitMenuButton>
+            <TextField fx:id="FieldEdCategorias" stylesheets="@Style.css">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </TextField>
+            <Button mnemonicParsing="false" onAction="#BtnActualizarCatClickeado" prefHeight="51.0" prefWidth="174.0" style="-fx-background-color: #5d83b1;" text="Actualizar categoria" textFill="WHITE">
+               <font>
+                  <Font name="Roboto Black" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

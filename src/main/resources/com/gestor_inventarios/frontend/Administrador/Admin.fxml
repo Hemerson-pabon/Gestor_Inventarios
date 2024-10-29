@@ -6,7 +6,6 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitMenuButton?>
 <?import javafx.scene.control.TableColumn?>
@@ -16,11 +15,13 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="995.0" style="-fx-background-color: #565651;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gestor_inventarios.frontend.Administrador.AdminController">
@@ -52,20 +53,6 @@
                <font>
                   <Font name="Roboto Black" size="14.0" />
                </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button fx:id="btnEntrada" alignment="BASELINE_LEFT" graphicTextGap="0.0" mnemonicParsing="false" onAction="#botonEntradaClickeado" pickOnBounds="false" prefHeight="54.0" prefWidth="234.0" stylesheets="@Style.css" text="Entrada y salida de productos" textFill="WHITE">
-               <padding>
-                  <Insets left="20.0" />
-               </padding>
-               <font>
-                  <Font name="Roboto Black" size="14.0" />
-               </font>
-               <VBox.margin>
-                  <Insets bottom="20.0" />
-               </VBox.margin>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -130,7 +117,7 @@
       </VBox>
       <StackPane layoutX="235.0" layoutY="-1.0" prefHeight="616.0" prefWidth="767.0">
          <children>
-            <Pane fx:id="paneDefault" layoutX="10.0" layoutY="10.0" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #565651;" visible="false">
+            <Pane fx:id="paneDefault" layoutX="10.0" layoutY="10.0" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #565651;">
                <children>
                   <Label layoutX="42.0" layoutY="241.0" text="GESTOR DE INVENTARIOS" textFill="WHITE">
                      <font>
@@ -138,187 +125,6 @@
                      </font>
                   </Label>
                </children>
-            </Pane>
-            <Pane fx:id="pnlEntrada" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #565651;" visible="false">
-               <children>
-                  <Label layoutX="260.0" layoutY="14.0" prefHeight="56.0" prefWidth="287.0" text="Entrada y salida de mercancía" textFill="WHITE">
-                     <font>
-                        <Font name="Berlin Sans FB" size="22.0" />
-                     </font>
-                  </Label>
-                  <Line endX="663.0" layoutX="101.0" layoutY="85.0" startX="-101.0" stroke="WHITE" />
-                  <Label graphicTextGap="0.0" layoutX="25.0" layoutY="103.0" prefHeight="21.0" prefWidth="62.0" text="Producto" textFill="WHITE">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                  </Label>
-                  <Label graphicTextGap="0.0" layoutX="639.0" layoutY="105.0" prefHeight="21.0" prefWidth="79.0" text="Nuevo stock" textFill="WHITE">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                  </Label>
-                  <Label graphicTextGap="0.0" layoutX="205.0" layoutY="105.0" prefHeight="21.0" prefWidth="54.0" text="Nombre" textFill="WHITE">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                  </Label>
-                  <Label graphicTextGap="0.0" layoutX="533.0" layoutY="106.0" prefHeight="18.0" prefWidth="42.0" text="Stock" textFill="WHITE">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                  </Label>
-                  <Label graphicTextGap="0.0" layoutX="353.0" layoutY="105.0" prefHeight="21.0" prefWidth="62.0" text="Cantidad" textFill="WHITE">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                  </Label>
-                  <Label layoutX="216.0" layoutY="138.0" text="Label" textFill="WHITE">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="533.0" layoutY="138.0" text="Label" textFill="WHITE">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="662.0" layoutY="138.0" text="Label" textFill="WHITE">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <TextField layoutX="13.0" layoutY="128.0" prefHeight="26.0" prefWidth="171.0" />
-                  <TextField layoutX="288.0" layoutY="127.0" prefHeight="26.0" prefWidth="189.0" />
-                  <ChoiceBox fx:id="OpcionEyS" layoutX="36.0" layoutY="547.0" prefHeight="1.0" prefWidth="126.0" />
-                  <Button layoutX="615.0" layoutY="544.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="112.0" stylesheets="@Style.css" text="Actualizar" />
-               </children>
-            </Pane>
-            <Pane fx:id="pnlEdicion" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #565651;" visible="false">
-               <children>
-                  <Label layoutX="299.0" layoutY="43.0" text="Edición de productos" textFill="WHITE">
-                     <font>
-                        <Font name="Berlin Sans FB Demi Bold" size="22.0" />
-                     </font>
-                  </Label>
-                  <TextField layoutX="34.0" layoutY="93.0" prefHeight="26.0" prefWidth="689.0" />
-                  <TextField layoutX="34.0" layoutY="145.0" prefHeight="26.0" prefWidth="352.0" />
-                  <TextField layoutX="34.0" layoutY="196.0" prefHeight="26.0" prefWidth="352.0" />
-                  <Label layoutX="34.0" layoutY="75.0" text="Descripción larga" textFill="WHITE" />
-                  <Label layoutX="33.0" layoutY="127.0" text="Descripción corta" textFill="WHITE" />
-                  <Label layoutX="34.0" layoutY="178.0" text="Nombre" textFill="WHITE" />
-                  <TextField layoutX="434.0" layoutY="145.0" />
-                  <Label layoutX="434.0" layoutY="127.0" text="Código" textFill="WHITE" />
-                  <ChoiceBox fx:id="chUndM1" layoutX="619.0" layoutY="145.0" prefHeight="1.0" prefWidth="103.0" />
-                  <Label layoutX="619.0" layoutY="127.0" text="U.M" textFill="WHITE" />
-                  <Label layoutX="33.0" layoutY="243.0" text="Categoría" textFill="WHITE" />
-                  <ChoiceBox layoutX="107.0" layoutY="239.0" prefHeight="26.0" prefWidth="280.0" />
-                  <Button layoutX="590.0" layoutY="544.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="132.0" style="-fx-background-color: #00254e;" stylesheets="@Style.css" text="Actualizar" textFill="WHITE">
-                     <font>
-                        <Font name="Roboto Black" size="15.0" />
-                     </font></Button>
-                  <Pane layoutX="32.0" layoutY="282.0" prefHeight="20.0" prefWidth="702.0" style="-fx-background-color: #00254e;" />
-                  <Label layoutX="380.0" layoutY="282.0" text="COSTOS" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="33.0" layoutY="324.0" text="Costo base" textFill="WHITE" />
-                  <TextField layoutX="135.0" layoutY="316.0" prefHeight="26.0" prefWidth="152.0" />
-                  <Label layoutX="33.0" layoutY="380.0" prefHeight="1.0" prefWidth="21.0" text="IVA" textFill="WHITE" />
-                  <TextField layoutX="134.0" layoutY="367.0" prefHeight="26.0" prefWidth="152.0" />
-                  <Label layoutX="34.0" layoutY="543.0" text="Precio sugerido" textFill="WHITE" />
-                  <TextField layoutX="133.0" layoutY="479.0" prefHeight="26.0" prefWidth="152.0" />
-                  <Label layoutX="34.0" layoutY="492.0" text="Utilidad" textFill="WHITE" />
-                  <TextField layoutX="133.0" layoutY="530.0" prefHeight="26.0" prefWidth="152.0" />
-                  <Label layoutX="32.0" layoutY="427.0" prefHeight="18.0" prefWidth="86.0" text="Costo + IVA" textFill="WHITE" />
-                  <TextField layoutX="134.0" layoutY="423.0" prefHeight="26.0" prefWidth="152.0" />
-               </children>
-            </Pane>
-            <Pane fx:id="pnlVentas" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #565651;" visible="false">
-               <children>
-                  <TableView layoutX="27.0" layoutY="137.0" prefHeight="459.0" prefWidth="710.0">
-                     <columns>
-                        <TableColumn prefWidth="75.0" text="C1" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                     </columns>
-                  </TableView>
-                  <Label layoutX="369.0" layoutY="14.0" text="VENTAS" textFill="WHITE">
-                     <font>
-                        <Font name="Berlin Sans FB Demi Bold" size="22.0" />
-                     </font>
-                  </Label>
-                  <DatePicker layoutX="27.0" layoutY="91.0" />
-               </children>
-            </Pane>
-            <Pane fx:id="pnlInventario" prefHeight="581.0" prefWidth="767.0" style="-fx-background-color: #fff;" visible="false">
-               <children>
-                  <VBox prefHeight="616.0" prefWidth="767.0">
-                     <padding>
-                        <Insets left="20.0" right="20.0" top="20.0" />
-                     </padding>
-                     <children>
-                        <HBox prefHeight="100.0" prefWidth="200.0">
-                           <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="106.0" prefWidth="163.0" text="Inventario">
-                                 <font>
-                                    <Font name="Roboto Medium" size="28.0" />
-                                 </font>
-                              </Label>
-                              <Pane prefHeight="100.0" prefWidth="342.0" />
-                              <Pane prefHeight="100.0" prefWidth="270.0">
-                                 <children>
-                                    <SplitMenuButton layoutX="135.0" layoutY="38.0" mnemonicParsing="false" onAction="#botonsucursal" prefHeight="26.0" prefWidth="108.0" text="Seleccionar...">
-                                      <items>
-                                        <MenuItem mnemonicParsing="false" text="Sucursal1" />
-                                        <MenuItem mnemonicParsing="false" text="Sucursal2" />
-                                      </items>
-                                    </SplitMenuButton>
-                                    <Label layoutX="44.0" layoutY="40.0" text="Sucursal:">
-                                       <font>
-                                          <Font size="15.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </Pane>
-                           </children>
-                        </HBox>
-                        <ScrollPane prefHeight="478.0" prefWidth="727.0" style="-fx-background-color: #fff;">
-                           <content>
-                              <TableView fx:id="tablaProductos" prefHeight="479.0" prefWidth="727.0">
-                                <columns>
-                                  <TableColumn fx:id="columnaID_Producto" prefWidth="88.0" text="ID Producto" />
-                                  <TableColumn fx:id="columnaNombre" prefWidth="72.0" text="Nombre" />
-                                    <TableColumn fx:id="columnaPrecioVenta" prefWidth="103.0" text="Precio Venta" />
-                                    <TableColumn fx:id="columnaUnidad" prefWidth="75.0" text="Unidad Medida" />
-                                    <TableColumn fx:id="columnaCosto" prefWidth="75.0" text="Costo" />
-                                    <TableColumn fx:id="columnaUtilidad" prefWidth="75.0" text="Utilidad" />
-                                    <TableColumn fx:id="columnaFechaVencimiento" prefWidth="110.0" text="Fecha Vencimiento" />
-                                    <TableColumn fx:id="columnaDescripcion" prefWidth="115.0" text="Descripción" />
-                                </columns>
-                              </TableView>
-                           </content>
-                        </ScrollPane>
-                     </children>
-                  </VBox>
-               </children>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
             </Pane>
             <Pane fx:id="pnlCrear" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #fff;">
                <children>
@@ -334,8 +140,7 @@
                   <Label layoutX="426.0" layoutY="84.0" text="Código" textFill="#565651" />
                   <ChoiceBox fx:id="ChUnidad" layoutX="426.0" layoutY="173.0" prefHeight="1.0" prefWidth="103.0" stylesheets="@Style.css" />
                   <Label layoutX="426.0" layoutY="150.0" text="U.M" textFill="#565651" />
-                  <Label layoutX="33.0" layoutY="243.0" text="Categoría" textFill="#565651" />
-                  <ChoiceBox fx:id="ChCategoria" layoutX="107.0" layoutY="239.0" prefHeight="26.0" prefWidth="280.0" stylesheets="@Style.css" />
+                  <Label layoutX="22.0" layoutY="245.0" text="Categoría" textFill="#565651" />
                   <Pane layoutX="32.0" layoutY="282.0" prefHeight="20.0" prefWidth="702.0" style="-fx-background-color: #393936;" />
                   <Label layoutX="380.0" layoutY="282.0" text="COSTOS" textFill="WHITE">
                      <font>
@@ -457,14 +262,7 @@
                                     <Insets left="5.0" right="5.0" />
                                  </HBox.margin>
                               </Label>
-                              <Label fx:id="LabelPrecio" prefHeight="35.0" prefWidth="125.0" textFill="#565651">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                              </Label>
+                              <TextField fx:id="FieldPrecio" prefHeight="29.0" prefWidth="153.0" stylesheets="@Style.css" />
                            </children>
                            <VBox.margin>
                               <Insets top="20.0" />
@@ -481,6 +279,269 @@
                      </cursor>
                   </Button>
                   <DatePicker fx:id="FechaVencimiento" layoutX="426.0" layoutY="239.0" />
+                  <SplitMenuButton fx:id="SplitCategoria" layoutX="87.0" layoutY="241.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="Categorias..." />
+                  <Button layoutX="260.0" layoutY="239.0" mnemonicParsing="false" onAction="#BtnAgregarCategoriaClick" prefHeight="25.0" prefWidth="25.0" style="-fx-background-radius: 50%; -fx-background-color: #00254e;" text="+" textFill="WHITE">
+                     <font>
+                        <Font name="Roboto Bold" size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane fx:id="pnlEdicion" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #fff;">
+               <children>
+                  <Label layoutX="260.0" layoutY="32.0" text="Edición de productos" textFill="#565651">
+                     <font>
+                        <Font name="Roboto Black" size="28.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="FieldNombreEd" layoutX="22.0" layoutY="101.0" prefHeight="26.0" prefWidth="352.0" stylesheets="@Style.css" />
+                  <Label layoutX="20.0" layoutY="137.0" text="Descripción corta" textFill="#565651" />
+                  <Label layoutX="22.0" layoutY="75.0" text="Nombre" textFill="#565651" />
+                  <TextField fx:id="FieldCodigoEd" layoutX="426.0" layoutY="102.0" stylesheets="@Style.css" />
+                  <Label layoutX="426.0" layoutY="84.0" text="Código" textFill="#565651" />
+                  <ChoiceBox fx:id="ChUnidadEd" layoutX="426.0" layoutY="173.0" prefHeight="1.0" prefWidth="103.0" stylesheets="@Style.css" />
+                  <Label layoutX="426.0" layoutY="150.0" text="U.M" textFill="#565651" />
+                  <Label layoutX="22.0" layoutY="245.0" text="Categoría" textFill="#565651" />
+                  <Pane layoutX="32.0" layoutY="282.0" prefHeight="20.0" prefWidth="702.0" style="-fx-background-color: #393936;" />
+                  <Label layoutX="380.0" layoutY="282.0" text="COSTOS" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <TextArea fx:id="AreaDescripcionEd" layoutX="22.0" layoutY="158.0" prefHeight="67.0" prefWidth="352.0" styleClass="text-area" stylesheets="@Style.css" />
+                  <VBox layoutX="33.0" layoutY="317.0" prefHeight="237.0" prefWidth="301.0">
+                     <children>
+                        <HBox prefHeight="31.0" prefWidth="254.0">
+                           <children>
+                              <Label prefHeight="31.0" prefWidth="106.0" text="Costo base: " textFill="#565651">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Roboto" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="24.0" text="\$" textAlignment="CENTER" textFill="#565651">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Roboto" size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="FieldCostoBEd" prefHeight="31.0" prefWidth="175.0" stylesheets="@Style.css">
+                                 <font>
+                                    <Font name="Roboto" size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox prefHeight="31.0">
+                           <children>
+                              <Label prefHeight="31.0" prefWidth="127.0" text="IVA: " textFill="#565651">
+                                 <font>
+                                    <Font name="Roboto" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="FieldIVAEd" prefHeight="28.0" prefWidth="43.0" stylesheets="@Style.css">
+                                 <font>
+                                    <Font name="Roboto" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <Label alignment="CENTER" prefHeight="31.0" prefWidth="28.0" text="\%" textFill="#565651">
+                                 <font>
+                                    <Font name="Roboto" size="16.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <VBox.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox prefHeight="30.0">
+                           <children>
+                              <Label prefHeight="38.0" prefWidth="104.0" text="Costo + IVA  =" textFill="#565651">
+                                 <font>
+                                    <Font name="Roboto" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="42.0" prefWidth="28.0" text="\$" textAlignment="CENTER" textFill="#565651">
+                                 <font>
+                                    <Font name="Roboto" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="LabelCostoIEd" prefHeight="40.0" prefWidth="163.0" textFill="#565651">
+                                 <font>
+                                    <Font name="Roboto" size="14.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets bottom="10.0" top="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="30.0">
+                           <children>
+                              <Label prefHeight="30.0" prefWidth="127.0" text="Utilidad (%)" textFill="#565651">
+                                 <font>
+                                    <Font name="Roboto" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="FieldUtilidadEd" prefHeight="28.0" prefWidth="43.0" stylesheets="@Style.css">
+                                 <font>
+                                    <Font name="Roboto" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <Label alignment="CENTER" prefHeight="31.0" prefWidth="28.0" text="\%" textFill="#565651">
+                                 <font>
+                                    <Font name="Roboto" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox prefHeight="38.0" prefWidth="301.0">
+                           <children>
+                              <Label prefHeight="37.0" prefWidth="212.0" text="Precio de Venta:" textFill="#565651">
+                                 <font>
+                                    <Font name="Roboto Black" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="35.0" prefWidth="17.0" text="\$" textAlignment="CENTER" textFill="#565651">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="FieldPrecioEd" prefHeight="29.0" prefWidth="153.0" stylesheets="@Style.css" />
+                           </children>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Button layoutX="546.0" layoutY="498.0" mnemonicParsing="false" onAction="#BtnActualizarProdClick" prefHeight="57.0" prefWidth="184.0" style="-fx-background-color: #00254e; -fx-background-radius: 0;" text="Actualizar" textFill="WHITE">
+                     <font>
+                        <Font name="Roboto Black" size="21.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <DatePicker fx:id="FechaVencimientoEd" layoutX="426.0" layoutY="239.0" />
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="260.0" layoutY="239.0" mnemonicParsing="false" onAction="#BtnAgregarCategoriaClick" prefHeight="25.0" prefWidth="25.0" style="-fx-background-radius: 100%; -fx-background-color: #00254e;" text="+" textFill="WHITE">
+                     <font>
+                        <Font name="Roboto Bold" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <SplitMenuButton fx:id="SplitCategoriaEd" layoutX="87.0" layoutY="241.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="Categorias..." />
+               </children>
+            </Pane>
+            <Pane fx:id="pnlVentas" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #fff;">
+               <children>
+                  <TableView fx:id="tablaVentas" layoutX="27.0" layoutY="135.0" prefHeight="461.0" prefWidth="710.0">
+                     <columns>
+                        <TableColumn fx:id="columnFechaMovimiento" prefWidth="150.0" text="Fecha Movimiento" />
+                        <TableColumn fx:id="columnHoraMovimiento" minWidth="0.0" prefWidth="130.0" text="Hora Movimiento" />
+                        <TableColumn fx:id="columnProducto" minWidth="0.0" prefWidth="113.0" text="Producto" />
+                        <TableColumn fx:id="columnCantidad" minWidth="0.0" prefWidth="116.0" text="Cantidad" />
+                        <TableColumn fx:id="columnTipoMovimiento" minWidth="0.0" prefWidth="200.0" text="Tipo de movimiento" />
+                     </columns>
+                  </TableView>
+                  <Label layoutX="261.0" layoutY="27.0" text="Ventas y movimientos">
+                     <font>
+                        <Font name="Roboto Black" size="24.0" />
+                     </font>
+                  </Label>
+                  <DatePicker fx:id="DatePickerVentas" layoutX="27.0" layoutY="92.0" />
+                  <Label layoutX="27.0" layoutY="64.0" text="Seleccione una fecha:" />
+               </children>
+            </Pane>
+            <Pane fx:id="pnlInventario" prefHeight="581.0" prefWidth="767.0" style="-fx-background-color: #fff;">
+               <children>
+                  <VBox prefHeight="616.0" prefWidth="767.0">
+                     <padding>
+                        <Insets left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="144.0" text="Inventario">
+                                 <font>
+                                    <Font name="Roboto Medium" size="28.0" />
+                                 </font>
+                              </Label>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Label prefHeight="39.0" prefWidth="83.0" text="Sucursal:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <SplitMenuButton fx:id="SplitMenuSucursal" mnemonicParsing="false" prefHeight="26.0" prefWidth="120.0" text="Seleccionar..." />
+                                 </children>
+                              </HBox>
+                              <GridPane prefHeight="100.0" prefWidth="311.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="197.0" minWidth="10.0" prefWidth="197.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="114.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#BotonEnSaClickeado" prefHeight="25.0" prefWidth="218.0" text="Entrada y salida de productos" GridPane.rowIndex="1" />
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </GridPane>
+                           </children>
+                        </HBox>
+                        <ScrollPane prefHeight="478.0" prefWidth="727.0" style="-fx-background-color: #fff;">
+                           <content>
+                              <TableView fx:id="tablaProductos" prefHeight="471.0" prefWidth="727.0">
+                                <columns>
+                                  <TableColumn fx:id="columnaID_Producto" prefWidth="88.0" text="ID Producto" />
+                                  <TableColumn fx:id="columnaNombre" prefWidth="72.0" text="Nombre" />
+                                    <TableColumn fx:id="columnaPrecioVenta" prefWidth="103.0" text="Precio Unitario" />
+                                    <TableColumn fx:id="columnaStockMin" prefWidth="95.0" text="Stock minimo" />
+                                    <TableColumn fx:id="columnaStockAc" prefWidth="85.0" text="Stock Actual" />
+                                    <TableColumn fx:id="columnaStockMax" prefWidth="92.0" text="Stock Maximo" />
+                                </columns>
+                              </TableView>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </VBox>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Pane>
+            <Pane fx:id="pnlUsuarios" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #fff;">
+               <children>
+                  <Label alignment="CENTER" layoutX="285.0" layoutY="35.0" prefHeight="39.0" prefWidth="197.0" text="Usuarios">
+                     <font>
+                        <Font name="Roboto Black" size="24.0" />
+                     </font>
+                  </Label>
                </children>
             </Pane>
          </children>

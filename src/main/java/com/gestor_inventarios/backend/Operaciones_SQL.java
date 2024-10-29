@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Operaciones_SQL {
-    private final Conexion_SQL cn;
+    private Conexion_SQL cn;
     private PreparedStatement ST;
 
     public Operaciones_SQL() {
-        cn = new Conexion_SQL();
+        // cn = new Conexion_SQL();
         ST = null;
     }
 
@@ -23,6 +23,7 @@ public class Operaciones_SQL {
      */
 
     public ResultSet Select(String table, ArrayList<String> columns, String condition){
+        cn = new Conexion_SQL();
         // Construcción del string para obtener los datos
         StringBuilder sql = new StringBuilder("SELECT ");
         if (columns == null){
@@ -61,6 +62,7 @@ public class Operaciones_SQL {
     ArrayList values --> Arraylist con los datos que se van a insertar (DEBEN SEGUIR EL MISMO ORDEN DE LAS COLUMNAS)
     */
     public int Insert(String table, ArrayList<String> columns, ArrayList<Object> values){
+        cn = new Conexion_SQL();
         // Construcción del string para insertar datos
         StringBuilder sql = new StringBuilder("INSERT INTO ");
         sql.append(table);
@@ -98,7 +100,7 @@ public class Operaciones_SQL {
 
             return ST.executeUpdate();
         }catch (SQLException e) {
-            System.err.println("Error al intentar consultar datos: " + e.getMessage());
+            System.err.println("Error al intentar insertar datos: " + e.getMessage());
         }
         finally {
             cn.close();
@@ -114,6 +116,7 @@ public class Operaciones_SQL {
 
      */
     public int Delete(String table, String condition){
+        cn = new Conexion_SQL();
         StringBuilder sql = new StringBuilder("DELETE FROM ");
         sql.append(table);
         if (!Objects.equals(condition, "")){
@@ -139,11 +142,12 @@ public class Operaciones_SQL {
     si String condition = "", LA ACTUALIZACIÓN SE APLICARA A TODAS LAS FILAS.
      */
     public int Update(String table, ArrayList<String> columns, ArrayList<Object> values, String condition){
+        cn = new Conexion_SQL();
         StringBuilder sql = new StringBuilder("UPDATE ");
         sql.append(table);
         sql.append(" SET ");
         for (int i = 0; i < columns.size(); i++) {
-            sql.append(columns.get(i)).append("= ?");
+            sql.append(columns.get(i)).append(" = ?");
             if (i < columns.size() - 1) {
                 sql.append(", ");
             }
@@ -152,6 +156,7 @@ public class Operaciones_SQL {
             sql.append(" WHERE ").append(condition);
         }
         try{
+            System.out.println(sql.toString());
             ST = cn.getConexion().prepareStatement(sql.toString());
             for (int i = 0; i < values.size(); i++) {
                 Object value = values.get(i);
@@ -165,7 +170,7 @@ public class Operaciones_SQL {
             }
             return ST.executeUpdate();
         }catch (SQLException e){
-            System.err.println("Error al intentar eliminar datos: " + e.getMessage());
+            System.err.println("Error al intentar actualizar datos: " + e.getMessage());
         }finally {
             cn.close();
         }

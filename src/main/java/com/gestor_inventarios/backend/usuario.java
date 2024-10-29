@@ -13,37 +13,34 @@ public class usuario {
     private String user;
     private String rawpass;
     private String encodedpass;
+    private String Tipo_Usuario;
     private final PasswordEncoder encoder = new BCryptPasswordEncoder();
 
-    // Constructor
-    public usuario(String user, String rawpass){
-        this.user = user;
-        this.rawpass = rawpass;
-    }
+
 
     // Método para crear un usuario en la base de datos
 
-    public boolean crearUsuario(){
+    public boolean crearUsuario(String user, String rawpass){
         Operaciones_SQL op = new Operaciones_SQL();
         ArrayList<String> columns = new ArrayList<>();
         columns.add("user");
         columns.add("password");
         ArrayList<Object> values = new ArrayList<>();
         values.add(user);
-        encriptarContraseña();
+        encriptarContraseña(rawpass);
         values.add(encodedpass);
         return op.Insert("usuarios", columns, values) == 1;
     }
 
     // Método para encriptar la contraseña
 
-    public void encriptarContraseña(){
-        encodedpass = encoder.encode(rawpass);
+    public String encriptarContraseña(String rawpass){
+        return encoder.encode(rawpass);
     }
 
     // Método para validar usuario
 
-    public boolean validarUsuario(){
+    public boolean validarUsuario(String user, String password){
         Operaciones_SQL op = new Operaciones_SQL();
         ArrayList<String> columns = new ArrayList<>();
         columns.add("user");
@@ -52,7 +49,7 @@ public class usuario {
         try {
             while (res.next()) {
                 res.getString(1);
-                if (Objects.equals(res.getString(1), user) && validarContraseña()){
+                if (Objects.equals(res.getString(1), user) && validarContraseña(user, password)){
                     return true;
                 }
             }
@@ -64,7 +61,7 @@ public class usuario {
 
     // Método para validar la contraseña
 
-    private boolean validarContraseña(){
+    private boolean validarContraseña(String user, String password){
         Operaciones_SQL op = new Operaciones_SQL();
         ArrayList<String> columns = new ArrayList<>();
         columns.add("password");
@@ -80,7 +77,7 @@ public class usuario {
 
     // Método para eliminar usuario
 
-    public boolean eliminarUsuario(){
+    public boolean eliminarUsuario(String user){
         Operaciones_SQL op = new Operaciones_SQL();
         return op.Delete("usuarios", "user = " + user) == 1;
     }
