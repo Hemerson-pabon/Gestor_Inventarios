@@ -85,7 +85,6 @@ public class CambioViewController extends EmpleadoController {
             tablaVentas.getItems().clear();
         Stage stage = (Stage) facturarButton.getScene().getWindow();
         stage.close();
-
     }
     @FXML
     public void metodosAction(){
