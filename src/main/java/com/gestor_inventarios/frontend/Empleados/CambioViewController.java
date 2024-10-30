@@ -49,13 +49,15 @@ public class CambioViewController extends EmpleadoController {
     @FXML
     public void initialize(){
         metodosComboBox.setItems(FXCollections.observableArrayList("Efectivo","Nequi", "Daviplata","Ahorro a la mano","Tarjeta debito","Tarjeta credito"));
-
+        metodosComboBox.setValue("Efectivo");
         pagoField.requestFocus();
         pagoField.setOnAction(event -> {
             facturarButton.requestFocus();
             cambioLabel.setText("$ " + String.format("%.2f", calcularCambio()));
+
         });
     }
+    boolean verificador;
 
     @FXML
     public void botonCerrarClickeado(){
@@ -64,7 +66,15 @@ public class CambioViewController extends EmpleadoController {
     }
     @FXML
     public void facturarButtonClick() throws IOException {
+        verificador = true;
+            Stage stage = (Stage) facturarButton.getScene().getWindow();
+            stage.close();
 
+
+
+
+
+        /*
         int newStock = 1;
         int productoEleccion = 2;
 
@@ -74,7 +84,6 @@ public class CambioViewController extends EmpleadoController {
         columns.add("Stock");
         ArrayList<Object> values = new ArrayList<>();
         values.add(newStock);
-
 
         if((op.Update("Productos", columns, values, "ID_Producto = 2") == 1)){//
             System.out.println("Update realizado");
@@ -92,11 +101,18 @@ public class CambioViewController extends EmpleadoController {
             stage.setScene(scene);
             stage.setTitle("Error");
             stage.show();
-        }
+        }*/
+
         //cierra la ventana
-        Stage stage = (Stage) facturarButton.getScene().getWindow();
-        stage.close();
+
+
     }
+
+    public boolean getVerificador(){
+        return verificador;
+    }
+
+
     @FXML
     public void metodosAction(){
         verificadorField();
@@ -128,6 +144,7 @@ public class CambioViewController extends EmpleadoController {
         if (elector != 1){
             pagoField.setDisable(true);
             mostrarTotalPrecio(totalVenta);
+            cambioLabel.setText(String.valueOf(totalVenta));
             //pagoField.setText();  //asignarle el valor de la label de valor total
 
         }else{
@@ -154,54 +171,5 @@ public class CambioViewController extends EmpleadoController {
     }
 
 
-
-
-
-    //CambioViewController ventanaCambio = new CambioViewController();
-    /*public int Insert(String table, ArrayList<String> columns, ArrayList<Object> values){
-        // Construcción del string para insertar datos
-        StringBuilder sql = new StringBuilder("INSERT INTO ");
-        sql.append(table);
-        sql.append(" (");
-        for (int i = 0; i < columns.size(); i++) {
-            if (i == columns.size() - 1) {
-                sql.append(columns.get(i));
-            }else{
-                sql.append(columns.get(i)).append(", ");
-            }
-        }
-        sql.append(") VALUES (");
-
-        for (int i = 0; i < values.size(); i++) {
-            if (i == values.size() - 1) {
-                sql.append("?");
-            }
-            else {
-                sql.append("?, ");
-            }
-        }
-        sql.append(")");
-        try{
-            ST = cn.getConexion().prepareStatement(sql.toString());
-            for (int i = 0; i < values.size(); i++) {
-                Object value = values.get(i);
-                switch (value) {
-                    case String s -> ST.setString(i + 1, s);  // Para cadenas
-                    case Integer integer -> ST.setInt(i + 1, integer);  // Para enteros
-                    case Double v -> ST.setDouble(i + 1, v);  // Para números decimales
-                    case Boolean b -> ST.setBoolean(i + 1, b);  // Para valores booleanos
-                    case null, default -> ST.setObject(i + 1, value);  // Para otros tipos de datos
-                }
-            }
-
-            return ST.executeUpdate();
-        }catch (SQLException e) {
-            System.err.println("Error al intentar consultar datos: " + e.getMessage());
-        }
-        finally {
-            cn.close();
-        }
-        return 0;
-    }*/
 
 }

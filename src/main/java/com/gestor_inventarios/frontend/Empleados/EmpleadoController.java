@@ -1,6 +1,7 @@
 package com.gestor_inventarios.frontend.Empleados;
 
 import com.gestor_inventarios.backend.Operaciones_SQL;
+import com.gestor_inventarios.backend.inventario;
 import com.gestor_inventarios.frontend.main;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.collections.FXCollections;
@@ -479,6 +480,50 @@ public class EmpleadoController {
         List<ProductoDevo> productoDevosSave = new ArrayList<>(tablaDevolucion.getItems());
         productoDevosSave.forEach(productoDevo -> {
             //Metodo para llevar a la base datos
+            try {
+                Operaciones_SQL op = new Operaciones_SQL();
+                ArrayList<String> columns1 = new ArrayList<>();
+                columns1.add("Stock_Actual");
+                int codigo = Integer.parseInt(productoDevo.getCodigo());
+                ResultSet res = op.Select("inventario", columns1,"ID_Producto = " + codigo );
+                res.next();
+                int stockActual = res.getInt("Stock_Actual");
+
+                ArrayList<String> columns2 = new ArrayList<>();
+                columns2.add("Stock_Actual");
+                int stockCambio = stockActual + productoDevo.getCantidad();
+                ArrayList<Object> values1 = new ArrayList<>();
+                values1.add(stockCambio);
+                if(op.Update("inventario", columns2, values1,"ID_Producto = " + codigo ) >= 1 ){
+                    System.out.println("Epa la arepa");
+                    inventario mov = new inventario("Sucursal1");
+                    mov.registrarMovimiento("Devolucion",codigo, productoDevo.getCantidad());
+                    //Abre la ventana de registro exitoso
+                    FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("Empleados/ExitoView.fxml"));
+                    Scene scene = new Scene(fxmlLoader.load());
+                    Stage stage = new Stage();
+                    stage.setScene(scene);
+                    stage.setTitle("Registro Exitoso");
+                    stage.show();
+                }else{
+                    System.out.println("Error");
+                    FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("Empleados/AlertaView.fxml"));
+                    Scene scene = new Scene(fxmlLoader.load());
+                    Stage stage = new Stage();
+                    stage.setScene(scene);
+                    stage.setTitle("Error");
+                    stage.show();
+                }
+
+
+
+
+                //res.next();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
 
 
             System.out.println("Codigo: " + productoDevo.getCodigo());
@@ -536,6 +581,18 @@ public class EmpleadoController {
         }
         return totalGastos;
     }
+    public void registroVenta(){
+        CambioViewController cambio = new CambioViewController();
+        Operaciones_SQL op = new Operaciones_SQL();
+        boolean ver = cambio.getVerificador();
+        /*if(ver == true){
+            try{
 
+                op.Select();
+            }catch(){
+
+            }
+        }*/
+    }
 
 }

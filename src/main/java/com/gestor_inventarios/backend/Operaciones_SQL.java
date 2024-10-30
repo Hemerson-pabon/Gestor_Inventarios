@@ -141,6 +141,7 @@ public class Operaciones_SQL {
     String condition --> Condición para filtrar la fila en la que se van a actualizar los datos
     si String condition = "", LA ACTUALIZACIÓN SE APLICARA A TODAS LAS FILAS.
      */
+
     public int Update(String table, ArrayList<String> columns, ArrayList<Object> values, String condition){
         cn = new Conexion_SQL();
         StringBuilder sql = new StringBuilder("UPDATE ");
