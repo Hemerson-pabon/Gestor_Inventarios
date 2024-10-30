@@ -101,7 +101,7 @@ public class InOutProductosController{
     @FXML
     protected void Ingresarmovimiento(){
         inventario iv = new inventario(Nombre_Sucursal);
-        iv.actualizarInventario(MenuTipoMovimiento.getText(),Integer.parseInt(FieldIDProducto.getText()), Integer.parseInt(FieldCantidad.getText()));
+        iv.actualizarInventario(MenuTipoMovimiento.getText(), Double.parseDouble(FieldIDProducto.getText()), Integer.parseInt(FieldCantidad.getText()));
         Stage stage = (Stage) BotonIngresarMovimiento.getScene().getWindow();
         stage.close();
     }

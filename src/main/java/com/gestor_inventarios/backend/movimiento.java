@@ -7,13 +7,13 @@ import java.util.Arrays;
 
 public class movimiento {
     private int ID_Movimiento;
-    private int ID_Producto;
+    private Double ID_Producto;
     private String Fecha_Movimiento;
     private String Hora_Movimiento;
     private int Cantidad;
     private String Tipo_Movimiento;
 
-    public int getID_Producto() {
+    public Double getID_Producto() {
         return ID_Producto;
     }
 
@@ -72,7 +72,7 @@ public class movimiento {
             ResultSet rs = op.Select("movimientos", columns, "ID_Movimiento = " + ID_Movimiento );
             rs.next();
             this.ID_Movimiento = ID_Movimiento;
-            this.ID_Producto = rs.getInt("ID_Producto");
+            this.ID_Producto = rs.getDouble("ID_Producto");
             this.Fecha_Movimiento = rs.getString("Fecha_Movimiento");
             this.Hora_Movimiento = rs.getString("Hora_Movimiento");
             this.Cantidad = rs.getInt("Cantidad");

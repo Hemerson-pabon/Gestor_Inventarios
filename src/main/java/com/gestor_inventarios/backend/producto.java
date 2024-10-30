@@ -6,11 +6,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Objects;
 
 public class producto {
     // Atributos completos del producto
-    private int ID_Producto;
+    private Double ID_Producto;
     private int ID_Categoria;
     private int ID_Proveedor;
     private String Fecha_Vencimiento;
@@ -46,7 +47,7 @@ public class producto {
 
     // Métodos get para todos los atributos
 
-    public int getID_Producto() {
+    public Double getID_Producto() {
         return ID_Producto;
     }
 
@@ -136,11 +137,17 @@ public class producto {
         values.add(Precio_Venta);
         values.add(Utilidad);
         Operaciones_SQL op = new Operaciones_SQL();
+        ArrayList<Object> values1 = new ArrayList<>();
+        values1.add(0);
+        values1.add(ID_Producto);
+        values1.add(2);
+        op.Insert("inventario", new ArrayList<>(Arrays.asList("Stock_Actual" , "ID_Producto", "ID_Sucursal")), values1);
         return op.Insert("productos", columns, values) == 1;
+
     }
 
     // Método para editar las características de un producto
-    public boolean actualizarProducto(int ID_Producto, String nombre, String Descripcion, String UnidadMedida, int ID_Categoria, int ID_Proveedor, String Fecha_Vencimiento, float CostoB, float IVA, float Utilidad){
+    public boolean actualizarProducto(Double ID_Producto, String nombre, String Descripcion, String UnidadMedida, int ID_Categoria, int ID_Proveedor, String Fecha_Vencimiento, float CostoB, float IVA, float Utilidad){
         this.Utilidad = Utilidad;
         this.CostoBase = CostoB;
         this.IVA = IVA;
@@ -234,15 +241,15 @@ public class producto {
     }
 
     // Método para buscar los IDs de los productos que estan en una sucursal
-    public ArrayList<Integer> cargarIDs(int ID_Sucursal){
+    public ArrayList<Double> cargarIDs(int ID_Sucursal){
         ArrayList columns = new ArrayList<>();
         columns.add("ID_Producto");
-        ArrayList<Integer> ids = new ArrayList<>();
+        ArrayList<Double> ids = new ArrayList<>();
         try {
             Operaciones_SQL op = new Operaciones_SQL();
             ResultSet rs = op.Select("inventario", columns, "ID_Sucursal = " + String.valueOf(ID_Sucursal));
             while (rs.next()){
-                ids.add(rs.getInt("ID_producto"));
+                ids.add(rs.getDouble("ID_producto"));
             }
             return ids;
         }catch (SQLException e){
@@ -254,7 +261,7 @@ public class producto {
 
     // Método para cargar un producto desde la base de datos al objeto
 
-    public producto cargarProducto(int ID_Producto, int ID_Sucursal) {
+    public producto cargarProducto(Double ID_Producto, int ID_Sucursal) {
         // Columnas para los datos del inventario
         ArrayList columnsInventario = new ArrayList<>();
         columnsInventario.add("ID_Producto");
@@ -283,7 +290,7 @@ public class producto {
             rsInvent = op.Select("inventario", columnsInventario, "ID_Producto = " + ID_Producto + " AND " + "ID_Sucursal = " + ID_Sucursal);
             rsInvent.next();
             rs.next();
-           this.ID_Producto = rs.getInt("ID_Producto");
+           this.ID_Producto = rs.getDouble("ID_Producto");
            this.Nombre = rs.getString("Nombre");
            this.Precio_Venta = rs.getFloat("Precio_Venta");
            this.UnidadMedida = rs.getString("UnidadMedida");

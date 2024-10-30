@@ -168,56 +168,8 @@ public class EmpleadoController {
     @FXML
     private void initialize() throws IOException {
         //Home por default
-        paneDefault.setVisible(true);
-        paneDefault.toFront();
-        //obtener valores en el Field del codigo del mostrador
-        /*codigoProdMostrador.textProperty().addListener(observable -> {
-            try {
-                Operaciones_SQL op = new Operaciones_SQL();
-                ArrayList<String> columns = new ArrayList<>();
-                columns.add("Descripción");
-                columns.add("Precio_Venta");
-                ResultSet res = op.Select("productos", columns, "ID_Producto = " + Integer.parseInt(codigoProdMostrador.getText()));
-                res.next();
-                nombreProdMostrador.setText(res.getString("Descripción"));
-                precioUnitMostrador.setText(res.getString("Precio_Venta"));
-                int valorCantProduct = Integer.parseInt(cantProductoField.getText());
-                totalPrecioMostrador.setText(String.valueOf(valorCantProduct * res.getInt(2)));
-                precioProduct = res.getInt(2);
-            } catch (SQLException | NullPointerException ex) {
-                //codigoProdMostrador.setText("0");
-//m
-            } catch (NumberFormatException e) {
-                // precioUnitMostrador.setText("");
-            }
-        });*/
-        /*codigoProductoDevolucion.textProperty().addListener(observable -> {
-            try {
-                Operaciones_SQL op = new Operaciones_SQL();
-                ArrayList<String> columns = new ArrayList<>();
-                columns.add("Descripción");
-                columns.add("Precio_Venta");
-                ResultSet res = op.Select("productos", columns, "ID_Producto = " + Integer.parseInt(codigoProdMostrador.getText()));
-                res.next();
-                nombreProdDevol.setText(res.getString("Descripción"));
-                precioUnitDevol.setText(res.getString("Precio_Venta"));
-                int valorCantProduct = Integer.parseInt(cantProductoDevolucionField.getText());
-                totalPrecioDevol.setText(String.valueOf(valorCantProduct * res.getInt(2)));
-                //precioProduct = res.getInt(2);
-            } catch (SQLException | NullPointerException ex) {
-                codigoProductoDevolucion.setText("0");
-
-            } catch (NumberFormatException e) {
-                // precioUnitMostrador.setText("");
-            }
-        });*/
-
-
-
-        // Evento para cuando se ingrese la cantidad, calcular el valor
-        //aca valida si  el Field de cantidad es llenado con un numero, aun no puedo hacer que el numero sea solo positivo
-
-
+        mostradorPanel.setVisible(true);
+        mostradorPanel.toFront();
 
         //Tabla Ventas
         //Enlaza cada columna con el atributo que corresponde
@@ -282,8 +234,8 @@ public class EmpleadoController {
         //Ventana Home
     @FXML
     public void buttonHomeClickeado(){
-        paneDefault.setVisible(true);
-        paneDefault.toFront();
+        //paneDefault.setVisible(true);
+        //paneDefault.toFront();
     }
 
         //Mostrador de venta
@@ -303,7 +255,7 @@ public class EmpleadoController {
             ArrayList<String> columns = new ArrayList<>();
             columns.add("Nombre");
             columns.add("Precio_Venta");
-            ResultSet res = op.Select("productos", columns, "ID_Producto = " + Integer.parseInt(codigoProdMostrador.getText()));
+            ResultSet res = op.Select("productos", columns, "ID_Producto = " + Double.parseDouble(codigoProdMostrador.getText()));
             res.next();
             int valorCantProduct = Integer.parseInt(cantProductoField.getText());
             nombreProdMostrador.setText(res.getString("Nombre"));
@@ -313,7 +265,7 @@ public class EmpleadoController {
             //
             // Obtener el stock de la tabla de inventario
             ArrayList<String> columnsI = new ArrayList<>(Arrays.asList("Stock_Actual"));
-            ResultSet resI = op.Select("inventario", columnsI, "ID_Producto = " + Integer.parseInt(codigoProdMostrador.getText()) + " AND ID_Sucursal = " + ID_SucursalEd);
+            ResultSet resI = op.Select("inventario", columnsI, "ID_Producto = " + Double.parseDouble(codigoProdMostrador.getText()) + " AND ID_Sucursal = " + ID_SucursalEd);
             int stockProducto = resI.getInt("Stock_Actual");
             if (stockProducto < valorCantProduct) {
                 // aca hay que desarrollar el error de falta de stock
@@ -428,7 +380,7 @@ public class EmpleadoController {
                 ArrayList<String> columns = new ArrayList<>();
                 columns.add("Nombre");
                 columns.add("Precio_Venta");
-                ResultSet res = op.Select("productos", columns, "ID_Producto = " + Integer.parseInt(codigoProductoDevolucion.getText()));
+                ResultSet res = op.Select("productos", columns, "ID_Producto = " + Double.parseDouble(codigoProductoDevolucion.getText()));
                 res.next();
                 nombreProdDevol.setText(res.getString("Nombre"));
                 precioUnitDevol.setText(res.getString("Precio_Venta"));
@@ -497,7 +449,7 @@ public class EmpleadoController {
                 Operaciones_SQL op = new Operaciones_SQL();
                 ArrayList<String> columns1 = new ArrayList<>();
                 columns1.add("Stock_Actual");
-                int codigo = Integer.parseInt(productoDevo.getCodigo());
+                Double codigo = Double.parseDouble(productoDevo.getCodigo());
                 ResultSet res = op.Select("inventario", columns1,"ID_Producto = " + codigo );
                 res.next();
                 int stockActual = res.getInt("Stock_Actual");

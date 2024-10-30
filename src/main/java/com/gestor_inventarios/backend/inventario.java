@@ -70,8 +70,8 @@ public class inventario{
         }
         // Obtener los productos que pertenecen a esa sucursal
         producto pIDs = new producto();
-        ArrayList<Integer> ids = pIDs.cargarIDs(ID_Sucursal);
-        for (int id : ids) {
+        ArrayList<Double> ids = pIDs.cargarIDs(ID_Sucursal);
+        for (Double id : ids) {
             productos.add(new producto().cargarProducto(id, ID_Sucursal));
         }
         return productos;
@@ -79,7 +79,7 @@ public class inventario{
     }
 
     // Método para actualizar un inventario
-    public int actualizarInventario(String TipoMovimiento, int ID_Producto, int Cantidad){
+    public int actualizarInventario(String TipoMovimiento, Double ID_Producto, int Cantidad){
         int ID_Sucursal = obtenerID();
         ArrayList<String> columns = new ArrayList<>();
         columns.add("Stock_Actual");
@@ -106,7 +106,7 @@ public class inventario{
 
     // Método para registrar un movimiento
 
-    public int registrarMovimiento(String TipoMovimiento, int ID_Producto, int Cantidad ){
+    public int registrarMovimiento(String TipoMovimiento, Double ID_Producto, int Cantidad ){
         Date FechaMovimiento = Date.valueOf(LocalDate.now());
         Time HoraMovimiento = Time.valueOf(LocalTime.now());
         ArrayList<String> columns = new ArrayList<>();
@@ -128,7 +128,7 @@ public class inventario{
 
     // Método para generar un código para registrar el movimiento
 
-    public int generarCodigo(int ID_Producto, String Fecha_Movimiento, String Hora_Movimiento, String Tipo_Movimiento) {
+    public int generarCodigo(Double ID_Producto, String Fecha_Movimiento, String Hora_Movimiento, String Tipo_Movimiento) {
         int hashID = String.valueOf(ID_Producto).hashCode();
         int hashTipo = String.valueOf(Tipo_Movimiento).hashCode();
         int hashFecha = Fecha_Movimiento.hashCode();

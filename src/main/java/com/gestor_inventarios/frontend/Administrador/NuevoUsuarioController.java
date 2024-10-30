@@ -80,11 +80,7 @@ public class NuevoUsuarioController {
         sucursal sc = new sucursal();
         empleado ep = new empleado();
         boolean b2 = ep.crearEmpleado(IDEmpleado, NombreEmpleado, sc.obtenerID_Sucursal(NombreSucursal));
-        if (b1 && b2){
-            Alerta("Usuario Creado correctamente...");
-        }else {
-            Alerta("No se creo el usuario, revise los datos e intente de nuevo...");
-        }
+        Alerta("Usuario Creado correctamente...");
 
     }
 

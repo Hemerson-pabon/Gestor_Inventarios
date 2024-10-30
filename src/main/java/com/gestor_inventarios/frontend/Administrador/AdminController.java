@@ -314,6 +314,8 @@ public class AdminController {
     @FXML
     public void botonEdicionClickeado() {
         pnlEdicion.toFront();
+        SplitCategoriaEd.getItems().clear();
+        AñadirCategoriasMenu(SplitCategoriaEd);
     }
 
     @FXML
@@ -322,6 +324,8 @@ public class AdminController {
             FieldCodigo.setText("");
         }
         pnlCrear.toFront();
+        SplitCategoria.getItems().clear();
+        AñadirCategoriasMenu(SplitCategoria);
     }
 
     @FXML
@@ -517,7 +521,7 @@ public class AdminController {
     protected void BtnActualizarProdClick(){
 
         try{
-            int ID_Producto = Integer.parseInt(FieldCodigoEd.getText());
+            double ID_Producto = Double.parseDouble(FieldCodigoEd.getText());
             String Nombre = FieldNombreEd.getText();
             String Descripcion = AreaDescripcionEd.getText();
             String Unidad = ChUnidadEd.getSelectionModel().getSelectedItem();
@@ -665,6 +669,7 @@ public class AdminController {
                 SplitMenuSucursal.getItems().add(SplitSucursalItem);
                 SplitSucursalItem.setOnAction(actionEvent -> {
                     SplitMenuSucursal.setText(SplitSucursalItem.getText());
+                    System.out.println("Selecionado...");
                     // Crear un objeto de inventario para acceder a los productos de la sucursal
                     inventario iv = new inventario(SplitSucursalItem.getText());
                     ObservableList<producto> productos = iv.cargarInventario();

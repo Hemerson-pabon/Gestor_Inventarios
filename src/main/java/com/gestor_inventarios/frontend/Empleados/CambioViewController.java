@@ -87,7 +87,7 @@ public class CambioViewController extends EmpleadoController {
                     Operaciones_SQL op = new Operaciones_SQL();
                     ArrayList<String> columns1 = new ArrayList<>();
                     columns1.add("Stock_Actual");
-                    int codigo = Integer.parseInt(productoVentas.getCodigoVenta());
+                    Double codigo = Double.parseDouble(productoVentas.getCodigoVenta());
                     ResultSet res = op.Select("inventario", columns1,"ID_Producto = " + codigo );
                     res.next();
                     int stockActual = res.getInt("Stock_Actual");
