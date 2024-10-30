@@ -11,7 +11,7 @@ public class main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("Administrador/Admin.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("Empleados/Empleado.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.initStyle(StageStyle.UNDECORATED); // para quitar la barra de windows
         stage.centerOnScreen();

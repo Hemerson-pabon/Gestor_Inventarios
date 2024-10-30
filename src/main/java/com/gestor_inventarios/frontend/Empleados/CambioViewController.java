@@ -42,7 +42,7 @@ public class CambioViewController extends EmpleadoController {
     @FXML
     private ComboBox <String> metodosComboBox;
 
-    double totalVenta = 0.0;
+    private Double totalVenta;
 
     //Eventos de los botones de la pantalla
         //cancelButton
@@ -50,6 +50,11 @@ public class CambioViewController extends EmpleadoController {
     public void initialize(){
         metodosComboBox.setItems(FXCollections.observableArrayList("Efectivo","Nequi", "Daviplata","Ahorro a la mano","Tarjeta debito","Tarjeta credito"));
 
+        pagoField.requestFocus();
+        pagoField.setOnAction(event -> {
+            facturarButton.requestFocus();
+            cambioLabel.setText("$ " + String.format("%.2f", calcularCambio()));
+        });
     }
 
     @FXML
@@ -138,7 +143,14 @@ public class CambioViewController extends EmpleadoController {
 
     @FXML
     public void mostrarTotalPrecio(double totalVenta) {
+        this.totalVenta = totalVenta;
         valorLabel.setText("$ " + String.format("%.2f", totalVenta));
+    }
+
+    @FXML
+    public Double calcularCambio(){
+        Double cambio = Double.parseDouble(pagoField.getText()) - totalVenta;
+        return cambio;
     }
 
 

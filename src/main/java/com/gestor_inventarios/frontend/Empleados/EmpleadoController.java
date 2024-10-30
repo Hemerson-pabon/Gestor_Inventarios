@@ -365,7 +365,7 @@ public class EmpleadoController {
     }
     //Calucla el total Venta
     @FXML
-    private Double totalPrecioVentas(){
+    public Double totalPrecioVentas(){
         Double totalVentas = 0.0;
         for(ProductoVentas productoVentas : listaProductoVentas){
             totalVentas += productoVentas.getCantidadVentas()*productoVentas.getPrecioVentaUnd();
