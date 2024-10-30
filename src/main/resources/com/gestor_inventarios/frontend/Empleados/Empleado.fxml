@@ -166,7 +166,7 @@
                               <Font name="Roboto Medium" size="25.0" />
                            </font>
                         </Button>
-                        <Button fx:id="editarFacturaButton" layoutX="279.0" layoutY="17.0" mnemonicParsing="false" onAction="#buttonEdicionMostradorClickeado" prefHeight="57.0" prefWidth="208.0" stylesheets="@Style.css" text="Editar factura" textFill="WHITE">
+                        <Button fx:id="editarFacturaButton" layoutX="279.0" layoutY="17.0" mnemonicParsing="false" onAction="#buttonEdicionMostradorClickeado" prefHeight="57.0" prefWidth="208.0" stylesheets="@Style.css" text="Vaciar" textFill="WHITE">
                            <font>
                               <Font name="Roboto Medium" size="25.0" />
                            </font>
@@ -235,7 +235,7 @@
                               <Font name="Roboto Medium" size="25.0" />
                            </font>
                         </Button>
-                        <Button fx:id="editarFactDevolButton" layoutX="266.0" layoutY="17.0" mnemonicParsing="false" onAction="#buttonEdicionDevolClickeado" prefHeight="57.0" prefWidth="194.0" stylesheets="@Style.css" text="Editar factura" textFill="WHITE">
+                        <Button fx:id="editarFactDevolButton" layoutX="266.0" layoutY="17.0" mnemonicParsing="false" onAction="#buttonEdicionDevolClickeado" prefHeight="57.0" prefWidth="194.0" stylesheets="@Style.css" text="Vaciar" textFill="WHITE">
                            <font>
                               <Font name="Roboto Medium" size="25.0" />
                            </font>

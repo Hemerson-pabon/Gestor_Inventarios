@@ -375,8 +375,7 @@ public class EmpleadoController {
 
     @FXML
     public void buttonEdicionMostradorClickeado() {
-        /*En este metodo hay que hacer una tabla donde se puedan eliminar productos
-          que el cliente ya no desee*/
+      tablaVentas.getItems().clear();
     }
 
     @FXML
@@ -484,8 +483,7 @@ public class EmpleadoController {
 
     @FXML
     public void buttonEdicionDevolClickeado(){
-        /*En este metodo hay que hacer una tabla donde se puedan eliminar productos
-          que el cliente ya no desee*/
+        tablaDevolucion.getItems().clear();
     }
     @FXML
     public void buttonDevolucionClickeado(){
