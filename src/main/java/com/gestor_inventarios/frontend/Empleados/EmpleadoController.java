@@ -134,7 +134,7 @@ public class EmpleadoController {
     @FXML
     private Label nombreProdMostrador;
     @FXML
-    private Label totalVentaMostrador;
+    public Label totalVentaMostrador;
     @FXML
     private TextField cantProductoField;
     @FXML
@@ -545,8 +545,12 @@ public class EmpleadoController {
         });
         tablaDevolucion.getItems().clear();
     }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//CIERRE DE CAJA - CIERRE DE CAJA - CIERRE DE CAJA - CIERRE DE CAJA - CIERRE DE CAJA - CIERRE DE CAJA - CIERRE DE CAJA - CIERRE DE CAJA - CIERRE DE CAJA - CIERRE DE CAJA
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        //Cierre de caja
+
+    //Cierre de caja
         @FXML
     public void buttonCierreInterfazClickeado(){
         /*en este metodo activa el panel de cierre
@@ -554,14 +558,25 @@ public class EmpleadoController {
             /*En este metodo apenas se abra debe enviarse la informacion
             * de los movimientos en caja sobre los pagos de nequi, daviplata y
             * datafono, registrados en las ventas*/
+            CambioViewController cambio = new CambioViewController();
         cierreCajaPanel.toFront();
         cierreCajaPanel.setVisible(true);
+        nequiTotalLabel.setText(String.valueOf(cambio.getNequiIngresos()));
+        daviplataTotalLabel.setText(String.valueOf(cambio.getDaviplataIngresos()));
+        datafonoTotalLabel.setText(String.valueOf(cambio.getDatafonoIngresos()));
+
     }
     @FXML
     public void buttonCierreClickeado(){
         /*En este metodo sirve para enviar toda la informacion de los
         * ingresos en caja del dia a la base de datos*/
     }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//GASTOS EN CAJA - GASTOS EN CAJA - GASTOS EN CAJA - GASTOS EN CAJA - GASTOS EN CAJA - GASTOS EN CAJA - GASTOS EN CAJA - GASTOS EN CAJA - GASTOS EN CAJA - GASTOS EN CAJA
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
 
         //Gastos de caja
         @FXML

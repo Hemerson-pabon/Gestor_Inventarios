@@ -61,7 +61,7 @@
                   <Insets />
                </opaqueInsets>
             </Button>
-            <Button id="button" fx:id="cierreCajaButton" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="22.0" layoutX="10.0" layoutY="274.0" mnemonicParsing="false" onAction="#buttonCierreInterfazClickeado" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Cierre de caja" textFill="WHITE">
+            <Button id="button" fx:id="cierreCajaButton" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="22.0" layoutX="10.0" layoutY="274.0" mnemonicParsing="false" onAction="#buttonCierreInterfazClickeado" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Cierre de caja" textFill="WHITE" visible="false">
                <VBox.margin>
                   <Insets bottom="50.0" />
                </VBox.margin>
@@ -72,7 +72,7 @@
                   <Insets />
                </opaqueInsets>
             </Button>
-            <Button id="button" fx:id="gastosButton" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="22.0" layoutX="10.0" layoutY="331.0" mnemonicParsing="false" onAction="#buttonGastosInterfazClickeado" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Gastos diarios" textFill="WHITE">
+            <Button id="button" fx:id="gastosButton" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="22.0" layoutX="10.0" layoutY="331.0" mnemonicParsing="false" onAction="#buttonGastosInterfazClickeado" prefHeight="57.0" prefWidth="233.0" styleClass="button" stylesheets="@Style.css" text="Gastos diarios" textFill="WHITE" visible="false">
                <VBox.margin>
                   <Insets bottom="50.0" />
                </VBox.margin>
@@ -180,7 +180,7 @@
                   </Pane>
                </children>
             </Pane>
-            <Pane fx:id="devolucionPanel" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;">
+            <Pane fx:id="devolucionPanel" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;" visible="false">
                <children>
                   <Label layoutX="178.0" layoutY="38.0" text="DEVOLUCION DE PRODUCTOS" textFill="#565651">
                      <font>

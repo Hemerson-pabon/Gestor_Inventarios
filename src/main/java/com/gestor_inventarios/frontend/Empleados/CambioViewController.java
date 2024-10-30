@@ -102,6 +102,10 @@ public class CambioViewController extends EmpleadoController {
                             System.out.println("Epa la arepa");
                             inventario mov = new inventario("Sucursal1");
                             mov.registrarMovimiento("Venta",codigo,productoVentas.getCantidadVentas());
+                            //registro en labels
+                            EmpleadoController ep = new EmpleadoController();
+                            double sell = getTotalVenta();
+                            llenarMetodos(seleccionMetodoUsuario(),sell);
                             //Abre la ventana de registro exitoso
                             FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("Empleados/ExitoView.fxml"));
                             Scene scene = new Scene(fxmlLoader.load());
@@ -127,21 +131,11 @@ public class CambioViewController extends EmpleadoController {
                         stage.setTitle("Error///Stock insuficiente");
                         stage.show();
                     }
-
-
-
-
-
-                    //res.next();
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-
-
-
-                // Aquí puedes llamar al método para guardar en la base de datos
             });
         }
         // Limpia la tabla de ventas de la ventana principal
@@ -149,7 +143,6 @@ public class CambioViewController extends EmpleadoController {
         Stage stage = (Stage) facturarButton.getScene().getWindow();
         stage.close();
     }
-
     public boolean getVerificador(){
         return verificador;
     }
@@ -166,7 +159,7 @@ public class CambioViewController extends EmpleadoController {
             case "Efectivo":
                 return 1;
             case "Nequi":
-            return 2;
+                return 2;
             case "Daviplata":
                 return 3;
             case "Ahorro a la mano":
@@ -186,8 +179,8 @@ public class CambioViewController extends EmpleadoController {
         if (elector != 1){
             pagoField.setDisable(true);
             mostrarTotalPrecio(totalVenta);
-            cambioLabel.setText(String.valueOf(totalVenta));
-            //pagoField.setText();  //asignarle el valor de la label de valor total
+            cambioLabel.setText(String.valueOf("0"));
+            pagoField.setText(String.valueOf(totalVenta)    );  //asignarle el valor de la label de valor total
 
         }else{
             pagoField.setDisable(false);
@@ -206,12 +199,66 @@ public class CambioViewController extends EmpleadoController {
         valorLabel.setText("$ " + String.format("%.2f", totalVenta));
     }
 
+    public double getTotalVenta(){
+        return totalVenta;
+    }
+
     @FXML
     public Double calcularCambio(){
         Double cambio = Double.parseDouble(pagoField.getText()) - totalVenta;
         return cambio;
     }
+    public double efectivoIngresos;
+    public double nequiIngresos;
+    public double daviplataIngresos;
+    public double datafonoIngresos;
 
+    public double getEfectivoIngresos(){
+        return efectivoIngresos;
+    }
+    public double getNequiIngresos(){
+        return nequiIngresos;
+    }
+    public double getDaviplataIngresos(){
+        return daviplataIngresos;
+    }
+    public double getDatafonoIngresos(){
+        return datafonoIngresos;
+    }
+
+    public void llenarMetodos(int tipo, double venta){
+        switch (tipo){
+            case 1: //Ingresos en efectivo
+                System.out.println(venta);
+                System.out.println("Efecto Ingresos antes de sumar: " + efectivoIngresos);
+                efectivoIngresos += venta;
+                System.out.println(efectivoIngresos);
+                break;
+            case 2: //Ingresos por nequi
+                nequiIngresos += venta;
+                System.out.println(nequiIngresos);
+                break;
+            case 3://Ingresos por daviplata
+                daviplataIngresos += venta;
+                System.out.println(daviplataIngresos);
+                break;
+            case 4://Ingresos por ahorro a la mano
+                datafonoIngresos += venta;
+                System.out.println(datafonoIngresos);
+                break;
+            case 5://Ingresos por debito
+                datafonoIngresos += venta;;
+                System.out.println(datafonoIngresos);
+                break;
+            case 6://Ingresos por credito
+                datafonoIngresos += venta;
+                System.out.println(datafonoIngresos);
+                break;
+
+        }
+
+
+    }
 
 
 }
