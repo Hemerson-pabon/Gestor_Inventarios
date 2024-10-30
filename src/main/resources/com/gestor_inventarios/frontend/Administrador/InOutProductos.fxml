@@ -46,32 +46,32 @@
                <children>
                   <Label alignment="CENTER" prefHeight="66.0" prefWidth="163.0" text="Tipo de movimiento">
                      <font>
-                        <Font name="Roboto Medium" size="14.0" />
+                        <Font name="Roboto" size="14.0" />
                      </font>
                   </Label>
                   <Label alignment="CENTER" prefHeight="92.0" prefWidth="186.0" text="ID Producto" GridPane.columnIndex="1">
                      <font>
-                        <Font name="Roboto Medium" size="14.0" />
+                        <Font name="Roboto" size="14.0" />
                      </font>
                   </Label>
                   <Label alignment="CENTER" prefHeight="59.0" prefWidth="236.0" text="Nombre" GridPane.columnIndex="2">
                      <font>
-                        <Font name="Roboto Medium" size="14.0" />
+                        <Font name="Roboto" size="14.0" />
                      </font>
                   </Label>
                   <Label alignment="CENTER" prefHeight="55.0" prefWidth="116.0" text="Cantidad" GridPane.columnIndex="3">
                      <font>
-                        <Font name="Roboto Medium" size="14.0" />
+                        <Font name="Roboto" size="14.0" />
                      </font>
                   </Label>
                   <Label alignment="CENTER" prefHeight="80.0" prefWidth="208.0" text="Stock" GridPane.columnIndex="4">
                      <font>
-                        <Font name="Roboto Medium" size="14.0" />
+                        <Font name="Roboto" size="14.0" />
                      </font>
                   </Label>
                   <Label alignment="CENTER" prefHeight="89.0" prefWidth="205.0" text="Nuevo stock" GridPane.columnIndex="5">
                      <font>
-                        <Font name="Roboto Medium" size="14.0" />
+                        <Font name="Roboto" size="14.0" />
                      </font>
                   </Label>
                   <SplitMenuButton fx:id="MenuTipoMovimiento" mnemonicParsing="false" prefHeight="75.0" prefWidth="136.0" text="Opción..." GridPane.rowIndex="1">
@@ -84,25 +84,34 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </GridPane.margin>
                   </TextField>
-                  <Label fx:id="LabelNombreProducto" alignment="CENTER" prefHeight="95.0" prefWidth="294.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <Label fx:id="LabelNombreProducto" alignment="CENTER" prefHeight="95.0" prefWidth="294.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </GridPane.margin>
+                     <font>
+                        <Font name="Roboto" size="14.0" />
+                     </font>
                   </Label>
                   <TextField fx:id="FieldCantidad" prefHeight="148.0" prefWidth="106.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </GridPane.margin>
                   </TextField>
-                  <Label fx:id="LabelStock" alignment="CENTER" prefHeight="95.0" prefWidth="294.0" text="Label" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                  <Label fx:id="LabelStock" alignment="CENTER" prefHeight="95.0" prefWidth="294.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </GridPane.margin>
+                     <font>
+                        <Font name="Roboto" size="14.0" />
+                     </font>
                   </Label>
-                  <Label fx:id="LabelNuevoStock" alignment="CENTER" prefHeight="95.0" prefWidth="294.0" text="Label" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                  <Label fx:id="LabelNuevoStock" alignment="CENTER" prefHeight="95.0" prefWidth="294.0" GridPane.columnIndex="5" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </GridPane.margin>
+                     <font>
+                        <Font name="Roboto" size="14.0" />
+                     </font>
                   </Label>
                </children>
             </GridPane>
@@ -125,12 +134,12 @@
                      </HBox.margin>
                   </Label>
                   <Pane prefHeight="119.0" prefWidth="241.0" />
-                  <Button fx:id="BotonIngresarMovimiento" alignment="CENTER" mnemonicParsing="false" onAction="#Ingresarmovimiento" prefHeight="57.0" prefWidth="148.0" style="-fx-background-color: #5d83b1;" text="Ingresar movimiento" textFill="WHITE">
+                  <Button fx:id="BotonIngresarMovimiento" alignment="CENTER" mnemonicParsing="false" onAction="#Ingresarmovimiento" prefHeight="57.0" prefWidth="199.0" style="-fx-background-color: #5d83b1;" text="Ingresar movimiento" textFill="WHITE">
                      <HBox.margin>
                         <Insets right="10.0" top="60.0" />
                      </HBox.margin>
                      <font>
-                        <Font name="Roboto Medium" size="13.0" />
+                        <Font name="Roboto Bold" size="16.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="HAND" />

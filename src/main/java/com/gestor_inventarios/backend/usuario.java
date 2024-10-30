@@ -20,16 +20,19 @@ public class usuario {
 
     // Método para crear un usuario en la base de datos
 
-    public boolean crearUsuario(String user, String rawpass){
+    public boolean crearUsuario(String user, String rawpass, String TipoUsuario, int ID_Empleado){
         Operaciones_SQL op = new Operaciones_SQL();
         ArrayList<String> columns = new ArrayList<>();
         columns.add("user");
         columns.add("password");
+        columns.add("Tipo_Usuario");
+        columns.add("ID_Empleado");
         ArrayList<Object> values = new ArrayList<>();
         values.add(user);
-        encriptarContraseña(rawpass);
-        values.add(encodedpass);
-        return op.Insert("usuarios", columns, values) == 1;
+        values.add(encriptarContraseña(rawpass));
+        values.add(TipoUsuario);
+        values.add(ID_Empleado);
+        return op.Insert("usuarios", columns, values) >= 1;
     }
 
     // Método para encriptar la contraseña
@@ -45,7 +48,7 @@ public class usuario {
         ArrayList<String> columns = new ArrayList<>();
         columns.add("user");
         columns.add("password");
-        ResultSet res = op.Select("usuarios",columns, "user = " + user );
+        ResultSet res = op.Select("usuarios",columns, "user = '" + user + "'" );
         try {
             while (res.next()) {
                 res.getString(1);
@@ -65,10 +68,10 @@ public class usuario {
         Operaciones_SQL op = new Operaciones_SQL();
         ArrayList<String> columns = new ArrayList<>();
         columns.add("password");
-        ResultSet res = op.Select("usuarios", columns, "user = " + user );
+        ResultSet res = op.Select("usuarios", columns, "user = '" + user + "'" );
         try {
             res.next();
-            return encoder.matches(rawpass, res.getString(1));
+            return encoder.matches(password, res.getString(1));
         }catch (SQLException e){
             System.err.println(e.getMessage());
         }
@@ -77,9 +80,10 @@ public class usuario {
 
     // Método para eliminar usuario
 
-    public boolean eliminarUsuario(String user){
+    public boolean eliminarUsuario(String user, String Nombre_Empleado){
         Operaciones_SQL op = new Operaciones_SQL();
-        return op.Delete("usuarios", "user = " + user) == 1;
+        return (op.Delete("usuarios", "user = '" + user + "'") >= 1) && (op.Delete("empleados", "Nombre_Empleado = '" + Nombre_Empleado + "'") == 1);
     }
+
 
 }

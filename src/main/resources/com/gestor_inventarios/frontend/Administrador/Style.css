@@ -45,3 +45,21 @@
 
 
 
+.buttonUsuarios{
+    -fx-background-color: #00254e;
+    -fx-font-weight: bold;
+    -fx-font-size: 18px;
+}
+
+.buttonUsuarios:hover{
+    -fx-background-color: #00254e;
+    -fx-font-weight: bold;
+    -fx-font-size: 18px;
+    -fx-cursor: hand;
+}
+
+
+.splitmenu{
+    -fx-background-radius: 0px;
+    -fx-background-color: #b1b1b1;
+}

@@ -30,20 +30,20 @@
          <children>
             <Button fx:id="btnHome" alignment="CENTER" mnemonicParsing="false" onAction="#botonHomeClickeado" prefHeight="108.0" prefWidth="152.0" stylesheets="@Style.css">
                <graphic>
-                  <ImageView fitHeight="88.0" fitWidth="135.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="88.0" fitWidth="135.0" nodeOrientation="INHERIT" onDragDetected="#botonHomeClickeado" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Images/home.png" />
                      </image>
                   </ImageView>
                </graphic>
                <VBox.margin>
-                  <Insets left="40.0" />
+                  <Insets bottom="20.0" left="40.0" top="30.0" />
                </VBox.margin>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="btnCrear" alignment="BASELINE_LEFT" graphicTextGap="0.0" layoutX="10.0" layoutY="331.0" mnemonicParsing="false" onAction="#botonCrearClickeado" prefHeight="57.0" prefWidth="233.0" stylesheets="@Style.css" text="Crear productoDevo" textFill="WHITE">
+            <Button fx:id="btnCrear" alignment="BASELINE_LEFT" graphicTextGap="0.0" layoutX="10.0" layoutY="331.0" mnemonicParsing="false" onAction="#botonCrearClickeado" prefHeight="57.0" prefWidth="233.0" stylesheets="@Style.css" text="Crear producto" textFill="WHITE">
                <padding>
                   <Insets left="20.0" />
                </padding>
@@ -117,15 +117,6 @@
       </VBox>
       <StackPane layoutX="235.0" layoutY="-1.0" prefHeight="616.0" prefWidth="767.0">
          <children>
-            <Pane fx:id="paneDefault" layoutX="10.0" layoutY="10.0" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #565651;">
-               <children>
-                  <Label layoutX="42.0" layoutY="241.0" text="GESTOR DE INVENTARIOS" textFill="WHITE">
-                     <font>
-                        <Font size="59.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
             <Pane fx:id="pnlCrear" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #fff;">
                <children>
                   <Label layoutX="260.0" layoutY="32.0" text="Creación de productos" textFill="#565651">
@@ -136,7 +127,7 @@
                   <TextField fx:id="FieldNombre" layoutX="22.0" layoutY="101.0" prefHeight="26.0" prefWidth="352.0" stylesheets="@Style.css" />
                   <Label layoutX="20.0" layoutY="137.0" text="Descripción corta" textFill="#565651" />
                   <Label layoutX="22.0" layoutY="75.0" text="Nombre" textFill="#565651" />
-                  <TextField fx:id="FieldCodigo" editable="false" layoutX="426.0" layoutY="102.0" stylesheets="@Style.css" />
+                  <TextField fx:id="FieldCodigo" layoutX="426.0" layoutY="102.0" stylesheets="@Style.css" />
                   <Label layoutX="426.0" layoutY="84.0" text="Código" textFill="#565651" />
                   <ChoiceBox fx:id="ChUnidad" layoutX="426.0" layoutY="173.0" prefHeight="1.0" prefWidth="103.0" stylesheets="@Style.css" />
                   <Label layoutX="426.0" layoutY="150.0" text="U.M" textFill="#565651" />
@@ -270,7 +261,7 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <Button layoutX="546.0" layoutY="498.0" mnemonicParsing="false" onAction="#BotonCrearProductoClickeado" prefHeight="57.0" prefWidth="184.0" style="-fx-background-color: #00254e; -fx-background-radius: 0;" text="Crear productoDevo" textFill="WHITE">
+                  <Button layoutX="518.0" layoutY="498.0" mnemonicParsing="false" onAction="#BotonCrearProductoClickeado" prefHeight="57.0" prefWidth="212.0" style="-fx-background-color: #00254e; -fx-background-radius: 0;" text="Crear producto" textFill="WHITE">
                      <font>
                         <Font name="Roboto Black" size="21.0" />
                      </font>
@@ -285,6 +276,29 @@
                         <Font name="Roboto Bold" size="15.0" />
                      </font>
                   </Button>
+               </children>
+            </Pane>
+            <Pane fx:id="pnlVentas" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #fff;">
+               <children>
+                  <TableView fx:id="tablaVentas" layoutX="27.0" layoutY="135.0" prefHeight="461.0" prefWidth="710.0" style="-fx-font-size: 16px;">
+                     <columns>
+                        <TableColumn fx:id="columnFechaMovimiento" prefWidth="150.0" text="Fecha Movimiento" />
+                        <TableColumn fx:id="columnHoraMovimiento" minWidth="0.0" prefWidth="143.0" text="Hora Movimiento" />
+                        <TableColumn fx:id="columnProducto" minWidth="0.0" prefWidth="120.0" text="Producto" />
+                        <TableColumn fx:id="columnCantidad" minWidth="0.0" prefWidth="118.0" text="Cantidad" />
+                        <TableColumn fx:id="columnTipoMovimiento" minWidth="0.0" prefWidth="178.0" text="Tipo de movimiento" />
+                     </columns>
+                  </TableView>
+                  <Label layoutX="261.0" layoutY="27.0" text="Ventas y movimientos">
+                     <font>
+                        <Font name="Roboto Black" size="24.0" />
+                     </font>
+                  </Label>
+                  <DatePicker fx:id="DatePickerVentas" layoutX="27.0" layoutY="92.0" />
+                  <Label layoutX="27.0" layoutY="64.0" text="Seleccione una fecha:">
+                     <font>
+                        <Font name="Roboto" size="15.0" />
+                     </font></Label>
                </children>
             </Pane>
             <Pane fx:id="pnlEdicion" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #fff;">
@@ -451,26 +465,6 @@
                   <SplitMenuButton fx:id="SplitCategoriaEd" layoutX="87.0" layoutY="241.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="Categorias..." />
                </children>
             </Pane>
-            <Pane fx:id="pnlVentas" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #fff;">
-               <children>
-                  <TableView fx:id="tablaVentas" layoutX="27.0" layoutY="135.0" prefHeight="461.0" prefWidth="710.0">
-                     <columns>
-                        <TableColumn fx:id="columnFechaMovimiento" prefWidth="150.0" text="Fecha Movimiento" />
-                        <TableColumn fx:id="columnHoraMovimiento" minWidth="0.0" prefWidth="130.0" text="Hora Movimiento" />
-                        <TableColumn fx:id="columnProducto" minWidth="0.0" prefWidth="113.0" text="Producto" />
-                        <TableColumn fx:id="columnCantidad" minWidth="0.0" prefWidth="116.0" text="Cantidad" />
-                        <TableColumn fx:id="columnTipoMovimiento" minWidth="0.0" prefWidth="200.0" text="Tipo de movimiento" />
-                     </columns>
-                  </TableView>
-                  <Label layoutX="261.0" layoutY="27.0" text="Ventas y movimientos">
-                     <font>
-                        <Font name="Roboto Black" size="24.0" />
-                     </font>
-                  </Label>
-                  <DatePicker fx:id="DatePickerVentas" layoutX="27.0" layoutY="92.0" />
-                  <Label layoutX="27.0" layoutY="64.0" text="Seleccione una fecha:" />
-               </children>
-            </Pane>
             <Pane fx:id="pnlInventario" prefHeight="581.0" prefWidth="767.0" style="-fx-background-color: #fff;">
                <children>
                   <VBox prefHeight="616.0" prefWidth="767.0">
@@ -484,21 +478,28 @@
                                  <font>
                                     <Font name="Roboto Medium" size="28.0" />
                                  </font>
+                                 <HBox.margin>
+                                    <Insets right="20.0" />
+                                 </HBox.margin>
                               </Label>
                               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                  <children>
                                     <Label prefHeight="39.0" prefWidth="83.0" text="Sucursal:">
                                        <font>
-                                          <Font size="15.0" />
+                                          <Font name="Roboto Bold" size="16.0" />
                                        </font>
                                     </Label>
-                                    <SplitMenuButton fx:id="SplitMenuSucursal" mnemonicParsing="false" prefHeight="26.0" prefWidth="120.0" text="Seleccionar..." />
+                                    <SplitMenuButton fx:id="SplitMenuSucursal" mnemonicParsing="false" prefHeight="26.0" prefWidth="120.0" style="-fx-background-radius: 0px;" text="Seleccionar...">
+                                       <font>
+                                          <Font name="Roboto" size="13.0" />
+                                       </font>
+                                    </SplitMenuButton>
                                  </children>
                               </HBox>
-                              <GridPane prefHeight="100.0" prefWidth="311.0">
+                              <GridPane prefHeight="97.0" prefWidth="336.0">
                                 <columnConstraints>
-                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="197.0" minWidth="10.0" prefWidth="197.0" />
-                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="114.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="201.0" minWidth="10.0" prefWidth="191.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="120.0" />
                                 </columnConstraints>
                                 <rowConstraints>
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -506,7 +507,25 @@
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <Button mnemonicParsing="false" onAction="#BotonEnSaClickeado" prefHeight="25.0" prefWidth="218.0" text="Entrada y salida de productos" GridPane.rowIndex="1" />
+                                    <Button mnemonicParsing="false" onAction="#BotonEnSaClickeado" prefHeight="25.0" prefWidth="196.0" style="-fx-background-radius: 0px; -fx-background-color: #5d83b1;" text="Entrada y salida de productos" textFill="WHITE" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font name="Roboto Bold" size="14.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#BotonNuevaSucursalClickeado" prefHeight="25.0" prefWidth="117.0" style="-fx-background-radius: 0px; -fx-background-color: #5d83b1;" text="Nueva Sucursal" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                       <GridPane.margin>
+                                          <Insets left="10.0" />
+                                       </GridPane.margin>
+                                       <font>
+                                          <Font name="Roboto Bold" size="14.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
                                  </children>
                                  <HBox.margin>
                                     <Insets left="20.0" />
@@ -516,14 +535,12 @@
                         </HBox>
                         <ScrollPane prefHeight="478.0" prefWidth="727.0" style="-fx-background-color: #fff;">
                            <content>
-                              <TableView fx:id="tablaProductos" prefHeight="471.0" prefWidth="727.0">
+                              <TableView fx:id="tablaProductos" prefHeight="471.0" prefWidth="727.0" style="-fx-font-size: 16px;">
                                 <columns>
-                                  <TableColumn fx:id="columnaID_Producto" prefWidth="88.0" text="ID Producto" />
-                                  <TableColumn fx:id="columnaNombre" prefWidth="72.0" text="Nombre" />
-                                    <TableColumn fx:id="columnaPrecioVenta" prefWidth="103.0" text="Precio Unitario" />
-                                    <TableColumn fx:id="columnaStockMin" prefWidth="95.0" text="Stock minimo" />
-                                    <TableColumn fx:id="columnaStockAc" prefWidth="85.0" text="Stock Actual" />
-                                    <TableColumn fx:id="columnaStockMax" prefWidth="92.0" text="Stock Maximo" />
+                                  <TableColumn fx:id="columnaID_Producto" prefWidth="139.0" text="ID Producto" />
+                                  <TableColumn fx:id="columnaNombre" prefWidth="172.0" text="Nombre" />
+                                    <TableColumn fx:id="columnaPrecioVenta" prefWidth="185.0" text="Precio Unitario" />
+                                    <TableColumn fx:id="columnaStockAc" prefWidth="209.0" text="Stock Actual" />
                                 </columns>
                               </TableView>
                            </content>
@@ -542,6 +559,71 @@
                         <Font name="Roboto Black" size="24.0" />
                      </font>
                   </Label>
+                  <TableView fx:id="TablaUsuarios" layoutX="43.0" layoutY="106.0" prefHeight="334.0" prefWidth="682.0" style="-fx-font-size: 16;">
+                    <columns>
+                        <TableColumn fx:id="columnNombreEmpleado" prefWidth="216.0" text="Nombre Empleado" />
+                      <TableColumn fx:id="columnNombreUsuario" prefWidth="189.0" text="Nombre de usuario" />
+                      <TableColumn fx:id="columnTipoUsuario" prefWidth="154.0" text="Tipo de usuario" />
+                        <TableColumn fx:id="columnSucursal" prefWidth="120.0" text="Sucursal" />
+                    </columns>
+                  </TableView>
+                  <Button layoutX="312.0" layoutY="483.0" mnemonicParsing="false" onAction="#BotonEliminarUsuarioClickeado" prefHeight="67.0" prefWidth="170.0" styleClass="buttonUsuarios" stylesheets="@Style.css" text="Eliminar Usuario" textFill="WHITE">
+                     <font>
+                        <Font name="Roboto" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="525.0" layoutY="483.0" mnemonicParsing="false" onAction="#BotonCrearUsuarioClickeado" prefHeight="67.0" prefWidth="200.0" styleClass="buttonUsuarios" stylesheets="@Style.css" text="Crear nuevo usuario" textFill="WHITE">
+                     <font>
+                        <Font name="Roboto Bold" size="18.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane fx:id="paneDefault" layoutX="10.0" layoutY="10.0" prefHeight="646.0" prefWidth="647.0" style="-fx-background-color: #fff;">
+               <children>
+                  <VBox layoutX="32.0" layoutY="93.0" prefHeight="158.0" prefWidth="416.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="39.0" prefWidth="407.0" text="Resumen de inventario">
+                           <font>
+                              <Font name="Roboto Bold" size="21.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <HBox prefHeight="52.0" prefWidth="320.0">
+                           <children>
+                              <Label prefHeight="52.0" prefWidth="166.0" text="Total de productos:">
+                                 <font>
+                                    <Font name="Roboto" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="LabelCantProd" prefHeight="58.0" prefWidth="200.0">
+                                 <font>
+                                    <Font name="Roboto" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="58.0" prefWidth="405.0">
+                           <children>
+                              <Label prefHeight="58.0" prefWidth="147.0" text="Categorias:">
+                                 <font>
+                                    <Font name="Roboto" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="LabelCantCat" prefHeight="58.0" prefWidth="242.0">
+                                 <font>
+                                    <Font name="Roboto" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
                </children>
             </Pane>
          </children>

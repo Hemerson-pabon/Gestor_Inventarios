@@ -86,6 +86,7 @@ public class Operaciones_SQL {
         }
         sql.append(")");
         try{
+            System.out.println(sql.toString());
             ST = cn.getConexion().prepareStatement(sql.toString());
             for (int i = 0; i < values.size(); i++) {
                 Object value = values.get(i);

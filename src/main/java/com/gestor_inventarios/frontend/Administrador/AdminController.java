@@ -10,6 +10,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
@@ -98,8 +102,9 @@ public class AdminController {
         ChUnidad.setValue("UND");
         paneDefault.toFront();
 
-        //
+
         FieldCodigo.setText("");
+
         // Eventos para modificar el valor de costo + IVA automáticamente en el panel de crear producto
         FieldCostoB.textProperty().addListener((observable -> {
             try {
@@ -145,6 +150,7 @@ public class AdminController {
                 FieldPrecio.setText("");
             }
         }));
+        /*
 
         FieldNombre.textProperty().addListener(observable -> {
             try {
@@ -162,6 +168,8 @@ public class AdminController {
                 FieldCodigo.setText("");
             }
         });
+        */
+
 
         AñadirCategoriasMenu(SplitCategoria);
         AñadirCategoriasMenu(SplitCategoriaEd);
@@ -170,6 +178,7 @@ public class AdminController {
         AñadirSucursalesMenu();
 
         // Cargar el producto cuando se inserte el còdigo para editarlo
+
         FieldCodigoEd.textProperty().addListener(observable -> {
             Operaciones_SQL op = new Operaciones_SQL();
             ArrayList<String> columns = new ArrayList<>(Arrays.asList("ID_Categoria", "Fecha_Vencimiento", "Nombre", "Descripción", "UnidadMedida", "IVA", "CostoBase", "Utilidad", "Precio_Venta"));
@@ -238,7 +247,6 @@ public class AdminController {
 
         // Initialize para el apartado de ventas
         DatePickerVentas.setOnAction(actionEvent -> {
-            System.out.println("puto");
             cargarMovimientos(DatePickerVentas.getValue().toString());
         });
 
@@ -266,9 +274,38 @@ public class AdminController {
     // Eventos con los botones para mostrar los pane de cada sección
 
     @FXML
+    private BarChart<String, Number> Grafico;
+
+    @FXML
     private void botonHomeClickeado() {
         paneDefault.toFront();
+
+        Operaciones_SQL op = new Operaciones_SQL();
+        int CantProductos = 0;
+        try {
+            ResultSet rs = op.Select("inventario", new ArrayList<>(Arrays.asList("Stock_Actual")),"");
+            while (rs.next()){
+                CantProductos = CantProductos + rs.getInt("Stock_Actual");
+            }
+        } catch (SQLException e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+        LabelCantProd.setText(String.valueOf(CantProductos));
+        int CantCategorias = 0;
+        try {
+            ResultSet rs = op.Select("categorias", new ArrayList<>(Arrays.asList("ID_Categoria")),"");
+            while (rs.next()){
+                CantCategorias++;
+            }
+        }catch (SQLException e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+        LabelCantCat.setText(String.valueOf(CantCategorias));
+
+
     }
+
+
     @FXML
     private void botonEntradaClickeado() {
         pnlEntrada.toFront();
@@ -301,6 +338,7 @@ public class AdminController {
     @FXML
     public void botonUsuariosClickeado() {
         pnlUsuarios.toFront();
+        cargarUsuarios();
     }
 
 
@@ -316,7 +354,12 @@ public class AdminController {
 
 
 
-
+    @FXML
+    private Label LabelCantProd;
+    @FXML
+    private Label LabelCantCat;
+    @FXML
+    private Label LabelTotalI;
 
      /*
      * --------------------------------------------------------------
@@ -356,6 +399,8 @@ public class AdminController {
             String Nombre = FieldNombre.getText();
             String Descripcion = AreaDescripcion.getText();
             String Unidad = ChUnidad.getSelectionModel().getSelectedItem();
+            categoria ca = new categoria();
+            int ID_Categoria = ca.obtenerIDCategoria(SplitCategoria.getText());
             String Categoria = SplitCategoria.getText();
             float costoB;
             if (Objects.equals(FieldCostoB.getText(), "")){
@@ -387,7 +432,7 @@ public class AdminController {
                 FechaVencimientoFor = FechaVencimientoSel.format(formatter);
             }
             producto p = new producto();
-            boolean res = p.crearProducto(Nombre, Descripcion, Unidad, 1, 1,FechaVencimientoFor,costoB,IVA, Utilidad);
+            boolean res = p.crearProducto( Double.parseDouble(FieldCodigo.getText()), Nombre, Descripcion, Unidad, ID_Categoria, 1,FechaVencimientoFor,costoB,IVA, Utilidad);
             if(res){
                 try {
                     Alerta("Se agrego el producto.");
@@ -405,6 +450,7 @@ public class AdminController {
                 }
             }
         }catch (NumberFormatException e){
+            System.err.println("Error: " + e.getMessage());
             try {
                 Alerta("Hay campos vacios, rellenelos y vuelva a intentar.");
                 ResetearPaneCrearProducto();
@@ -569,6 +615,12 @@ public class AdminController {
         stage.show();
     }
 
+    /*
+     * ----------------------------------------------------
+     * --------------- PANEL DE INICIO --------------------
+     * ----------------------------------------------------
+     */
+
 
 
 
@@ -632,9 +684,9 @@ public class AdminController {
                     columnaID_Producto.setCellValueFactory(new PropertyValueFactory<>("ID_Producto"));
                     columnaNombre.setCellValueFactory(new PropertyValueFactory<>("Nombre"));
                     columnaPrecioVenta.setCellValueFactory(new PropertyValueFactory<>("Precio_Venta"));
-                    columnaStockMin.setCellValueFactory(new PropertyValueFactory<>("Stock_Minimo"));
+                    // columnaStockMin.setCellValueFactory(new PropertyValueFactory<>("Stock_Minimo"));
                     columnaStockAc.setCellValueFactory(new PropertyValueFactory<>("Stock_Actual"));
-                    columnaStockMax.setCellValueFactory(new PropertyValueFactory<>("Stock_Maximo"));
+                    // columnaStockMax.setCellValueFactory(new PropertyValueFactory<>("Stock_Maximo"));
                     tablaProductos.setItems(productos);
                 });
             }
@@ -643,6 +695,16 @@ public class AdminController {
         }
     }
 
+    @FXML
+   protected void BotonNuevaSucursalClickeado() throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("Administrador/Sucursales.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = new Stage();
+        stage.centerOnScreen();
+        stage.setTitle("Nueva Sucursal");
+        stage.setScene(scene);
+        stage.show();
+    }
 
     // Evento para llamar a la ventana de Entrada y salida de productos
 
@@ -701,9 +763,65 @@ public class AdminController {
     }
 
 
+    /*
+     * --------------------------------------------------------------
+     * --------------- PANEL DE USUARIOS ----------------------------
+     * --------------------------------------------------------------
+     */
+
+
+    @FXML
+    private TableView<empleado> TablaUsuarios;
+    @FXML
+    private TableColumn<empleado, String> columnNombreEmpleado;
+    @FXML
+    private TableColumn<empleado, Integer> columnNombreUsuario;
+    @FXML
+    private TableColumn<empleado, String> columnTipoUsuario;
+    @FXML
+    private TableColumn<empleado, String> columnSucursal;
+
+    private void cargarUsuarios(){
+        empleado ep = new empleado();
+        ArrayList<Integer> ids = ep.obtenerIDs();
+        ObservableList<empleado> empleados = FXCollections.observableArrayList();
+        for (int id: ids){
+            empleado m = new empleado();
+            empleados.add(m.cargarEmpleado(id));
+        }
+        columnNombreEmpleado.setCellValueFactory(new PropertyValueFactory<>("Nombre_Empleado"));
+        columnNombreUsuario.setCellValueFactory(new PropertyValueFactory<>("Nombre_Usuario"));
+        columnTipoUsuario.setCellValueFactory(new PropertyValueFactory<>("Tipo_Usuario"));
+        columnSucursal.setCellValueFactory(new PropertyValueFactory<>("Sucursal"));
+        TablaUsuarios.setItems(empleados);
+    }
 
 
 
 
+    @FXML
+    protected void BotonEliminarUsuarioClickeado() throws IOException{
+        empleado empleado = TablaUsuarios.getSelectionModel().getSelectedItem();
+        usuario us = new usuario();
+        if (us.eliminarUsuario(empleado.getNombre_Usuario(), empleado.getNombre_Empleado())){
+            Alerta("Usuario Eliminado...");
+        }else {
+            System.out.println("No se elimino el usuario...");
+        }
+        TablaUsuarios.getItems().clear();
+        cargarUsuarios();
+    }
+
+    @FXML
+    protected void BotonCrearUsuarioClickeado() throws IOException{
+        System.out.println("clickeado...");
+        FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("Administrador/nuevoUsuario.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = new Stage();
+        stage.centerOnScreen();
+        stage.setTitle("Nuevo Usuario");
+        stage.setScene(scene);
+        stage.show();
+    }
 
 }

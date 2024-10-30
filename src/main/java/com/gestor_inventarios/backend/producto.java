@@ -1,5 +1,6 @@
 package com.gestor_inventarios.backend;
 
+import java.math.BigInteger;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -93,7 +94,7 @@ public class producto {
     Este método añade los atributos del objeto a la base de datos, creando un nuevo producto.
     retorna true si el producto se creo correctamente.
     */
-    public boolean crearProducto(String nombre, String Descripcion, String UnidadMedida, int ID_Categoria, int ID_Proveedor, String Fecha_Vencimiento, float CostoB, float IVA, float Utilidad){
+    public boolean crearProducto(Double ID_Producto, String nombre, String Descripcion, String UnidadMedida, int ID_Categoria, int ID_Proveedor, String Fecha_Vencimiento, float CostoB, float IVA, float Utilidad){
         this.Utilidad = Utilidad;
         this.CostoBase = CostoB;
         this.IVA = IVA;
@@ -110,7 +111,6 @@ public class producto {
         columns.add("Precio_Venta");
         columns.add("Utilidad");
         ArrayList<Object> values = new ArrayList<>();
-        ID_Producto = generarCodigo(nombre, UnidadMedida);
         if (!validarProducto(ID_Producto)){
             // Ventana emergente diciendo que el producto ya existe
             // ------------------------------------------------------
@@ -208,14 +208,14 @@ public class producto {
     Retorna true si el producto no existe en la base de datos.
     Retorna false si el producto ya existe en la base de datos.
     */
-    private boolean validarProducto(int ID_Producto){
+    private boolean validarProducto(Double ID_Producto){
        Operaciones_SQL op = new Operaciones_SQL();
        ArrayList<String> columns = new ArrayList<>();
        columns.add("ID_Producto");
        ResultSet rs = op.Select("productos", columns, "ID_Producto = " + String.valueOf(ID_Producto) );
        try{
             while (rs.next()){
-                if (rs.getInt("ID_Producto") == ID_Producto){
+                if (rs.getDouble("ID_Producto") == ID_Producto){
                     return false;
                 }
             }
