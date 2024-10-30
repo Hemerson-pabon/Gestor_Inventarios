@@ -422,9 +422,9 @@ public class EmpleadoController {
         //hacer que vaya al siguiente text field al presionar enter
         codigoProductoDevolucion.requestFocus();
         codigoProductoDevolucion.setOnAction(event -> {
-            cantProductoDevolucionField.setText("1");
-            cantProductoDevolucionField.requestFocus();
-            try {
+        cantProductoDevolucionField.setText("1");
+        cantProductoDevolucionField.requestFocus();
+        try {
                 Operaciones_SQL op = new Operaciones_SQL();
                 ArrayList<String> columns = new ArrayList<>();
                 columns.add("Nombre");
@@ -436,12 +436,12 @@ public class EmpleadoController {
                 int valorCantProduct = Integer.parseInt(cantProductoDevolucionField.getText());
                 //totalPrecioDevol.setText(String.valueOf(valorCantProduct * res.getInt(2)));
                 //precioProduct = res.getInt(2);
-            } catch (SQLException | NullPointerException ex) {
-                codigoProductoDevolucion.setText("0");
+        } catch (SQLException | NullPointerException ex) {
+            codigoProductoDevolucion.setText("0");
 
-            } catch (NumberFormatException e) {
+        } catch (NumberFormatException e) {
                 // precioUnitMostrador.setText("");
-            }
+        }
         });
         cantProductoDevolucionField.setOnAction(event -> {
             nextProductDevolButton.setStyle("-fx-background-color: #00254e;");

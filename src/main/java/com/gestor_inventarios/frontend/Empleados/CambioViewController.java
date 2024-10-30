@@ -1,6 +1,7 @@
 package com.gestor_inventarios.frontend.Empleados;
 
 import com.gestor_inventarios.backend.Operaciones_SQL;
+import com.gestor_inventarios.backend.inventario;
 import com.gestor_inventarios.frontend.main;
 import com.mysql.cj.x.protobuf.MysqlxCrud;
 import javafx.collections.FXCollections;
@@ -14,6 +15,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -80,6 +82,65 @@ public class CambioViewController extends EmpleadoController {
             productosFacturados.forEach(productoVentas -> {
                 System.out.println("Código: " + productoVentas.getCodigoVenta());
                 System.out.println("Cantidad: " + productoVentas.getCantidadVentas());
+
+                try {
+                    Operaciones_SQL op = new Operaciones_SQL();
+                    ArrayList<String> columns1 = new ArrayList<>();
+                    columns1.add("Stock_Actual");
+                    int codigo = Integer.parseInt(productoVentas.getCodigoVenta());
+                    ResultSet res = op.Select("inventario", columns1,"ID_Producto = " + codigo );
+                    res.next();
+                    int stockActual = res.getInt("Stock_Actual");
+
+                    ArrayList<String> columns2 = new ArrayList<>();
+                    columns2.add("Stock_Actual");
+                    int stockCambio = stockActual - productoVentas.getCantidadVentas();
+                    ArrayList<Object> values1 = new ArrayList<>();
+                    values1.add(stockCambio);
+                    if(stockActual >= productoVentas.getCantidadVentas()){
+                        if(op.Update("inventario", columns2, values1,"ID_Producto = " + codigo ) >= 1 ){
+                            System.out.println("Epa la arepa");
+                            inventario mov = new inventario("Sucursal1");
+                            mov.registrarMovimiento("Venta",codigo,productoVentas.getCantidadVentas());
+                            //Abre la ventana de registro exitoso
+                            FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("Empleados/ExitoView.fxml"));
+                            Scene scene = new Scene(fxmlLoader.load());
+                            Stage stage = new Stage();
+                            stage.setScene(scene);
+                            stage.setTitle("Registro Exitoso");
+                            stage.show();
+                        }else{
+                            System.out.println("Error");
+                            FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("Empleados/AlertaView.fxml"));
+                            Scene scene = new Scene(fxmlLoader.load());
+                            Stage stage = new Stage();
+                            stage.setScene(scene);
+                            stage.setTitle("Error");
+                            stage.show();
+                        }
+                    }else{
+                        System.out.println("Stock insuficiente");
+                        FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("Empleados/AlertaView.fxml"));
+                        Scene scene = new Scene(fxmlLoader.load());
+                        Stage stage = new Stage();
+                        stage.setScene(scene);
+                        stage.setTitle("Error///Stock insuficiente");
+                        stage.show();
+                    }
+
+
+
+
+
+                    //res.next();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
+
+
                 // Aquí puedes llamar al método para guardar en la base de datos
             });
         }
