@@ -239,6 +239,7 @@ public class EmpleadoController {
             totalVentaMostrador.setText("$ " + String.format("%.2f", totalVentas));
         });
 
+
         //Tabla Devolucion
         //Enlaza cada columna con el atributo que corresponde
         colCodigo.setCellValueFactory(new PropertyValueFactory<>("codigo"));
@@ -341,8 +342,6 @@ public class EmpleadoController {
     }
 
 
-
-
     @FXML
     public void buttonSiguienteMostradorClickeado() {
         nextProductoButton.setStyle("-fx-background-color: transparent;");
@@ -378,22 +377,38 @@ public class EmpleadoController {
         /*En este metodo hay que hacer una tabla donde se puedan eliminar productos
           que el cliente ya no desee*/
     }
+
     @FXML
     public void buttonFacturarClickeado() throws IOException {
         /*Aca debe se debe hacer un metodo para abrir el CambioView.fxml,
           ademas que envie los datos del total de venta a las label de ahi
           despues de esto cierre la ventana dependiendo si se oprimio el boton
           de facturar en el cambio.fxml*/
+
+        //calcula el total de la venta
         double totalVenta = totalPrecioVentas();
         //aca abre la ventana de cambioView
         FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("Empleados/CambioView.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
+        // Obtiene el controlador de la ventana
         CambioViewController cambioController = fxmlLoader.getController();
         cambioController.mostrarTotalPrecio(totalVenta);
+        cambioController.setTablaVentas(tablaVentas);
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.setTitle("Cambio");
         stage.show();
+    }
+    @FXML
+    public void subirDatosTabla(){
+            tablaVentas.setItems(listaProductoVentas);
+            List<ProductoVentas> productoVentasSave = new ArrayList<>(tablaVentas.getItems());
+            productoVentasSave.forEach(productoVentas -> {
+                //Metodo para llevar a la base de datos
+                System.out.println(productoVentas.getCantidadVentas());
+                System.out.println(productoVentas.getPrecioVentaUnd());
+                System.out.println(productoVentas.getCodigoVenta());
+            });
     }
 
         //Devolucion de producto

@@ -16,6 +16,7 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class CambioViewController extends EmpleadoController {
     String eleccion;
@@ -44,17 +45,19 @@ public class CambioViewController extends EmpleadoController {
 
     private Double totalVenta;
 
+    private TableView<ProductoVentas> tablaVentas;
+
     //Eventos de los botones de la pantalla
         //cancelButton
     @FXML
     public void initialize(){
         metodosComboBox.setItems(FXCollections.observableArrayList("Efectivo","Nequi", "Daviplata","Ahorro a la mano","Tarjeta debito","Tarjeta credito"));
-
         pagoField.requestFocus();
         pagoField.setOnAction(event -> {
             facturarButton.requestFocus();
             cambioLabel.setText("$ " + String.format("%.2f", calcularCambio()));
         });
+
     }
 
     @FXML
@@ -63,39 +66,26 @@ public class CambioViewController extends EmpleadoController {
         stage.close();
     }
     @FXML
+    public void setTablaVentas(TableView<ProductoVentas> tablaVentas) {
+        this.tablaVentas = tablaVentas;
+    }
+    @FXML
     public void facturarButtonClick() throws IOException {
+        if (tablaVentas != null) {
+            // Crea un array con los productos facturados
+            List<ProductoVentas> productosFacturados = new ArrayList<>(tablaVentas.getItems());
 
-        int newStock = 1;
-        int productoEleccion = 2;
-
-        Operaciones_SQL op = new Operaciones_SQL();
-
-        ArrayList <String> columns = new ArrayList<>();
-        columns.add("Stock");
-        ArrayList<Object> values = new ArrayList<>();
-        values.add(newStock);
-
-
-        if((op.Update("Productos", columns, values, "ID_Producto = 2") == 1)){//
-            System.out.println("Update realizado");
-            FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("Empleados/ExitoView.fxml"));
-            Scene scene = new Scene(fxmlLoader.load());
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.setTitle("Registro Exitoso");
-            stage.show();
-        }else{
-            //Abre la ventana de alerta por un error en el update
-            FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("Empleados/AlertaView.fxml"));
-            Scene scene = new Scene(fxmlLoader.load());
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.setTitle("Error");
-            stage.show();
+            productosFacturados.forEach(productoVentas -> {
+                System.out.println("Código: " + productoVentas.getCodigoVenta());
+                System.out.println("Cantidad: " + productoVentas.getCantidadVentas());
+                // Aquí puedes llamar al método para guardar en la base de datos
+            });
         }
-        //cierra la ventana
+            // Limpia la tabla de ventas de la ventana principal
+            tablaVentas.getItems().clear();
         Stage stage = (Stage) facturarButton.getScene().getWindow();
         stage.close();
+
     }
     @FXML
     public void metodosAction(){
@@ -152,6 +142,7 @@ public class CambioViewController extends EmpleadoController {
         Double cambio = Double.parseDouble(pagoField.getText()) - totalVenta;
         return cambio;
     }
+
 
 
 
